@@ -1,3 +1,5 @@
+//Archivo para hacer el Metodo Get y Delete
+
 import React from 'react'
 
 const Home = () => {
