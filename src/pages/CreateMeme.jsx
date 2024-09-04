@@ -1,3 +1,5 @@
+//Método POST
+
 import React from 'react'
 
 const CreateMeme = () => {
