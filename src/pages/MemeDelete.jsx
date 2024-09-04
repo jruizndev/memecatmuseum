@@ -1,7 +1,7 @@
 import React from 'react'
 
-const MemeDetail = () => {
+const MemeDelete = () => {
     return <div></div>
 }
 
-export default MemeDetail
+export default MemeDelete
