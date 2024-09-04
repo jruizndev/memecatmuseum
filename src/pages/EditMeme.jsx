@@ -1,7 +1,9 @@
+//Método EDIT
+
 import React from 'react'
 
 const EditMeme = () => {
-    return <div></div>
+    return <div>Hola, voy a editar tu meme</div>
 }
 
 export default EditMeme

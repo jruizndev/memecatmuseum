@@ -1,6 +1,6 @@
 // import { NavLink } from 'react-router-dom'
-const Nav = () => {
+const Footer = () => {
     return <div></div>
 }
 
-export default Nav
+export default Footer
