@@ -1,78 +1,6 @@
 {
   "memes": [
     {
-      "id": "102",
-      "name": "gatos102",
-      "description": "Un meme de gato divertido.",
-      "category": "Gatos_siendo_gatos1",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos102.jpg",
-      "date": "2024-07-11",
-      "likes": 28724
-    },
-    {
-      "id": "103",
-      "name": "Gato Curioso",
-      "description": "Un gato curioso, disfrutando de su día con una mirada de exploración. Un clásico en cualquier colección de memes.",
-      "category": "Gatos_siendo_gatos1",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos103.jpg",
-      "date": "2008-07-13",
-      "likes": 9918
-    },
-    {
-      "id": "106",
-      "name": "Gato En Paz",
-      "description": "Nada como un gato relajado, y este meme lo refleja a la perfección.",
-      "category": "Gatos_siendo_gatos1",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos106.jpg",
-      "date": "2018-04-28",
-      "likes": 15939
-    },
-    {
-      "id": "108",
-      "name": "Gato Contento",
-      "description": "Una expresión de puro disfrute mientras el gato se deleita en sus actividades cotidianas.",
-      "category": "Gatos_siendo_gatos1",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos108.jpg",
-      "date": "2015-03-07",
-      "likes": 11979
-    },
-    {
-      "id": "109",
-      "name": "Gato Soñador",
-      "description": "Este meme captura el momento exacto en que un gato decide relajarse y disfrutar del día.",
-      "category": "Gatos_siendo_gatos1",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos109.jpg",
-      "date": "2020-05-13",
-      "likes": 37887
-    },
-    {
-      "id": "110",
-      "name": "Gato Observador",
-      "description": "El meme perfecto para ilustrar la calma que emiten los gatos mientras disfrutan de un momento de descanso.",
-      "category": "Gatos_siendo_gatos1",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos110.jpg",
-      "date": "2019-03-28",
-      "likes": 87915
-    },
-    {
-      "id": "111",
-      "name": "Gato Pensativo",
-      "description": "Este gato muestra una mezcla de curiosidad y tranquilidad mientras observa su entorno.",
-      "category": "Gatos_siendo_gatos1",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos111.jpg",
-      "date": "2009-09-05",
-      "likes": 70961
-    },
-    {
-      "id": "112",
-      "name": "Gato En Alerta",
-      "description": "En plena observación, este meme capta la esencia de un gato concentrado y en alerta.",
-      "category": "Gatos_siendo_gatos1",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos112.jpg",
-      "date": "2010-12-20",
-      "likes": 73938
-    },
-    {
       "id": "113",
       "name": "Gato Meditador",
       "description": "Un gato con una postura cómoda, disfrutando del presente como solo los felinos pueden hacerlo.",
@@ -91,24 +19,6 @@
       "likes": 52544
     },
     {
-      "id": "115",
-      "name": "Gato Atento",
-      "description": "Este meme captura a un gato en un momento de observación profunda, probablemente pensando en algo importante.",
-      "category": "Gatos_siendo_gatos1",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos115.jpg",
-      "date": "2018-05-22",
-      "likes": 96613
-    },
-    {
-      "id": "116",
-      "name": "Gato en Reposo",
-      "description": "El meme muestra a un gato en modo relax total, haciendo lo que mejor sabe hacer: descansar.",
-      "category": "Gatos_siendo_gatos1",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos116.jpg",
-      "date": "2008-02-22",
-      "likes": 91237
-    },
-    {
       "id": "117",
       "name": "Gato Sereno",
       "description": "Con una mirada tranquila, este meme refleja un momento de introspección felina.",
@@ -116,15 +26,6 @@
       "image": "/src/assets/gatos-siendo-gatos1/gatos117.jpg",
       "date": "2005-10-01",
       "likes": 54934
-    },
-    {
-      "id": "119",
-      "name": "Gato Zen",
-      "description": "Un gato con una pose perfecta para representar la tranquilidad que solo un buen descanso puede ofrecer.",
-      "category": "Gatos_siendo_gatos1",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos119.jpeg",
-      "date": "2016-02-29",
-      "likes": 19235
     },
     {
       "id": "120",
