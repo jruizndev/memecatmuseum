@@ -10,7 +10,6 @@ const Home = () => {
             try {
                 const data = await getMemes()
                 setMemes(data) // Guardar la respuesta en el estado
-                console.log(memes)
             } catch (error) {
                 console.error('Error fetching memes:', error) // Manejo de errores
             }
