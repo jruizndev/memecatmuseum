@@ -1,0 +1,104 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    color: #334a5a;
+    background-color: rgb(243, 245, 247);
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    background-color: rgba(196, 192, 184, 0.534);
+    perspective: 1000px;
+    cursor: pointer;
+  }
+  
+  .card-full {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s ease-in-out;
+    transform-style: preserve-3d;
+  }
+  
+  .card.flipped .card-full {
+    transform: rotateY(180deg);
+  }
+  
+  /* .card-front, */
+  .card-back {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    padding: 16px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-back {
+    transform: rotateY(180deg);
+    background-color: rgb(224, 221, 217);
+    z-index: 1;
+  }
+  
+  .card-front {
+    z-index: 0;
+    object-fit: cover;
+  }
+  
+  .card-title {
+    font-size: 1.5em;
+    margin-bottom: 8px;
+  }
+  
+  .card-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2em;
+  }
+  
+  .card button.delete {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #e74c3c;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .card button.delete:hover {
+    background-color: #cf2f1d;
+  }
+  
+  .add-button {
+    font-family: 'Courier New', Courier, monospace;
+    display: block;
+    width: 50%;
+    padding: 12px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2em;
+  }
+  
+  .add-button:hover {
+    background-color: #2980b9;
+    transform: scale(1.02);
+  }
+  

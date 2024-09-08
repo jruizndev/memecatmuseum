@@ -1,56 +1,78 @@
-import React, { useState, useEffect } from 'react'
-import { getMemes, deleteMeme } from '../services/services'
+import React, { useState, useEffect } from 'react';
+import { getMemes, deleteMeme } from '../services/services';
+import '../../Home.css'
 
 const Home = () => {
-    const [memes, setMemes] = useState([])
+    const [memes, setMemes] = useState([]);
 
     useEffect(() => {
-        // Realizar la petición GET usando el servicio `getMemes`
         const fetchMemes = async () => {
             try {
-                const data = await getMemes()
-                setMemes(data) // Guardar la respuesta en el estado
-                console.log(memes)
+                const data = await getMemes();
+                setMemes(data);
             } catch (error) {
-                console.error('Error fetching memes:', error) // Manejo de errores
+                console.error('Error fetching memes:', error);
             }
-        }
+        };
 
-        fetchMemes()
-    }, [])
+        fetchMemes();
+    }, []);
 
     // Función para eliminar un meme
     const handleDelete = async (id) => {
         try {
-            await deleteMeme(id) // Llamar al servicio para eliminar el meme
-            setMemes(memes.filter((meme) => meme.id !== id)) // Actualizar el estado eliminando el meme
+            await deleteMeme(id);
+            setMemes(memes.filter((meme) => meme.id !== id));
         } catch (error) {
-            console.error('Error deleting meme:', error) // Manejo de errores
+            console.error('Error deleting meme:', error);
         }
-    }
+    };
+
+    // Estado para manejar si una tarjeta está volteada
+    const [flipped, setFlipped] = useState({});
+
+    const handleFlip = (id) => {
+        setFlipped((prevFlipped) => ({
+            ...prevFlipped,
+            [id]: !prevFlipped[id], // Alternar el estado de "flip"
+        }));
+    };
 
     return (
-        <div>
-            <h1>Lista de Memes de Gatos</h1>
-            <ul>
-                {memes.map((meme) => (
-                    <li key={meme.id}>
-                        <h2>{meme.name}</h2>
-                        <img src={meme.image} alt={meme.description} />
-                        <p>{meme.description}</p>
-                        <p>Categoría: {meme.category}</p>{' '}
-                        {/* Cambiado memeegory por category */}
-                        <p>Fecha: {meme.date}</p>
-                        <p>Likes: {meme.likes}</p>
-                        <button onClick={() => handleDelete(meme.id)}>
-                            Eliminar
-                        </button>{' '}
-                        {/* Botón para eliminar */}
-                    </li>
-                ))}
-            </ul>
-        </div>
-    )
-}
+      <div className="container mx-auto p-6">
+      <h1 className="text-3xl font-bold text-center mb-8">Eventos Históricos</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="result">
+        {memes.map((meme) => (
+          <div key={meme.id} className={`card ${flipped[meme.id] ? 'flipped' : ''}`} onClick={() => handleFlip(meme.id)}>
+            <div className="card-full">
+              {/* Parte frontal - Imagen */}
+              <div className="card-front">
+                <img className="w-full h-48 object-content" src={meme.image} alt={meme.description} />
+              </div>
+              {/* Parte trasera - Datos */}
+              <div className="card-back">
+                <h2 className="card-title">{meme.name}</h2>
+                <p className="card-description">{meme.description}</p>
+                <p className="card-location">Categoría: {meme.category}</p>
+                <p className="card-date">Fecha: {meme.date}</p>
+                <p className="card-figures">Likes: {meme.likes}</p>
+                <div className="card-buttons">
+                  <button className="delete" onClick={() => handleDelete(meme.id)}>
+                    Eliminar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div id="divForm">
+        <button id="CreateNewEventBtn" className="add-button" onClick={() => console.log('Añadir Nuevo Evento')}>
+          Añadir Nuevo Evento
+        </button>
+      </div>
+    </div>
+  );
+};
 
-export default Home
+export default Home;
