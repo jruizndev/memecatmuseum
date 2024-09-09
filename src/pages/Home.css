@@ -1,4 +1,5 @@
-body {
+body,
+html {
   font-family: 'Courier New', Courier, monospace;
   color: #334a5a;
   background-color: rgb(243, 245, 247);
@@ -13,6 +14,9 @@ h1 {
   flex-wrap: wrap;
   gap: 16px;
   background-color: #b974c7;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: masonry;
 }
 
 .card {
@@ -21,9 +25,8 @@ h1 {
   padding: 16px;
   margin: 16px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  max-width: 400px;
-  height: auto;
+  width: 232px;
+  height: 287px;
   background-color: white;
   perspective: 1000px;
 }
@@ -86,42 +89,30 @@ img {
   padding: 8px 16px;
   border: none;
   border-radius: 4px;
-  background-color: #e74c3c;
   color: #fff;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   z-index: 999;
 }
-
 .card button.delete:hover {
   scale: 1.04;
-  background-color: #cf2f1d;
 }
 .card button.edit {
   padding: 8px 16px;
   border: none;
   border-radius: 4px;
-  background-color: #f1c40f;
-  transition: background-color 0.3s ease;
-  color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  color: grey;
   z-index: 999;
 }
 .card button.edit:hover {
   transform: scale(1.04);
-  background-color: #d4ab03;
 }
 .card button.more {
   padding: 8px 16px;
   border: none;
   border-radius: 4px;
-  background-color: #3498db;
   color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   z-index: 999;
 }
 .card button.more:hover {
   scale: 1.04;
-  background-color: #2980b9;
 }

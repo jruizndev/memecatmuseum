@@ -54,20 +54,6 @@ const Home = () => {
                   src={meme.image}
                   alt={meme.description}
                 />
-                <div className='card-buttons'>
-                  <button
-                    className='delete'
-                    onClick={() => handleDelete(meme.id)}
-                  >
-                    Eliminar
-                  </button>
-                  <button className='more' onClick={() => handleFlip(meme.id)}>
-                    <img src='/src/assets/icons/flipCardIcon.png' alt='icono girar' />
-                  </button>
-                  <button className='edit' onClick={() => deleteMeme(meme.id)}>
-                    Editar
-                  </button>
-                </div>
               </div>
               <div className='card-back'>
                 <h2 className='card-title'>{meme.name}</h2>
@@ -76,6 +62,26 @@ const Home = () => {
                 <p className='card-date'>Fecha: {meme.date}</p>
                 <p className='card-likes'>Likes: {meme.likes}</p>
               </div>
+            </div>
+            <div className='card-buttons'>
+              <button className='like' onClick={() => deleteMeme(meme.id)}>
+                <img src='/src/assets/icons/likeIcon.png' alt='icono like' />
+              </button>
+              <button className='delete' onClick={() => handleDelete(meme.id)}>
+                <img
+                  src='/src/assets/icons/trashIcon.png'
+                  alt='icono eliminar'
+                />
+              </button>
+              <button className='more' onClick={() => handleFlip(meme.id)}>
+                <img
+                  src='/src/assets/icons/infoIcon.png'
+                  alt='icono más info girar'
+                />
+              </button>
+              <button className='edit' onClick={() => editMeme(meme.id)}>
+                E
+              </button>
             </div>
           </div>
         ))}
