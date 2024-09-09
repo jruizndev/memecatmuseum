@@ -46,7 +46,6 @@ const Home = () => {
           <div
             key={meme.id}
             className={`card ${flipped[meme.id] ? 'flipped' : ''}`}
-            
           >
             <div className='card-full'>
               <div className='card-front'>
@@ -55,7 +54,7 @@ const Home = () => {
                   src={meme.image}
                   alt={meme.description}
                 />
-                 <div className='card-buttons'>
+                <div className='card-buttons'>
                   <button
                     className='delete'
                     onClick={() => handleDelete(meme.id)}
@@ -63,7 +62,7 @@ const Home = () => {
                     Eliminar
                   </button>
                   <button className='more' onClick={() => handleFlip(meme.id)}>
-                    Voltear
+                    <img src='/src/assets/icons/flipCardIcon.png' alt='icono girar' />
                   </button>
                   <button className='edit' onClick={() => deleteMeme(meme.id)}>
                     Editar
@@ -73,16 +72,14 @@ const Home = () => {
               <div className='card-back'>
                 <h2 className='card-title'>{meme.name}</h2>
                 <p className='card-description'>{meme.description}</p>
-                <p className='card-location'>Categoría: {meme.category}</p>
+                <p className='card-category'>Categoría: {meme.category}</p>
                 <p className='card-date'>Fecha: {meme.date}</p>
-                <p className='card-figures'>Likes: {meme.likes}</p>
-               
+                <p className='card-likes'>Likes: {meme.likes}</p>
               </div>
             </div>
           </div>
         ))}
       </div>
-     
     </div>
   );
 };

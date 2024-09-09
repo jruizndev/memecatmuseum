@@ -12,6 +12,7 @@ h1 {
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 16px;
+  background-color: #b974c7;
 }
 
 .card {
@@ -23,8 +24,12 @@ h1 {
   width: 100%;
   max-width: 400px;
   height: auto;
-  background-color: rgba(196, 192, 184, 0.534);
+  background-color: white;
   perspective: 1000px;
+}
+.card:hover {
+  scale: 1.5;
+  transition: scale 0.8s ease-in-out;
 }
 
 .card-full {
