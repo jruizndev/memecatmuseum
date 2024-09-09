@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import React, { useState, useEffect } from 'react';
 import { getMemes, deleteMeme } from '../services/services';
 import './Home.css'; // Importamos el archivo CSS

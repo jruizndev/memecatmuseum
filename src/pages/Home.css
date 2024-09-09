@@ -8,35 +8,123 @@ html {
 h1 {
   text-align: center;
 }
-.grid {
+/* .grid {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 16px;
   background-color: #b974c7;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: masonry;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .card {
-  border: 1px solid #ccc;
   border-radius: 8px;
-  padding: 16px;
+  padding: 2em;
   margin: 16px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   background-color: white;
   perspective: 1000px;
   display: inline-block;
   max-width: 400px;
+  background-color: aqua;
 }
 
 .card:hover {
   scale: 1.1;
   transition: scale 0.8s ease-in-out;
+} */
+/* Grid básico con 12 columnas */
+.grid {
+  display: grid;
+  gap: 16px;
+  padding: 20px;
+  grid-template-columns: repeat(12, 3fr); /* 12 columnas */
+  grid-auto-rows: 250px; /* Altura base de las filas */
 }
 
+.card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+  position: relative;
+  padding: 2em;
+  width: fit-content;
+  height: fit-content;
+}
+
+.card:hover {
+  transform: scale(1.80);
+  z-index: 999;
+}
+
+/* Estilos para asignar posiciones desalineadas */
+.card:nth-child(1) {
+  grid-column: 1 / span 3; /* Ocupa 3 columnas */
+  grid-row: 1 / span 2; /* Ocupa 2 filas */
+}
+
+.card:nth-child(2) {
+  grid-column: 4 / span 2;
+  grid-row: 2 / span 1;
+}
+
+.card:nth-child(3) {
+  grid-column: 6 / span 3;
+  grid-row: 1 / span 3;
+}
+
+.card:nth-child(4) {
+  grid-column: 9 / span 4;
+  grid-row: 2 / span 2;
+}
+
+.card:nth-child(5) {
+  grid-column: 2 / span 2;
+  grid-row: 4 / span 2;
+}
+
+.card:nth-child(6) {
+  grid-column: 5 / span 3;
+  grid-row: 4 / span 1;
+}
+
+.card:nth-child(7) {
+  grid-column: 8 / span 2;
+  grid-row: 5 / span 2;
+}
+
+.card:nth-child(8) {
+  grid-column: 10 / span 3;
+  grid-row: 6 / span 1;
+}
+
+.card:nth-child(9) {
+  grid-column: 1 / span 4;
+  grid-row: 6 / span 2;
+}
+
+.card:nth-child(10) {
+  grid-column: 5 / span 2;
+  grid-row: 7 / span 1;
+}
+
+.card:nth-child(11) {
+  grid-column: 13 / span ;
+  grid-row: 7 / span 2;
+}
+.card:nth-child(12) {
+  grid-column: 4/ span 2; /* Ocupa 3 columnas */
+  grid-row: 1 / span 2; /* Ocupa 2 filas */
+}
+
+
+
 .card-full {
+  position: absolute;
+  top: 0;
   position: relative;
   width: 100%;
   height: 100%;
@@ -67,14 +155,16 @@ h1 {
 
 .card-front {
   z-index: 0;
+  width: 100%; /* Ajusta según tu necesidad */
+  height: 100%; /* Ajusta la altura como prefieras */
+  position: relative;
+  overflow: hidden; /* Asegura que el contenido no sobresalga */
 }
-.card img {
+.card-front img {
   width: 100%;
-  height: auto;
-  display: block;
-  max-width: 100%;
-  max-height: 300px;
-  object-fit: cover;
+  height: 100%;
+  /* La imagen se ajusta al contenedor sin cortarse */
+  /* Opcional: centra la imagen si es necesario */
 }
 
 .card-title {
@@ -84,13 +174,10 @@ h1 {
 
 .card-buttons {
   display: flex;
-  justify-content: space-around;
-  margin-top: 2em;
-  margin-bottom: 1em;
+  justify-content: space-evenly;
 }
 
 .card button.delete {
-  padding: 8px 16px;
   border: none;
   border-radius: 4px;
   color: #a3a3a3;
@@ -101,7 +188,6 @@ h1 {
   scale: 1.04;
 }
 .card button.edit {
-  padding: 8px 16px;
   border: none;
   border-radius: 4px;
   color: #a3a3a3;
@@ -111,7 +197,6 @@ h1 {
   transform: scale(1.04);
 }
 .card button.more {
-  padding: 8px 16px;
   border: none;
   border-radius: 4px;
   color: #a3a3a3;

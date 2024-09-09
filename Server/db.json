@@ -19,15 +19,6 @@
       "likes": 20521
     },
     {
-      "id": "108",
-      "name": "Gato Contento",
-      "description": "Una expresión de puro disfrute mientras el gato se deleita en sus actividades cotidianas.",
-      "category": "Gatos_siendo_gatos1",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos108.jpg",
-      "date": "2015-03-07",
-      "likes": 11979
-    },
-    {
       "id": "109",
       "name": "Gato Soñador",
       "description": "Este meme captura el momento exacto en que un gato decide relajarse y disfrutar del día.",
@@ -62,15 +53,6 @@
       "image": "/src/assets/gatos-siendo-gatos1/gatos112.jpg",
       "date": "2010-12-20",
       "likes": 73938
-    },
-    {
-      "id": "113",
-      "name": "Gato Meditador",
-      "description": "Un gato con una postura cómoda, disfrutando del presente como solo los felinos pueden hacerlo.",
-      "category": "Gatos_siendo_gatos1",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos113.jpg",
-      "date": "2006-11-10",
-      "likes": 42877
     },
     {
       "id": "114",
