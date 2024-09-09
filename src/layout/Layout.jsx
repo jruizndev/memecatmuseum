@@ -1,13 +1,13 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet } from "react-router-dom";
 
 const Layout = () => {
-    return (
-        <>
-            <nav>Mi nav</nav>
-            <Outlet />
-            <footer>Mi footer</footer>
-        </>
-    )
-}
+  return (
+    <>
+      <nav>Mi nav</nav>
+      <Outlet />
+      <footer>Mi footer</footer>
+    </>
+  );
+};
 
-export default Layout
+export default Layout;
