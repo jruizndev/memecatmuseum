@@ -1,6 +1,69 @@
 {
   "memes": [
     {
+      "id": "105",
+      "name": "Gato Sereno",
+      "description": "Este meme muestra un gato en pleno modo 'gato': descansando y siendo la esencia de la tranquilidad.",
+      "category": "Gatos_siendo_gatos1",
+      "image": "/src/assets/gatos-siendo-gatos1/gatos105.jpg",
+      "date": "2017-10-26",
+      "likes": 77049
+    },
+    {
+      "id": "107",
+      "name": "Gato Tranquilo",
+      "description": "Con una pose perezosa, este gato parece estar en total armonía consigo mismo.",
+      "category": "Gatos_siendo_gatos1",
+      "image": "/src/assets/gatos-siendo-gatos1/gatos107.jpg",
+      "date": "2014-12-27",
+      "likes": 20521
+    },
+    {
+      "id": "108",
+      "name": "Gato Contento",
+      "description": "Una expresión de puro disfrute mientras el gato se deleita en sus actividades cotidianas.",
+      "category": "Gatos_siendo_gatos1",
+      "image": "/src/assets/gatos-siendo-gatos1/gatos108.jpg",
+      "date": "2015-03-07",
+      "likes": 11979
+    },
+    {
+      "id": "109",
+      "name": "Gato Soñador",
+      "description": "Este meme captura el momento exacto en que un gato decide relajarse y disfrutar del día.",
+      "category": "Gatos_siendo_gatos1",
+      "image": "/src/assets/gatos-siendo-gatos1/gatos109.jpg",
+      "date": "2020-05-13",
+      "likes": 37887
+    },
+    {
+      "id": "110",
+      "name": "Gato Observador",
+      "description": "El meme perfecto para ilustrar la calma que emiten los gatos mientras disfrutan de un momento de descanso.",
+      "category": "Gatos_siendo_gatos1",
+      "image": "/src/assets/gatos-siendo-gatos1/gatos110.jpg",
+      "date": "2019-03-28",
+      "likes": 87915
+    },
+    {
+      "id": "111",
+      "name": "Gato Pensativo",
+      "description": "Este gato muestra una mezcla de curiosidad y tranquilidad mientras observa su entorno.",
+      "category": "Gatos_siendo_gatos1",
+      "image": "/src/assets/gatos-siendo-gatos1/gatos111.jpg",
+      "date": "2009-09-05",
+      "likes": 70961
+    },
+    {
+      "id": "112",
+      "name": "Gato En Alerta",
+      "description": "En plena observación, este meme capta la esencia de un gato concentrado y en alerta.",
+      "category": "Gatos_siendo_gatos1",
+      "image": "/src/assets/gatos-siendo-gatos1/gatos112.jpg",
+      "date": "2010-12-20",
+      "likes": 73938
+    },
+    {
       "id": "113",
       "name": "Gato Meditador",
       "description": "Un gato con una postura cómoda, disfrutando del presente como solo los felinos pueden hacerlo.",
@@ -19,22 +82,65 @@
       "likes": 52544
     },
     {
-      "id": "120",
-      "name": "Gato Contemplativo",
-      "description": "Este meme capta el momento en que un gato parece estar meditando sobre la vida.",
+      "id": "115",
+      "name": "Gato Atento",
+      "description": "Este meme captura a un gato en un momento de observación profunda, probablemente pensando en algo importante.",
       "category": "Gatos_siendo_gatos1",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos120.jpeg",
-      "date": "2014-09-05",
-      "likes": 64805
+      "image": "/src/assets/gatos-siendo-gatos1/gatos115.jpg",
+      "date": "2018-05-22",
+      "likes": 96613
     },
     {
-      "id": "121",
-      "name": "Gato Calmo",
-      "description": "Con una expresión calmada y una postura relajada, este meme es ideal para transmitir paz.",
+      "id": "116",
+      "name": "Gato en Reposo",
+      "description": "El meme muestra a un gato en modo relax total, haciendo lo que mejor sabe hacer: descansar.",
       "category": "Gatos_siendo_gatos1",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos121.jpeg",
-      "date": "2020-01-31",
-      "likes": 86068
+      "image": "/src/assets/gatos-siendo-gatos1/gatos116.jpg",
+      "date": "2008-02-22",
+      "likes": 91237
+    },
+    {
+      "id": "117",
+      "name": "Gato Sereno",
+      "description": "Con una mirada tranquila, este meme refleja un momento de introspección felina.",
+      "category": "Gatos_siendo_gatos1",
+      "image": "/src/assets/gatos-siendo-gatos1/gatos117.jpg",
+      "date": "2005-10-01",
+      "likes": 54934
+    },
+    {
+      "id": "118",
+      "name": "Gato Reflexivo",
+      "description": "La imagen de un gato relajado y feliz, representando la vida felina en su máxima expresión.",
+      "category": "Gatos_siendo_gatos1",
+      "image": "/src/assets/gatos-siendo-gatos1/gatos118.jpeg",
+      "date": "2021-07-14",
+      "likes": 43462
+    },
+    {
+      "id": "119",
+      "name": "Gato Zen",
+      "description": "Un gato con una pose perfecta para representar la tranquilidad que solo un buen descanso puede ofrecer.",
+      "category": "Gatos_siendo_gatos1",
+      "image": "/src/assets/gatos-siendo-gatos1/gatos119.jpeg",
+      "date": "2016-02-29",
+      "likes": 19235
+    },
+    {
+      "id": "39ae",
+      "name": "Gato 🐱-Coder",
+      "description": "cccccccccccc",
+      "category": "gato humano",
+      "image": "https://res.cloudinary.com/dv2jxa9lw/image/upload/v1725366554/samples/animals/cat.jpg",
+      "date": "2024-09-09"
+    },
+    {
+      "id": "8448",
+      "name": "Gato 🐱-Coder",
+      "description": "ffffffffffffffffffffffffff",
+      "category": "gato humano",
+      "image": "https://www.thetechedvocate.org/wp-content/uploads/2023/10/4-Ways-to-Become-a-Master-Gamer.jpg",
+      "date": "2024-09-09"
     }
   ]
 }

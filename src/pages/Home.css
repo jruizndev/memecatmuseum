@@ -25,13 +25,14 @@ h1 {
   padding: 16px;
   margin: 16px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 232px;
-  height: 287px;
   background-color: white;
   perspective: 1000px;
+  display: inline-block;
+  max-width: 400px;
 }
+
 .card:hover {
-  scale: 1.5;
+  scale: 1.1;
   transition: scale 0.8s ease-in-out;
 }
 
@@ -67,10 +68,13 @@ h1 {
 .card-front {
   z-index: 0;
 }
-img {
+.card img {
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  height: auto;
+  display: block;
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: cover;
 }
 
 .card-title {
@@ -89,7 +93,7 @@ img {
   padding: 8px 16px;
   border: none;
   border-radius: 4px;
-  color: #fff;
+  color: #a3a3a3;
   cursor: pointer;
   z-index: 999;
 }
@@ -100,7 +104,7 @@ img {
   padding: 8px 16px;
   border: none;
   border-radius: 4px;
-  color: grey;
+  color: #a3a3a3;
   z-index: 999;
 }
 .card button.edit:hover {
@@ -110,7 +114,7 @@ img {
   padding: 8px 16px;
   border: none;
   border-radius: 4px;
-  color: #fff;
+  color: #a3a3a3;
   z-index: 999;
 }
 .card button.more:hover {
