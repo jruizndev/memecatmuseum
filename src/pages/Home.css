@@ -36,14 +36,12 @@ h1 {
 } */
 /* Grid básico con 12 columnas */
 .grid {
-  display: grid;
-  gap: 16px;
-  padding: 20px;
-  grid-template-columns: repeat(12, 3fr); /* 12 columnas */
-  grid-auto-rows: 250px; /* Altura base de las filas */
+  columns: 5 320px;
+  column-gap: 1em;
 }
 
 .card {
+  display: block;
   background-color: white;
   border-radius: 8px;
   padding: 1em;
@@ -56,7 +54,7 @@ h1 {
 }
 
 .card:hover {
-  transform: scale(1.80);
+  transform: scale(1.8);
   z-index: 999;
 }
 
@@ -112,15 +110,13 @@ h1 {
 }
 
 .card:nth-child(11) {
-  grid-column: 13 / span ;
+  grid-column: 13 / span;
   grid-row: 7 / span 2;
 }
 .card:nth-child(12) {
-  grid-column: 4/ span 2; /* Ocupa 3 columnas */
+  grid-column: 4 / span 2; /* Ocupa 3 columnas */
   grid-row: 1 / span 2; /* Ocupa 2 filas */
 }
-
-
 
 .card-full {
   position: absolute;
@@ -131,6 +127,8 @@ h1 {
   text-align: center;
   transition: transform 0.8s ease-in-out;
   transform-style: preserve-3d;
+  width: fit-content;
+  height: fit-content;
 }
 
 .card.flipped .card-full {
@@ -151,6 +149,8 @@ h1 {
   transform: rotateY(180deg);
   z-index: 1; /* Inicialmente está por debajo */
   background-color: rgb(224, 221, 217);
+  overflow: hidden;
+  font-size: small;
 }
 
 .card-front {
@@ -163,6 +163,7 @@ h1 {
 .card-front img {
   width: 100%;
   height: 100%;
+  border-radius: 14px;
   /* La imagen se ajusta al contenedor sin cortarse */
   /* Opcional: centra la imagen si es necesario */
 }

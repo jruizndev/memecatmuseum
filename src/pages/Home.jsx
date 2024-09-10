@@ -49,13 +49,8 @@ const Home = () => {
             className={`card ${flipped[meme.id] ? 'flipped' : ''}`}
           >
             <div className='card-full'>
-              <div className='card-front'>
-                <img
-                  className='image'
-                  src={meme.image}
-                  alt={meme.description}
-                />
-              </div>
+              <img className='image' src={meme.image} alt={meme.description} />
+
               <div className='card-back'>
                 <h2 className='card-title'>{meme.name}</h2>
                 <p className='card-description'>{meme.description}</p>
