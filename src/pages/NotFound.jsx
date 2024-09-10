@@ -1,10 +1,24 @@
 import { useRouteError, Link } from "react-router-dom";
-import React from "react";
+const NotFound = () => {
+  const error = useRouteError();
+  console.log(error);
 
-function MainContent() {
+  return (
+    <div>
+      <h1>404</h1>
+      <p>Page not found</p>
+      <p>{error.statusText || error.message}</p>
+      <Link to="/">Volver al Home</Link>
+    </div>
+  );
+};
+function NotFound() {
   return (
     <main className="self-end mt-14 w-full max-w-[1318px] max-md:mt-10 max-md:max-w-full">
-      <div className="flex gap-5 max-md:flex-col items-center">
+      <div
+        className="flex gap-5 max-md:flex-col items-cent
+      er"
+      >
         {/* Image Section */}
         <section className="flex flex-col w-[60%] max-md:w-full items-center">
           <video
@@ -29,4 +43,4 @@ function MainContent() {
   );
 }
 
-export default MainContent;
+export default NotFound;
