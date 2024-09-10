@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { createMeme } from "../services/services"; // importa el POST
 import { useNavigate } from "react-router-dom";
-import axios from "axios"; //  solicitud a Cloudinary
-
-const API_URL = "http://localhost:5173/";
+import axios from "axios"; // solicitud a Cloudinary
 
 const CreateMeme = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -16,12 +14,17 @@ const CreateMeme = () => {
   const uploadImageToCloudinary = async (file) => {
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("upload_preset", "presetCloudinary"); // Cambia por tu propio preset
+    formData.append(
+      "upload_preset",
+      import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET
+    ); // Usa el preset desde .env
 
     setUploading(true);
     try {
       const response = await axios.post(
-        "https://api.cloudinary.com/v1_1/dv2jxa9lw/image/upload", // URL de Cloudinary
+        `https://api.cloudinary.com/v1_1/${
+          import.meta.env.VITE_CLOUDINARY_CLOUD_NAME
+        }/image/upload`, // Usa el cloud name desde .env
         formData
       );
       setImageUrl(response.data.secure_url); // Almacena la URL segura de la imagen

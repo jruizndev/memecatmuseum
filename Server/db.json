@@ -1,3 +1,18 @@
 {
-  "memes": []
+  "memes": [
+    {
+      "id": "a09c",
+      "name": "A",
+      "description": "A",
+      "category": "gg",
+      "image": "https://res.cloudinary.com/dv2jxa9lw/image/upload/v1725989166/n0dpfh10dwupliwpukru.jpg"
+    },
+    {
+      "id": "a4f7",
+      "name": "Gato 🐱",
+      "description": "3",
+      "category": "3",
+      "image": "https://res.cloudinary.com/dv2jxa9lw/image/upload/v1725990211/dfkpcltilvqhra04lhpc.jpg"
+    }
+  ]
 }
