@@ -1,17 +1,21 @@
+import { useRouteError, Link } from "react-router-dom";
 import React from "react";
 
-function NotFound() {
+function MainContent() {
   return (
     <main className="self-end mt-14 w-full max-w-[1318px] max-md:mt-10 max-md:max-w-full">
       <div className="flex gap-5 max-md:flex-col items-center">
         {/* Image Section */}
         <section className="flex flex-col w-[60%] max-md:w-full items-center">
-          <img
+          <video
             loading="lazy"
-            src="..src/assets/video cat404.mp4"
-            className="object-contain w-full rounded-lg max-md:aspect-auto max-md:w-full max-md:h-auto"
-            alt="Mecat Museum 404"
-          />
+            className="object-contain w-full rounded-lg aspect-[16/9] max-md:aspect-auto max-md:w-full max-md:h-auto"
+            alt="Mecat Museum exhibit"
+            autoPlay
+            loop
+          >
+            <source src="src/assets/animaciones/video cat404.mp4" />
+          </video>
         </section>
 
         {/* Text Section */}
@@ -25,4 +29,4 @@ function NotFound() {
   );
 }
 
-export default NotFound;
+export default MainContent;
