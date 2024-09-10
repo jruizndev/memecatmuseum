@@ -46,6 +46,7 @@ export const updateMeme = async (id, updatedMemeData) => {
     }
 }
 
+
 // Eliminar un meme por ID
 export const deleteMeme = async (id) => {
     try {
