@@ -1,27 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { createMeme } from "../services/services"; // Importar la función para crear el meme
+import { createMeme } from "../services/services"; // importa el POST
 import { useNavigate } from "react-router-dom";
+import axios from "axios"; //  solicitud a Cloudinary
+
+const API_URL = "http://localhost:5173/";
 
 const CreateMeme = () => {
   const { register, handleSubmit, reset } = useForm();
   const navigate = useNavigate();
+  const [uploading, setUploading] = useState(false);
+  const [imageUrl, setImageUrl] = useState("");
 
-  const onSubmit = async (data) => {
+  // Función para subir imagen a Cloudinary
+  const uploadImageToCloudinary = async (file) => {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "presetCloudinary"); // Cambia por tu propio preset
+
+    setUploading(true);
     try {
-      await createMeme({
-        ...data,
-        date: new Date().toISOString().split("T")[0], // Fecha actual
-      });
-      reset(); // Limpiar el formulario
-      navigate("/"); // Redirigir a la lista de memes después de la creación
+      const response = await axios.post(
+        "https://api.cloudinary.com/v1_1/dv2jxa9lw/image/upload", // URL de Cloudinary
+        formData
+      );
+      setImageUrl(response.data.secure_url); // Almacena la URL segura de la imagen
+      setUploading(false);
     } catch (error) {
-      console.error("Error al crear el meme:", error);
+      console.error("Error subiendo imagen a Cloudinary", error);
+      setUploading(false);
+    }
+  };
+
+  // Función para manejar la carga del archivo
+  const handleFileChange = async (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      await uploadImageToCloudinary(file);
+    }
+  };
+
+  // Función para enviar el formulario con la URL de la imagen subida
+  const onSubmit = async (dataMeme) => {
+    if (imageUrl) {
+      const memeData = {
+        ...dataMeme,
+        image: imageUrl, // Añade la URL de la imagen subida a Cloudinary
+      };
+      await createMeme(memeData);
+      reset(); // Resetea el formulario después de enviar
+      navigate("/"); // Navega a la página principal o a la que desees
+    } else {
+      alert("Por favor, sube una imagen antes de crear el meme");
     }
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4 bg-red-400">
       <h1 className="text-2xl font-bold">Crear Nuevo Meme</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div>
@@ -54,14 +89,20 @@ const CreateMeme = () => {
           />
         </div>
 
+        {/* Reemplazar el campo de URL de la imagen con el campo para subir el archivo */}
         <div>
-          <label htmlFor="image">URL de la Imagen</label>
+          <label htmlFor="image">Imagen del Meme</label>
           <input
             id="image"
-            {...register("image", { required: true })}
+            type="file"
+            accept="image/*"
+            onChange={handleFileChange}
             className="border border-gray-300 p-2"
-            placeholder="URL de la imagen"
           />
+          {uploading && <p>Subiendo imagen...</p>}
+          {imageUrl && (
+            <img src={imageUrl} alt="Uploaded" className="mt-4 w-32 h-32" />
+          )}
         </div>
 
         <button type="submit" className="bg-blue-500 text-white p-2">

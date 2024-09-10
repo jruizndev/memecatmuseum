@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { getMemes, deleteMeme } from "../services/services";
-import { Link } from "react-router-dom"; // <-- Agregado por dario (Nuevo código para el enlace con CreateMeme.jsx)
+import CreateMeme from "./CreateMeme"; // Importamos el componente CreateMeme
+import Modal from "../components/Modal"; // Importamos el componente Modal
+
 const Home = () => {
   const [memes, setMemes] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar el modal
 
   useEffect(() => {
     // Realizar la petición GET usando el servicio `getMemes`
@@ -10,8 +13,6 @@ const Home = () => {
       try {
         const data = await getMemes();
         setMemes(data); // Guardar la respuesta en el estado
-        setMemes(data);
-        console.log(memes);
       } catch (error) {
         console.error("Error fetching memes:", error); // Manejo de errores
       }
@@ -30,26 +31,35 @@ const Home = () => {
     }
   };
 
+  // Función para abrir el modal
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  // Función para cerrar el modal
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div>
       <h1>Lista de Memes de Gatos</h1>
 
-      {/* Enlace agregado por dario para crear un nuevo meme (Nuevo código) */}
-      <Link
-        to="/newmeme"
+      {/* Botón que abre el modal */}
+      <button
+        onClick={openModal}
         className="relative inline-block text-white p-4 rounded-full bg-gradient-to-br from-purple-800 to-purple-900 shadow-lg hover:shadow-2xl transition-transform duration-300 ease-in-out transform hover:scale-105 cat-button"
       >
         Crear Nuevo Meme
-      </Link>
+      </button>
 
       <ul>
         {memes.map((meme) => (
-          <li key={meme.id}>
+          <li key={meme.id} className="bg-red-300">
             <h2>{meme.name}</h2>
             <img src={meme.image} alt={meme.description} />
             <p>{meme.description}</p>
-            <p>Categoría: {meme.category}</p>{" "}
-            {/* Cambiado memeegory por category */}
+            <p>Categoría: {meme.category}</p>
             <p>Fecha: {meme.date}</p>
             <p>Likes: {meme.likes}</p>
             <button
@@ -61,6 +71,14 @@ const Home = () => {
           </li>
         ))}
       </ul>
+
+      {/* Modal que contiene el formulario CreateMeme */}
+      {isModalOpen && (
+        <Modal onClose={closeModal}>
+          <CreateMeme onClose={closeModal} />{" "}
+          {/* Pasamos la función de cierre */}
+        </Modal>
+      )}
     </div>
   );
 };
