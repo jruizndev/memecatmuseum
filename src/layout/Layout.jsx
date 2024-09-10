@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom'
-import Nav from '../components/Nav' // Importa la barra de navegación
+import Nav from '../components/Nav/Nav' // Importa la barra de navegación
 
 const Layout = () => {
     return (
