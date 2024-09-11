@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { createMeme } from "../services/services"; // importa el POST
 import { useNavigate } from "react-router-dom";
-import axios from "axios"; // solicitud a Cloudinary
+import axios from "axios";
 
 const CreateMeme = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -17,7 +17,7 @@ const CreateMeme = () => {
     formData.append(
       "upload_preset",
       import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET
-    ); // Usa el preset desde .env
+    ); // valores .env
 
     setUploading(true);
     try {
@@ -43,31 +43,30 @@ const CreateMeme = () => {
     }
   };
 
-  // Función para enviar el formulario con la URL de la imagen subida
   const onSubmit = async (dataMeme) => {
     if (imageUrl) {
       const memeData = {
         ...dataMeme,
-        image: imageUrl, // Añade la URL de la imagen subida a Cloudinary
+        image: imageUrl, // Añade la URL a Cloudinary
       };
       await createMeme(memeData);
       reset(); // Resetea el formulario después de enviar
-      navigate("/"); // Navega a la página principal o a la que desees
+      navigate("/"); // Navega a la página principal
     } else {
       alert("Por favor, sube una imagen antes de crear el meme");
     }
   };
 
   return (
-    <div className="p-4 bg-red-400">
-      <h1 className="text-2xl font-bold">Crear Nuevo Meme</h1>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+    <div className="rounded-lg relative inline-block text-gray p-4  bg-gradient-to-br from-purple-600 to-yellow-400 shadow-lg hover:shadow-2xl transition-transform duration-300 ease-in-out transform hover:scale-105 cat-button">
+      <h1 className="text-3xl font-bold ">Crear Nuevo Meme</h1>
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 mt-7">
         <div>
           <label htmlFor="name">Nombre</label>
           <input
             id="name"
             {...register("name", { required: true })}
-            className="border border-gray-300 p-2"
+            className="border border-gray-300 p-2 mx-11"
             placeholder="Nombre del meme"
           />
         </div>
@@ -77,7 +76,7 @@ const CreateMeme = () => {
           <textarea
             id="description"
             {...register("description", { required: true })}
-            className="border border-gray-300 p-2"
+            className="border border-gray-300 p-2 mx-5"
             placeholder="Descripción del meme"
           />
         </div>
@@ -87,7 +86,7 @@ const CreateMeme = () => {
           <input
             id="category"
             {...register("category", { required: true })}
-            className="border border-gray-300 p-2"
+            className="border border-gray-300 p-2 mx-8"
             placeholder="Categoría del meme"
           />
         </div>
@@ -108,7 +107,10 @@ const CreateMeme = () => {
           )}
         </div>
 
-        <button type="submit" className="bg-blue-500 text-white p-2">
+        <button
+          type="submit"
+          className="bg-purple-500 text-white p-2 rounded-lg"
+        >
           Crear Meme
         </button>
       </form>
