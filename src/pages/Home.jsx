@@ -1,51 +1,61 @@
 import React, { useState, useEffect } from "react";
-import { getMemes, deleteMeme } from "../services/services";
-import CreateMeme from "./CreateMeme"; // Importamos el componente CreateMeme
-import Modal from "../components/Modal"; // Importamos el componente Modal
+import {
+  getMemes,
+  deleteMeme,
+  createMeme as createMemeService,
+} from "../services/services";
+import CreateMeme from "./CreateMeme";
+import Modal from "../components/Modal";
 
 const Home = () => {
   const [memes, setMemes] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar el modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    // Realizar la petición GET usando el servicio `getMemes`
+    // Fetch memes initially
     const fetchMemes = async () => {
       try {
         const data = await getMemes();
-        setMemes(data); // Guardar la respuesta en el estado
+        setMemes(data);
       } catch (error) {
-        console.error("Error fetching memes:", error); // Manejo de errores
+        console.error("Error fetching memes:", error);
       }
     };
 
     fetchMemes();
   }, []);
 
-  // Función para eliminar un meme
   const handleDelete = async (id) => {
     try {
-      await deleteMeme(id); // Llamar al servicio para eliminar el meme
-      setMemes(memes.filter((meme) => meme.id !== id)); // Actualizar el estado eliminando el meme
+      await deleteMeme(id);
+      setMemes(memes.filter((meme) => meme.id !== id));
     } catch (error) {
-      console.error("Error deleting meme:", error); // Manejo de errores
+      console.error("Error deleting meme:", error);
     }
   };
 
-  // Función para abrir el modal
   const openModal = () => {
     setIsModalOpen(true);
   };
 
-  // Función para cerrar el modal
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+
+  // Function to fetch memes and update state
+  const refreshMemes = async () => {
+    try {
+      const data = await getMemes();
+      setMemes(data);
+    } catch (error) {
+      console.error("Error refreshing memes:", error);
+    }
   };
 
   return (
     <div>
       <h1>Lista de Memes de Gatos</h1>
 
-      {/* Botón que abre el modal */}
       <button
         onClick={openModal}
         className="relative inline-block text-white p-4 rounded-full bg-gradient-to-br from-purple-800 to-purple-900 shadow-lg hover:shadow-2xl transition-transform duration-300 ease-in-out transform hover:scale-105 cat-button"
@@ -72,11 +82,9 @@ const Home = () => {
         ))}
       </ul>
 
-      {/* Modal que contiene el formulario CreateMeme */}
       {isModalOpen && (
         <Modal onClose={closeModal}>
-          <CreateMeme onClose={closeModal} />{" "}
-          {/* Pasamos la función de cierre */}
+          <CreateMeme onClose={closeModal} onMemeCreated={refreshMemes} />
         </Modal>
       )}
     </div>
