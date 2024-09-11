@@ -53,15 +53,19 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <h1>Lista de Memes de Gatos</h1>
+    <div className="min-h-screen bg-gray-100 p-6">
+      <h1 className="text-4xl font-bold text-center mb-8">
+        Lista de Memes de Gatos
+      </h1>
 
-      <button
-        onClick={openModal}
-        className="relative inline-block text-white p-4 rounded-full bg-gradient-to-br from-purple-800 to-purple-900 shadow-lg hover:shadow-2xl transition-transform duration-300 ease-in-out transform hover:scale-105 cat-button"
-      >
-        Crear Nuevo Meme
-      </button>
+      <div className="flex justify-center mb-6">
+        <button
+          onClick={openModal}
+          className="relative inline-block text-white p-4 rounded-full bg-gradient-to-br from-purple-800 to-purple-900 shadow-lg hover:shadow-2xl transition-transform duration-300 ease-in-out transform hover:scale-105 animate-spin-slow"
+        >
+          Crear Nuevo Meme
+        </button>
+      </div>
 
       <ul>
         {memes.map((meme) => (
