@@ -31,7 +31,7 @@ const Filter = ({ isFilterOpen, toggleFilter }) => {
     const handleSelectChange = (event) => {}
 
     return (
-        <div className="fixed w-full flex justify-end items-end bg-slate-50 bg-opacity-70 backdrop-blur-sm">
+        <div className="fixed w-full flex justify-end items-end bg-slate-50 bg-opacity-70 backdrop-blur-sm z-20">
             {/* Barra de búsqueda */}
             <div className="relative mr-[5%] w-[20%] max-w-[500px] mx-4 mt-[100px] mb-[30px]">
                 <input
@@ -62,7 +62,7 @@ const Filter = ({ isFilterOpen, toggleFilter }) => {
                 }`}
                 style={{ display: isFilterOpen ? 'block' : 'none' }}
             >
-                <div className="w-[92%] mb-[30px] flex items-center justify-between mx-auto">
+                <div className="w-[92%] mb-[30px] flex items-center justify-between  mx-auto">
                     <img
                         src="/src/assets/icons/filter.svg"
                         alt="Filter"
