@@ -62,7 +62,7 @@ const Filter = ({ isFilterOpen, toggleFilter }) => {
                 }`}
                 style={{ display: isFilterOpen ? 'block' : 'none' }}
             >
-                <div className="w-[92%] mb-[30px] flex items-center justify-between  mx-auto">
+                <div className="w-[92%] mb-[30px] flex items-center justify-between c mx-auto">
                     <img
                         src="/src/assets/icons/filter.svg"
                         alt="Filter"

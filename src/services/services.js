@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BaseUrl = 'http://localhost:3000/memes' // Cambia por la URL de tu API si es necesario
+const BaseUrl = 'http://localhost:3000/memes' // URL base para la API de memes
 
 // Obtener todos los memes
 export const getMemes = async () => {
@@ -20,6 +20,20 @@ export const getMemeById = async (id) => {
         return response.data
     } catch (error) {
         console.error('Error al obtener el meme:', error)
+        throw error
+    }
+}
+
+// Obtener memes por categoría
+export const getMemeByCategory = async (category) => {
+    try {
+        const response = await axios.get(
+            `${BaseUrl}?category=${encodeURIComponent(category)}`
+        )
+        console.log('Respuesta de la API por categoría:', response.data) // Verifica la respuesta
+        return response.data
+    } catch (error) {
+        console.error('Error al obtener memes por categoría:', error)
         throw error
     }
 }

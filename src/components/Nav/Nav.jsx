@@ -28,7 +28,7 @@ const Nav = () => {
 
     return (
         <>
-            <nav className="fixed top-0 left-0 right-0 p-4 bg-slate-50 bg-opacity-70 backdrop-blur-sm w-full items-center flex flex-row justify-between z-30">
+            <nav className="fixed top-0 left-0 right-0 p-1 bg-slate-50 bg-opacity-70 backdrop-blur-sm w-full items-center flex flex-row justify-between z-30">
                 {/* Logo */}
                 <div className="flex items-center ml-[4%]">
                     <NavLink to="/">

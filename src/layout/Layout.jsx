@@ -6,9 +6,7 @@ const Layout = () => {
         <>
             <Nav /> {/* Aquí se incluye la barra de navegación que creamos */}
             <Outlet />
-            <footer className="bg-gray-100 text-center py-4 mt-8 shadow-inner">
-                Mi footer
-            </footer>
+            <footer>Mi footer</footer>
         </>
     )
 }
