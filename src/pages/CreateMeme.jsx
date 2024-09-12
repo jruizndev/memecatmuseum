@@ -52,55 +52,78 @@ const CreateMeme = ({ onClose, onMemeCreated }) => {
   };
 
   return (
-    <div className="rounded-lg relative inline-block text-gray p-4 bg-gradient-to-br from-purple-600 to-yellow-400 shadow-lg hover:shadow-2xl transition-transform duration-300 ease-in-out transform hover:scale-105 cat-button text-center">
-      <h1 className="font-inter font-bold text-20px tracking-3px">
+    <div className="rounded-lg relative inline-block text-gray p-4 bg-gray-100 shadow-lg hover:shadow-2xl transition-transform duration-300 ease-in-out transform hover:scale-105 cat-button">
+      {/* Título centrado */}
+      <h1 className="font-inter font-bold text-2xl tracking-3px text-center mb-6">
         Crear Nuevo Meme
       </h1>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 mt-7">
-        <div>
-          <label htmlFor="name">Nombre</label>
+
+      {/* Formulario */}
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+        <div className="flex items-center mb-4">
+          <label
+            htmlFor="name"
+            className="font-inter text-base mr-4 flex-shrink-0 w-32"
+          >
+            Nombre:
+          </label>
           <input
             id="name"
             {...register("name", { required: true })}
-            className="border border-gray-300 p-2 mx-11"
+            className="border border-gray-300 p-2 flex-1"
             placeholder="Nombre del meme"
           />
         </div>
 
-        <div>
-          <label htmlFor="description">Descripción</label>
+        <div className="flex items-center mb-4">
+          <label
+            htmlFor="description"
+            className="font-inter text-base mr-4 flex-shrink-0 w-32"
+          >
+            Descripción:
+          </label>
           <textarea
             id="description"
             {...register("description", { required: true })}
-            className="border border-gray-300 p-2 mx-5"
+            className="border border-gray-300 p-2 flex-1"
             placeholder="Descripción del meme"
           />
         </div>
 
-        <div>
-          <label htmlFor="category">Categoría</label>
+        <div className="flex items-center mb-4">
+          <label
+            htmlFor="category"
+            className="font-inter text-base mr-4 flex-shrink-0 w-32"
+          >
+            Categoría:
+          </label>
           <select
             id="category"
             {...register("category", { required: true })}
-            className="border border-gray-300 p-2 mx-8"
+            className="border border-gray-300 p-2 flex-1"
           >
-            <option value="Gatos siendo gatos">Gatos siendo gatos </option>
+            <option value="Gatos siendo gatos">Gatos siendo gatos</option>
             <option value="Gatos siendo humanos">Gatos siendo humanos</option>
-            <option value="Gatos enfadados">Gatos enfadados </option>
+            <option value="Gatos enfadados">Gatos enfadados</option>
             <option value="Me Dijiste">Me dijiste</option>
           </select>
         </div>
 
-        <div>
-          <label htmlFor="image">Imagen del Meme</label>
+        <div className="flex items-center mb-4">
+          <label
+            htmlFor="image"
+            className="font-inter text-base mr-4 flex-shrink-0 w-32"
+          >
+            Imágen:
+          </label>
           <input
             id="image"
             type="file"
             accept="image/*"
             onChange={handleFileChange}
-            className="border border-gray-300 p-2"
+            className="border border-blue-300 p-2 flex-1"
           />
-          {uploading && <p>Subiendo imagen...</p>}
+          {uploading && <p className="ml-4">Subiendo imagen...</p>}
           {imageUrl && (
             <img src={imageUrl} alt="Uploaded" className="mt-4 w-32 h-32" />
           )}
@@ -109,14 +132,14 @@ const CreateMeme = ({ onClose, onMemeCreated }) => {
         <div className="flex justify-between mt-4">
           <button
             type="submit"
-            className="bg-purple-500 text-white p-2 rounded-lg"
+            className="bg-black text-white py-3 px-8 rounded-3xl transition-all duration-300 ease-in-out hover:bg-pink-300"
           >
             Crear Meme
           </button>
           <button
             type="button"
             onClick={onClose}
-            className="bg-red-500 text-white p-2 rounded-lg"
+            className="bg-red-500 text-white py-3 px-8 rounded-3xl transition-all duration-300 ease-in-out hover:bg-pink-200"
           >
             Cancelar
           </button>
