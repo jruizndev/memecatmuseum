@@ -1,3 +1,11 @@
 {
-  "memes": []
+  "memes": [
+    {
+      "id": "53b7",
+      "name": "7",
+      "description": "4",
+      "category": "Gatos siendo gatos",
+      "image": "https://res.cloudinary.com/dv2jxa9lw/image/upload/v1726132335/d0xazolakrgtjc0uvfjw.jpg"
+    }
+  ]
 }

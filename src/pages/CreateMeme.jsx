@@ -77,12 +77,16 @@ const CreateMeme = ({ onClose, onMemeCreated }) => {
 
         <div>
           <label htmlFor="category">Categoría</label>
-          <input
+          <select
             id="category"
             {...register("category", { required: true })}
             className="border border-gray-300 p-2 mx-8"
-            placeholder="Categoría del meme"
-          />
+          >
+            <option value="Gatos siendo gatos">Gatos siendo gatos </option>
+            <option value="Gatos siendo humanos">Gatos siendo humanos</option>
+            <option value="Gatos enfadados">Gatos enfadados </option>
+            <option value="Me Dijiste">Me dijiste</option>
+          </select>
         </div>
 
         <div>
