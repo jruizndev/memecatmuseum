@@ -52,8 +52,10 @@ const CreateMeme = ({ onClose, onMemeCreated }) => {
   };
 
   return (
-    <div className="rounded-lg relative inline-block text-gray p-4 bg-gradient-to-br from-purple-600 to-yellow-400 shadow-lg hover:shadow-2xl transition-transform duration-300 ease-in-out transform hover:scale-105 cat-button">
-      <h1 className="text-3xl font-bold">Crear Nuevo Meme</h1>
+    <div className="rounded-lg relative inline-block text-gray p-4 bg-gradient-to-br from-purple-600 to-yellow-400 shadow-lg hover:shadow-2xl transition-transform duration-300 ease-in-out transform hover:scale-105 cat-button text-center">
+      <h1 className="font-inter font-bold text-20px tracking-3px">
+        Crear Nuevo Meme
+      </h1>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 mt-7">
         <div>
           <label htmlFor="name">Nombre</label>
