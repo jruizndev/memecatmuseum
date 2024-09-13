@@ -1,68 +1,40 @@
-import React, { useState } from 'react'
+// Filter.js
+import React from 'react'
 import Select from 'react-select'
 
-const Filter = ({ isFilterOpen, toggleFilter }) => {
-    const [searchText, setSearchText] = useState('') // Estado para almacenar el texto de búsqueda
+// Opciones para los filtros
+const categories = [
+    { label: 'Todas', value: 'Todas' },
+    { label: 'Gatos siendo gatos', value: 'Gatos siendo gatos' },
+    { label: 'Gatos siendo humanos', value: 'Gatos siendo humanos' },
+    { label: 'Gatos enfadados', value: 'Gatos enfadados' },
+    { label: 'Me dijiste', value: 'Me dijiste' },
+    { label: 'Popurri', value: 'Popurri' },
+]
 
-    // Función para manejar el cambio en el texto de búsqueda
-    const handleSearchChange = (e) => {
-        setSearchText(e.target.value)
-    }
+const popularity = [
+    { label: 'Más populares', value: 'Más populares' },
+    { label: 'Menos populares', value: 'Menos populares' },
+]
 
-    const categories = [
-        { label: 'Todas', value: 'Todas' },
-        { label: 'Gatos siendo gatos', value: 'Gatos siendo gatos' },
-        { label: 'Gatos siendo humanos', value: 'Gatos siendo humanos' },
-        { label: 'Gatos enfadados', value: 'Gatos enfadados' },
-        { label: 'Me dijiste', value: 'Me dijiste' },
-        { label: 'Popurri', value: 'Popurri' },
-    ]
+const date = [
+    { label: 'Más recientes', value: 'Más recientes' },
+    { label: 'Más viejunos', value: 'Más viejunos' },
+]
 
-    const popularity = [
-        { label: 'Más populares', value: 'Más populares' },
-        { label: 'Menos populares', value: 'Menos populares' },
-    ]
-
-    const date = [
-        { label: 'Más recientes', value: 'Más recientes' },
-        { label: 'Más viejunos', value: 'Más viejunos' },
-    ]
-
-    const handleSelectChange = (event) => {}
-
+const Filter = ({ isFilterOpen, toggleFilter, handleSelectChange }) => {
     return (
-        <div className="fixed w-full flex justify-end items-end bg-slate-50 bg-opacity-70 backdrop-blur-sm z-20">
-            {/* Barra de búsqueda */}
-            <div className="relative mr-[5%] w-[20%] max-w-[500px] mx-4 mt-[100px] mb-[30px]">
-                <input
-                    type="text"
-                    placeholder="Buscar"
-                    className="w-full p-2 pr-10 pl-4 border rounded-md focus:outline-none"
-                    value={searchText}
-                    onChange={handleSearchChange} // Almacena el texto escrito
-                    onClick={() => {
-                        if (!isFilterOpen) {
-                            toggleFilter() // Solo abre el filtro si no está abierto
-                        }
-                    }}
-                />
-                <img
-                    src="/src/assets/icons/search.svg"
-                    alt="Buscar"
-                    className="absolute top-1/2 right-2 transform -translate-y-1/2 w-5 h-5"
-                />
-            </div>
-
+        <div
+            className={`fixed top-[72px] left-0 right-0 flex justify-end bg-slate-50 bg-opacity-70 backdrop-blur-sm z-20 ${
+                isFilterOpen
+                    ? 'opacity-100 transform translate-y-0'
+                    : 'opacity-0 transform -translate-y-10'
+            }`}
+            style={{ display: isFilterOpen ? 'block' : 'none' }}
+        >
             {/* Filtros */}
-            <div
-                className={`absolute top-full left-0 w-full bg-slate-50 bg-opacity-70 backdrop-blur-sm shadow-md z-10 p-4 flex flex-col transition-all duration-300 ease-in-out ${
-                    isFilterOpen
-                        ? 'opacity-100 transform translate-y-0'
-                        : 'opacity-0 transform -translate-y-10'
-                }`}
-                style={{ display: isFilterOpen ? 'block' : 'none' }}
-            >
-                <div className="w-[92%] mb-[30px] flex items-center justify-between c mx-auto">
+            <div className="absolute top-full left-0 w-full bg-slate-50 bg-opacity-70 backdrop-blur-sm shadow-md z-10 p-4 flex flex-col transition-all duration-300 ease-in-out">
+                <div className="w-[92%] mb-[30px] flex items-center justify-between mx-auto">
                     <img
                         src="/src/assets/icons/filter.svg"
                         alt="Filter"
@@ -114,4 +86,5 @@ const Filter = ({ isFilterOpen, toggleFilter }) => {
         </div>
     )
 }
+
 export default Filter

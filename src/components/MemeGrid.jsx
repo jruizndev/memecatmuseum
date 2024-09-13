@@ -58,7 +58,7 @@ const MemeGrid = ({ memes, onDelete }) => {
     return (
         <div
             ref={gridRef}
-            className="flex flex-wrap items-start justify-start ml-40 w-[60%] mx-auto pt-60"
+            className="flex flex-wrap items-start justify-start ml-40 w-[60%] mx-auto pt-"
         >
             {patternedMemes.map((meme) => (
                 <div

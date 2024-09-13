@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+// Nav.js
+import React, { useState, useRef } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
-
-// Importa Filter solo si es necesario
-const Filter = React.lazy(() => import('./Filter'))
+import Filter from './Filter' // Importa el componente Filter
 
 const Nav = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isFilterOpen, setIsFilterOpen] = useState(false)
     const location = useLocation()
+    const menuRef = useRef(null)
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen)
@@ -21,6 +21,10 @@ const Nav = () => {
         if (!isFilterOpen) {
             setIsMenuOpen(false) // Cierra el menú cuando se abre el filtro
         }
+    }
+
+    const handleSelectChange = (selectedOption) => {
+        console.log('Selected option:', selectedOption)
     }
 
     // Verifica si estamos en la página de inicio
@@ -41,8 +45,30 @@ const Nav = () => {
                     <h1>MeCat Museum</h1>
                 </div>
 
-                {/* Menú hamburguesa */}
-                <div className="flex items-center mr-[4%]">
+                {/* Barra de búsqueda y menú hamburguesa */}
+                <div className="flex items-center justify-end mr-[4%] space-x-4">
+                    {/* Barra de búsqueda */}
+                    {isHomePage && (
+                        <div className="relative w-[80%] max-w-[600px]">
+                            <input
+                                type="text"
+                                placeholder="Buscar"
+                                className="w-full p-2 pr-10 pl-4 border rounded-md focus:outline-none"
+                                onClick={() => {
+                                    if (!isFilterOpen) {
+                                        toggleFilter() // Solo abre el filtro si no está abierto
+                                    }
+                                }}
+                            />
+                            <img
+                                src="/src/assets/icons/search.svg"
+                                alt="Buscar"
+                                className="absolute top-1/2 right-2 transform -translate-y-1/2 w-5 h-5"
+                            />
+                        </div>
+                    )}
+
+                    {/* Menú hamburguesa */}
                     <img
                         src={
                             isMenuOpen
@@ -56,19 +82,24 @@ const Nav = () => {
                         onClick={toggleMenu}
                     />
                 </div>
+            </nav>
 
-                {/* Menú hamburguesa */}
+            {/* Componente Filter integrado en el Nav */}
+            {isHomePage && (
+                <Filter
+                    isFilterOpen={isFilterOpen}
+                    toggleFilter={toggleFilter}
+                    handleSelectChange={handleSelectChange}
+                />
+            )}
+
+            {/* Menú desplegable */}
+            {isMenuOpen && (
                 <div
-                    className={`absolute right-0 w-[40%] bg-black bg-opacity-70 backdrop-blur-sm text-white shadow-lg mt-4 transition-all duration-300 ease-in-out ${
-                        isMenuOpen
-                            ? 'opacity-100 transform translate-x-0'
-                            : 'opacity-0 transform translate-x-full'
-                    }`}
-                    style={{
-                        top: isHomePage ? '156px' : '80px', // Cambia la posición dependiendo de la página
-                    }}
+                    className={`fixed right-0 top-[72px] w-[40%] bg-black bg-opacity-70 backdrop-blur-sm text-white shadow-lg transition-all duration-300 ease-in-out z-40`}
+                    ref={menuRef}
                 >
-                    <ul className="flex flex-col pr-4 p-4">
+                    <ul className="flex flex-col p-4">
                         <li className="py-2 text-lg text-center">
                             <NavLink to="/">Añadir Meme</NavLink>
                         </li>
@@ -80,16 +111,6 @@ const Nav = () => {
                         </li>
                     </ul>
                 </div>
-            </nav>
-
-            {/* Componente Filter se renderiza debajo de la navbar */}
-            {isHomePage && (
-                <React.Suspense fallback={<div>Cargando filtros...</div>}>
-                    <Filter
-                        isFilterOpen={isFilterOpen} // Controlamos el estado desde Nav
-                        toggleFilter={toggleFilter} // Función para alternar el estado
-                    />
-                </React.Suspense>
             )}
         </>
     )

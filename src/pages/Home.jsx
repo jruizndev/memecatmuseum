@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getMemeByCategory, deleteMeme } from '../services/services'
-import MemeGrid from '../components/MemGrid'
+import MemeGrid from '../components/MemeGrid'
 
 const categories = [
     'gatos_siendo_gatos1',
@@ -9,11 +9,19 @@ const categories = [
     'me_dijiste4',
 ]
 
+// Manteniendo los fondos degradados que ya tenías definidos
 const categoryClasses = {
     gatos_siendo_gatos1: 'bg-gatos-siendo-gatos1',
     gatos_siendo_humanos2: 'bg-gatos-siendo-humanos2',
     gatos_enfadados3: 'bg-gatos-enfadados3',
     me_dijiste4: 'bg-me-dijiste4',
+}
+
+const categoryTitles = {
+    gatos_siendo_gatos1: 'Gatos Siendo Gatos',
+    gatos_siendo_humanos2: 'Gatos Siendo Humanos',
+    gatos_enfadados3: 'Gatos Enfadados',
+    me_dijiste4: 'Me Dijiste',
 }
 
 const Home = () => {
@@ -55,17 +63,13 @@ const Home = () => {
     }
 
     return (
-        <div className="flex flex-col items-center w-full h-auto p-0 overflow-x-hidden ">
+        <div className="flex flex-col items-center w-full h-auto p-0 overflow-x-hidden">
             {categories.map((category) => (
                 <div
                     key={category}
-                    className={`w-full py-0 ${
-                        categoryClasses[category.toLowerCase()] || 'bg-white'
-                    }`}
+                    className={`w-full py-10 ${categoryClasses[category]}`} // Aquí aplicamos los fondos personalizados
                 >
-                    <h1 className="text-3xl font-bold mb-5 text-center text-white">
-                        Lista de Memes: {category}
-                    </h1>
+                    <h1 className="text-3xl font-bold mb-8 text-center text-white"></h1>
                     <MemeGrid
                         memes={memesByCategory[category] || []}
                         onDelete={(id) => handleDelete(category, id)}
