@@ -1,13 +1,13 @@
-import { createBrowserRouter } from "react-router-dom";
-import Layout from "../layout/Layout";
-import Home from "../pages/Home";
-import CreateMeme from "../pages/CreateMeme";
-import EditMeme from "../pages/EditMeme";
-import NotFound from "../pages/NotFound";
+import { createBrowserRouter } from 'react-router-dom';
+import Layout from '../layout/Layout';
+import Home from '../pages/Home';
+import CreateMeme from '../pages/CreateMeme';
+import EditMeme from '../pages/EditMeme';
+import NotFound from '../pages/NotFound';
 
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Layout />,
     errorElement: <NotFound />,
     children: [
@@ -16,11 +16,11 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "newmeme",
+        path: 'newmeme',
         element: <CreateMeme />,
       },
       {
-        path: "/editmeme/:id",
+        path: '/editmeme/:id',
         element: <EditMeme />,
       },
     ],

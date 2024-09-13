@@ -8,9 +8,10 @@
         "build": "vite build",
         "lint": "eslint .",
         "preview": "vite preview",
-        "apicat": "json-server --watch server/db.json"
+        "apicat": "json-server --watch server/db.json --port 3000"
     },
     "dependencies": {
+        "@vitejs/plugin-react": "^4.3.1",
         "axios": "^1.7.7",
         "classnames": "^2.5.1",
         "cloudinary": "^2.4.0",
