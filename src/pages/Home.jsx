@@ -50,8 +50,8 @@ const Home = () => {
             }
         }
 
-        fetchMemes()
-    }, [])
+    fetchMemes();
+  }, []);
 
     const handleDelete = async (category, id) => {
         try {
@@ -131,7 +131,8 @@ const Home = () => {
                 </div>
             ))}
         </div>
-    )
-}
+      
+  );
+};
 
-export default Home
+export default Home;
