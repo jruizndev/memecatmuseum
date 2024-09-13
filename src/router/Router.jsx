@@ -4,6 +4,7 @@ import Home from '../pages/Home'
 import CreateMeme from '../pages/CreateMeme'
 import EditMeme from '../pages/EditMeme'
 import NotFound from '../pages/NotFound'
+import Footer from '../components/Footer';
 
 export const router = createBrowserRouter([
     {
