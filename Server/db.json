@@ -1,3 +1,326 @@
 {
-  "memes": []
+    "memes": [
+        {
+            "id": "103",
+            "name": "Gato Curioso",
+            "description": "Un gato curioso, disfrutando de su día con una mirada de exploración. Un clásico en cualquier colección de memes.",
+            "category": "gatos_siendo_gatos",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos103.jpg",
+            "date": "2008-07-13",
+            "likes": 9918
+        },
+        {
+            "id": "1033",
+            "name": "Gato Curioso",
+            "description": "Un gato curioso, disfrutando de su día con una mirada de exploración. Un clásico en cualquier colección de memes.",
+            "category": "gatos_siendo_gatos1",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos103.jpg",
+            "date": "2008-07-13",
+            "likes": 9918
+        },
+        {
+            "id": "104",
+            "name": "Gato Relajado",
+            "description": "Captura un momento típico de un gato disfrutando de su entorno, ¡siempre alerta y elegante!",
+            "category": "gatos_siendo_gatos1",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos104.jpg",
+            "date": "2024-11-21",
+            "likes": 34268
+        },
+        {
+            "id": "105",
+            "name": "Gato Sereno",
+            "description": "Este meme muestra un gato en pleno modo 'gato': descansando y siendo la esencia de la tranquilidad.",
+            "category": "gatos_siendo_gatos1",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos105.jpg",
+            "date": "2017-10-26",
+            "likes": 77049
+        },
+        {
+            "id": "106",
+            "name": "Gato En Paz",
+            "description": "Nada como un gato relajado, y este meme lo refleja a la perfección.",
+            "category": "gatos_siendo_gatos1",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos106.jpg",
+            "date": "2018-04-28",
+            "likes": 15939
+        },
+        {
+            "id": "107",
+            "name": "Gato Tranquilo",
+            "description": "Con una pose perezosa, este gato parece estar en total armonía consigo mismo.",
+            "category": "gatos_siendo_gatos1",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos107.jpg",
+            "date": "2014-12-27",
+            "likes": 20521
+        },
+        {
+            "id": "108",
+            "name": "Gato Contento",
+            "description": "Una expresión de puro disfrute mientras el gato se deleita en sus actividades cotidianas.",
+            "category": "gatos_siendo_gatos1",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos108.jpg",
+            "date": "2015-03-07",
+            "likes": 11979
+        },
+        {
+            "id": "203",
+            "name": "Gato Curioso",
+            "description": "Un gato curioso, disfrutando de su día con una mirada de exploración. Un clásico en cualquier colección de memes.",
+            "category": "gatos_siendo_humanos2",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos103.jpg",
+            "date": "2008-07-13",
+            "likes": 9918
+        },
+        {
+            "id": "213",
+            "name": "Gato Curioso",
+            "description": "Un gato curioso, disfrutando de su día con una mirada de exploración. Un clásico en cualquier colección de memes.",
+            "category": "gatos_siendo_humanos2",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos103.jpg",
+            "date": "2008-07-13",
+            "likes": 9918
+        },
+        {
+            "id": "204",
+            "name": "Gato Relajado",
+            "description": "Captura un momento típico de un gato disfrutando de su entorno, ¡siempre alerta y elegante!",
+            "category": "gatos_siendo_humanos2",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos104.jpg",
+            "date": "2024-11-21",
+            "likes": 34268
+        },
+        {
+            "id": "206",
+            "name": "Gato En Paz",
+            "description": "Nada como un gato relajado, y este meme lo refleja a la perfección.",
+            "category": "gatos_siendo_humanos2",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos106.jpg",
+            "date": "2018-04-28",
+            "likes": 15939
+        },
+        {
+            "id": "207",
+            "name": "Gato Tranquilo",
+            "description": "Con una pose perezosa, este gato parece estar en total armonía consigo mismo.",
+            "category": "gatos_siendo_humanos2",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos107.jpg",
+            "date": "2014-12-27",
+            "likes": 20521
+        },
+        {
+            "id": "208",
+            "name": "Gato Contento",
+            "description": "Una expresión de puro disfrute mientras el gato se deleita en sus actividades cotidianas.",
+            "category": "gatos_siendo_humanos2",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos108.jpg",
+            "date": "2015-03-07",
+            "likes": 11979
+        },
+        {
+            "id": "209",
+            "name": "Gato Soñador",
+            "description": "Este meme captura el momento exacto en que un gato decide relajarse y disfrutar del día.",
+            "category": "gatos_siendo_humanos2",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos109.jpg",
+            "date": "2020-05-13",
+            "likes": 37887
+        },
+        {
+            "id": "211",
+            "name": "Gato Pensativo",
+            "description": "Este gato muestra una mezcla de curiosidad y tranquilidad mientras observa su entorno.",
+            "category": "gatos_siendo_humanos2",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos111.jpg",
+            "date": "2009-09-05",
+            "likes": 70961
+        },
+        {
+            "id": "214",
+            "name": "Gato Plácido",
+            "description": "La expresión de este gato refleja una serenidad absoluta, perfecta para momentos de paz.",
+            "category": "gatos_siendo_humanos2",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos114.jpg",
+            "date": "2010-01-26",
+            "likes": 52544
+        },
+        {
+            "id": "303",
+            "name": "Gato Curioso",
+            "description": "Un gato curioso, disfrutando de su día con una mirada de exploración. Un clásico en cualquier colección de memes.",
+            "category": "gatos_enfadados3",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos103.jpg",
+            "date": "2008-07-13",
+            "likes": 9918
+        },
+        {
+            "id": "304",
+            "name": "Gato Relajado",
+            "description": "Captura un momento típico de un gato disfrutando de su entorno, ¡siempre alerta y elegante!",
+            "category": "gatos_enfadados3",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos104.jpg",
+            "date": "2024-11-21",
+            "likes": 34268
+        },
+        {
+            "id": "305",
+            "name": "Gato Sereno",
+            "description": "Este meme muestra un gato en pleno modo 'gato': descansando y siendo la esencia de la tranquilidad.",
+            "category": "gatos_enfadados3",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos105.jpg",
+            "date": "2017-10-26",
+            "likes": 77049
+        },
+        {
+            "id": "306",
+            "name": "Gato En Paz",
+            "description": "Nada como un gato relajado, y este meme lo refleja a la perfección.",
+            "category": "gatos_enfadados3",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos106.jpg",
+            "date": "2018-04-28",
+            "likes": 15939
+        },
+        {
+            "id": "307",
+            "name": "Gato Tranquilo",
+            "description": "Con una pose perezosa, este gato parece estar en total armonía consigo mismo.",
+            "category": "gatos_enfadados3",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos107.jpg",
+            "date": "2014-12-27",
+            "likes": 20521
+        },
+        {
+            "id": "308",
+            "name": "Gato Contento",
+            "description": "Una expresión de puro disfrute mientras el gato se deleita en sus actividades cotidianas.",
+            "category": "gatos_enfadados3",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos108.jpg",
+            "date": "2015-03-07",
+            "likes": 11979
+        },
+        {
+            "id": "309",
+            "name": "Gato Soñador",
+            "description": "Este meme captura el momento exacto en que un gato decide relajarse y disfrutar del día.",
+            "category": "gatos_enfadados3",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos109.jpg",
+            "date": "2020-05-13",
+            "likes": 37887
+        },
+        {
+            "id": "310",
+            "name": "Gato Observador",
+            "description": "El meme perfecto para ilustrar la calma que emiten los gatos mientras disfrutan de un momento de descanso.",
+            "category": "gatos_enfadados3",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos110.jpg",
+            "date": "2019-03-28",
+            "likes": 87915
+        },
+        {
+            "id": "311",
+            "name": "Gato Pensativo",
+            "description": "Este gato muestra una mezcla de curiosidad y tranquilidad mientras observa su entorno.",
+            "category": "gatos_enfadados3",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos111.jpg",
+            "date": "2009-09-05",
+            "likes": 70961
+        },
+        {
+            "id": "314",
+            "name": "Gato Plácido",
+            "description": "La expresión de este gato refleja una serenidad absoluta, perfecta para momentos de paz.",
+            "category": "gatos_enfadados3",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos114.jpg",
+            "date": "2010-01-26",
+            "likes": 52544
+        },
+        {
+            "id": "403",
+            "name": "Gato Curioso",
+            "description": "Un gato curioso, disfrutando de su día con una mirada de exploración. Un clásico en cualquier colección de memes.",
+            "category": "me_dijiste4",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos103.jpg",
+            "date": "2008-07-13",
+            "likes": 9918
+        },
+        {
+            "id": "413",
+            "name": "Gato Curioso",
+            "description": "Un gato curioso, disfrutando de su día con una mirada de exploración. Un clásico en cualquier colección de memes.",
+            "category": "me_dijiste4",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos103.jpg",
+            "date": "2008-07-13",
+            "likes": 9918
+        },
+        {
+            "id": "404",
+            "name": "Gato Relajado",
+            "description": "Captura un momento típico de un gato disfrutando de su entorno, ¡siempre alerta y elegante!",
+            "category": "me_dijiste4",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos104.jpg",
+            "date": "2024-11-21",
+            "likes": 34268
+        },
+        {
+            "id": "405",
+            "name": "Gato Sereno",
+            "description": "Este meme muestra un gato en pleno modo 'gato': descansando y siendo la esencia de la tranquilidad.",
+            "category": "me_dijiste4",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos105.jpg",
+            "date": "2017-10-26",
+            "likes": 77049
+        },
+        {
+            "id": "406",
+            "name": "Gato En Paz",
+            "description": "Nada como un gato relajado, y este meme lo refleja a la perfección.",
+            "category": "me_dijiste4",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos106.jpg",
+            "date": "2018-04-28",
+            "likes": 15939
+        },
+        {
+            "id": "407",
+            "name": "Gato Tranquilo",
+            "description": "Con una pose perezosa, este gato parece estar en total armonía consigo mismo.",
+            "category": "me_dijiste4",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos107.jpg",
+            "date": "2014-12-27",
+            "likes": 20521
+        },
+        {
+            "id": "408",
+            "name": "Gato Contento",
+            "description": "Una expresión de puro disfrute mientras el gato se deleita en sus actividades cotidianas.",
+            "category": "me_dijiste4",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos108.jpg",
+            "date": "2015-03-07",
+            "likes": 11979
+        },
+        {
+            "id": "409",
+            "name": "Gato Soñador",
+            "description": "Este meme captura el momento exacto en que un gato decide relajarse y disfrutar del día.",
+            "category": "me_dijiste4",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos109.jpg",
+            "date": "2020-05-13",
+            "likes": 37887
+        },
+        {
+            "id": "411",
+            "name": "Gato Pensativo",
+            "description": "Este gato muestra una mezcla de curiosidad y tranquilidad mientras observa su entorno.",
+            "category": "me_dijiste4",
+            "image": "/src/assets/gatos-siendo-gatos1/gatos111.jpg",
+            "date": "2009-09-05",
+            "likes": 70961
+        },
+        {
+            "id": "c353",
+            "name": "dadsadsa",
+            "description": "dasdasd",
+            "category": "Gatos siendo gatos",
+            "image": "https://res.cloudinary.com/dv2jxa9lw/image/upload/v1726227669/w5sy6z2mpkphfyyf69kb.png"
+        }
+    ]
 }

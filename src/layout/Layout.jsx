@@ -1,9 +1,10 @@
 import { Outlet } from 'react-router-dom'
+import Nav from '../components/Nav/Nav' // Importa la barra de navegación
 
 const Layout = () => {
     return (
         <>
-            <nav>Mi nav</nav>
+            <Nav /> {/* Aquí se incluye la barra de navegación que creamos */}
             <Outlet />
             <footer>Mi footer</footer>
         </>
