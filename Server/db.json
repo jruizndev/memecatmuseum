@@ -298,20 +298,32 @@
       "likes": 37887
     },
     {
-      "id": "411",
-      "name": "Gato Pensativo",
-      "description": "Este gato muestra una mezcla de curiosidad y tranquilidad mientras observa su entorno.",
-      "category": "me_dijiste4",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos111.jpg",
-      "date": "2009-09-05",
-      "likes": 70961
-    },
-    {
       "id": "c353",
       "name": "dadsadsa",
       "description": "dasdasd",
       "category": "Gatos siendo gatos",
       "image": "https://res.cloudinary.com/dv2jxa9lw/image/upload/v1726227669/w5sy6z2mpkphfyyf69kb.png"
+    },
+    {
+      "id": "7f40",
+      "name": "Dario Pacheco",
+      "description": "fthwth",
+      "category": "Gatos siendo gatos",
+      "image": "https://res.cloudinary.com/dv2jxa9lw/image/upload/v1726429004/vghpswueasl3strx7grd.png"
+    },
+    {
+      "id": "2bc6",
+      "name": "Gato 🐱",
+      "description": "aaa",
+      "category": "Gatos siendo humanos",
+      "image": "https://res.cloudinary.com/dv2jxa9lw/image/upload/v1726433691/ulwvxgyixnqwvfzsrhhz.jpg"
+    },
+    {
+      "id": "80e8",
+      "name": "Gato 🐱",
+      "description": "vjvjvkjgvkjgvkjhvkv",
+      "category": "Gatos enfadados",
+      "image": "https://res.cloudinary.com/dv2jxa9lw/image/upload/v1726435111/k8jyc0esmr24tlof1k0o.png"
     }
   ]
 }
