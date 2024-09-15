@@ -52,56 +52,56 @@ const CreateMeme = ({ onClose, onMemeCreated }) => {
   };
 
   return (
-    <div className="rounded-lg relative inline-block text-gray p-4 bg-gray-100 shadow-lg w-[600px] mx-auto transition-transform duration-300 ease-in-out hover:scale-105 hover:bg-gray-200 hover:shadow-2xl">
-      {/* Título  */}
+    <div className="rounded-lg relative inline-block text-gray p-4 bg-gray-100 shadow-lg w-full max-w-lg mx-auto transition-transform duration-300 ease-in-out hover:scale-105 hover:bg-gray-200 hover:shadow-2xl">
+      {/* Título */}
       <h1 className="font-inter font-semibold text-lg text-left mb-4 text-gray-800">
         Crear Nuevo Meme
       </h1>
 
       {/* Formulario */}
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        <div className="flex items-center mb-2">
+        <div className="flex flex-col sm:flex-row items-center mb-2">
           <label
             htmlFor="name"
-            className="font-inter text-sm mr-2 flex-shrink-0 w-28 text-gray-800"
+            className="font-inter text-sm mb-2 sm:mb-0 sm:mr-2 flex-shrink-0 w-full sm:w-28 text-gray-800"
           >
             Nombre:
           </label>
           <input
             id="name"
             {...register("name", { required: true })}
-            className="border border-gray-300 p-1 text-sm flex-1"
+            className="border border-gray-300 p-1 text-sm w-full"
             placeholder="Nombre del meme"
           />
         </div>
 
-        <div className="flex items-center mb-2">
+        <div className="flex flex-col sm:flex-row items-center mb-2">
           <label
             htmlFor="description"
-            className="font-inter text-sm mr-2 flex-shrink-0 w-28 text-gray-800"
+            className="font-inter text-sm mb-2 sm:mb-0 sm:mr-2 flex-shrink-0 w-full sm:w-28 text-gray-800"
           >
             Descripción:
           </label>
           <textarea
             id="description"
             {...register("description", { required: true })}
-            className="border border-gray-300 p-1 text-sm flex-1 text-gray-500"
+            className="border border-gray-300 p-1 text-sm w-full text-gray-500"
             placeholder="Descripción del meme"
             maxLength={100} //máximo de caracteres
           />
         </div>
 
-        <div className="flex items-center mb-2">
+        <div className="flex flex-col sm:flex-row items-center mb-2">
           <label
             htmlFor="category"
-            className="font-inter text-sm mr-2 flex-shrink-0 w-28 text-gray-800"
+            className="font-inter text-sm mb-2 sm:mb-0 sm:mr-2 flex-shrink-0 w-full sm:w-28 text-gray-800"
           >
             Categoría:
           </label>
           <select
             id="category"
             {...register("category", { required: true })}
-            className="border border-gray-300 p-1 text-sm flex-1 text-gray-500"
+            className="border border-gray-300 p-1 text-sm w-full text-gray-500"
           >
             <option value="Gatos siendo gatos">Gatos siendo gatos</option>
             <option value="Gatos siendo humanos">Gatos siendo humanos</option>
@@ -110,10 +110,10 @@ const CreateMeme = ({ onClose, onMemeCreated }) => {
           </select>
         </div>
 
-        <div className="flex items-center mb-2">
+        <div className="flex flex-col sm:flex-row items-center mb-2">
           <label
             htmlFor="image"
-            className="font-inter text-sm mr-2 flex-shrink-0 w-28 text-gray-800"
+            className="font-inter text-sm mb-2 sm:mb-0 sm:mr-2 flex-shrink-0 w-full sm:w-28 text-gray-800"
           >
             Imágen:
           </label>
@@ -122,25 +122,25 @@ const CreateMeme = ({ onClose, onMemeCreated }) => {
             type="file"
             accept="image/*" //sólo acepta archivo de imagenes
             onChange={handleFileChange}
-            className="border border-gray-300 p-1 text-sm flex-1 text-gray-500"
+            className="border border-gray-300 p-1 text-sm w-full"
           />
-          {uploading && <p className="ml-4 text-xs">Subiendo imagen...</p>}
+          {uploading && <p className="mt-2 text-xs">Subiendo imagen...</p>}
           {imageUrl && (
             <img src={imageUrl} alt="Uploaded" className="mt-2 w-16 h-16" />
           )}
         </div>
 
-        <div className="flex justify-center mt-4 space-x-20">
+        <div className="flex flex-col sm:flex-row justify-center mt-4 space-y-4 sm:space-y-0 sm:space-x-4">
           <button
             type="submit"
-            className="bg-black text-white py-2 px-4 text-sm rounded-[20px] transition-all duration-300 ease-in-out hover:bg-green-200"
+            className="bg-black text-white py-2 px-4 text-sm rounded-[20px] transition-all duration-300 ease-in-out hover:bg-green-200 w-full sm:w-auto"
           >
-            Crear Meme
+            Subir meme
           </button>
           <button
             type="button"
             onClick={onClose}
-            className="bg-red-500 text-white py-2 px-4 text-sm rounded-[20px] transition-all duration-300 ease-in-out hover:bg-red-300"
+            className="bg-red-500 text-white py-2 px-4 text-sm rounded-[20px] transition-all duration-300 ease-in-out hover:bg-red-300 w-full sm:w-auto"
           >
             Cancelar
           </button>
