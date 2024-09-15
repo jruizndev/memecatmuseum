@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import Filter from './Filter'
+import FilterContext from '../../layout/FilterContext.jsx'
 
 const Nav = () => {
+    const { handleSelectChange } = useContext(FilterContext)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isFilterOpen, setIsFilterOpen] = useState(false)
     const location = useLocation()
@@ -10,19 +12,15 @@ const Nav = () => {
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen)
         if (!isMenuOpen) {
-            setIsFilterOpen(false) // Cierra el filtro cuando se abre el menú
+            setIsFilterOpen(false)
         }
     }
 
     const toggleFilter = () => {
         setIsFilterOpen(!isFilterOpen)
         if (!isFilterOpen) {
-            setIsMenuOpen(false) // Cierra el menú cuando se abre el filtro
+            setIsMenuOpen(false)
         }
-    }
-
-    const handleSelectChange = (selectedOption) => {
-        console.log('Selected option:', selectedOption)
     }
 
     const isHomePage = location.pathname === '/'
@@ -39,7 +37,7 @@ const Nav = () => {
                             className="w-16 h-16"
                         />
                     </NavLink>
-                    <h1 className="font-jaro text-5Xl">MECAT MUSEUM</h1>
+                    <h1 className="font-jaro text-2xl">MeCat Museum</h1>
                 </div>
 
                 {/* Barra de búsqueda y menú hamburguesa */}
@@ -53,7 +51,7 @@ const Nav = () => {
                                 className="w-6 h-6 cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-125 hover:rotate-12 hover:opacity-90 hover:animate-pulse"
                                 onClick={() => {
                                     if (!isFilterOpen) {
-                                        toggleFilter() // Abre el filtro si no está abierto
+                                        toggleFilter()
                                     }
                                 }}
                             />
@@ -93,13 +91,13 @@ const Nav = () => {
             >
                 <ul className="flex flex-col p-4">
                     <li className="py-2 text-lg text-center">
-                        <NavLink to="/">Añadir Meme</NavLink>
+                        <NavLink to="/">Home</NavLink>
                     </li>
                     <li className="py-2 text-lg text-center">
-                        <NavLink to="/">Editar Meme</NavLink>
+                        <NavLink to="/">About Us</NavLink>
                     </li>
                     <li className="py-2 text-lg text-center">
-                        <NavLink to="/">Sobre Nosotros</NavLink>
+                        <NavLink to="/">Contacto</NavLink>
                     </li>
                 </ul>
             </div>
