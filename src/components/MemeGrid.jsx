@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react'
-import Masonry from 'masonry-layout'
+import React, { useEffect, useRef } from 'react';
+import Masonry from 'masonry-layout';
 
 const generatePattern = (memes) => {
     const positions = [
@@ -12,32 +12,32 @@ const generatePattern = (memes) => {
         { gridRow: 4, gridColumn: 2 },
         { gridRow: 5, gridColumn: 2 },
         { gridRow: 5, gridColumn: 3 },
-    ]
+    ];
 
     return memes.map((meme, index) => {
-        const randomMarginTop = Math.floor(Math.random() * 120) + 0 // Márgen superior aleatorio
-        const randomMarginBottom = Math.floor(Math.random() * 120) + 30 // Márgen inferior aleatorio
+        const randomMarginTop = Math.floor(Math.random() * 120) + 0; // Márgen superior aleatorio
+        const randomMarginBottom = Math.floor(Math.random() * 120) + 30; // Márgen inferior aleatorio
 
         if (index < positions.length) {
-            const position = positions[index]
+            const position = positions[index];
             return {
                 ...meme,
                 ...position,
                 randomMarginTop,
                 randomMarginBottom,
-            }
+            };
         } else {
             return {
                 ...meme,
                 randomMarginTop,
                 randomMarginBottom,
-            }
+            };
         }
-    })
-}
+    });
+};
 
-const MemeGrid = ({ memes, onDelete }) => {
-    const gridRef = useRef(null)
+const MemeGrid = ({ memes, onDelete, onEdit }) => {
+    const gridRef = useRef(null);
 
     useEffect(() => {
         if (gridRef.current) {
@@ -46,19 +46,19 @@ const MemeGrid = ({ memes, onDelete }) => {
                 columnWidth: '.grid-item',
                 percentPosition: true,
                 gutter: 10, // Ajusta el espaciado entre los elementos
-            })
+            });
 
             // Asegúrate de que Masonry se actualice si cambian los memes
-            return () => masonry.destroy()
+            return () => masonry.destroy();
         }
-    }, [memes])
+    }, [memes]);
 
-    const patternedMemes = generatePattern(memes)
+    const patternedMemes = generatePattern(memes);
 
     return (
         <div
             ref={gridRef}
-            className="flex flex-wrap items-start justify-start ml-40 w-[60%] mx-auto pt-"
+            className="flex flex-wrap items-start justify-start ml-40 w-[60%] mx-auto"
         >
             {patternedMemes.map((meme) => (
                 <div
@@ -83,16 +83,24 @@ const MemeGrid = ({ memes, onDelete }) => {
                     <p className="text-sm text-gray-600 text-center p-2">
                         {meme.description}
                     </p>
-                    <button
-                        onClick={() => onDelete(meme.id)}
-                        className="mt-2 px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
-                    >
-                        Eliminar
-                    </button>
+                    <div className="flex justify-around p-2">
+                        <button
+                            onClick={() => onDelete(meme.id)}
+                            className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
+                        >
+                            Eliminar
+                        </button>
+                        <button
+                            onClick={() => onEdit(meme)} // Pasar el meme actual para edición
+                            className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
+                        >
+                            Editar
+                        </button>
+                    </div>
                 </div>
             ))}
         </div>
-    )
-}
+    );
+};
 
-export default MemeGrid
+export default MemeGrid;

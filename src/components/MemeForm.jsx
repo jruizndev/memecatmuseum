@@ -1,0 +1,158 @@
+/* eslint-disable react/prop-types */
+import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import axios from "axios";
+
+const MemeForm = ({ onSubmitForm, initialData, onClose, formTitle }) => {
+  const { register, handleSubmit, reset, setValue } = useForm();
+  const [imageUrl, setImageUrl] = useState(initialData?.image || "");
+  const [uploading, setUploading] = useState(false);
+
+  // Si hay datos iniciales (como en el caso de EditMeme), los seteamos
+  useEffect(() => {
+    if (initialData) {
+      setValue("name", initialData.name);
+      setValue("description", initialData.description);
+      setValue("category", initialData.category);
+      setImageUrl(initialData.image);
+    }
+  }, [initialData, setValue]);
+
+  const uploadImageToCloudinary = async (file) => {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append(
+      "upload_preset",
+      import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET
+    );
+
+    setUploading(true);
+    try {
+      const response = await axios.post(
+        `https://api.cloudinary.com/v1_1/${
+          import.meta.env.VITE_CLOUDINARY_CLOUD_NAME
+        }/image/upload`,
+        formData
+      );
+      setImageUrl(response.data.secure_url);
+      setUploading(false);
+    } catch (error) {
+      console.error("Error subiendo imagen a Cloudinary", error);
+      setUploading(false);
+    }
+  };
+
+  const handleFileChange = async (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      await uploadImageToCloudinary(file);
+    }
+  };
+
+  const onSubmit = async (data) => {
+    if (imageUrl) {
+      const memeData = { ...data, image: imageUrl };
+      await onSubmitForm(memeData);
+      reset();
+      onClose();
+    } else {
+      alert("Por favor, sube una imagen antes de continuar");
+    }
+  };
+
+  return (
+    <div className="rounded-lg relative inline-block text-gray p-4 bg-gray-100 shadow-lg hover:shadow-2xl transition-transform duration-300 ease-in-out transform hover:scale-105 cat-button">
+      <h1 className="font-inter font-bold text-2xl tracking-3px text-center mb-6">
+        {formTitle}
+      </h1>
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+        <div className="flex items-center mb-4">
+          <label
+            htmlFor="name"
+            className="font-inter text-base mr-4 flex-shrink-0 w-32"
+          >
+            Nombre:
+          </label>
+          <input
+            id="name"
+            {...register("name", { required: true })}
+            className="border border-gray-300 p-2 flex-1"
+            placeholder="Nombre del meme"
+          />
+        </div>
+
+        <div className="flex items-center mb-4">
+          <label
+            htmlFor="description"
+            className="font-inter text-base mr-4 flex-shrink-0 w-32"
+          >
+            Descripción:
+          </label>
+          <textarea
+            id="description"
+            {...register("description", { required: true })}
+            className="border border-gray-300 p-2 flex-1"
+            placeholder="Descripción del meme"
+          />
+        </div>
+
+        <div className="flex items-center mb-4">
+          <label
+            htmlFor="category"
+            className="font-inter text-base mr-4 flex-shrink-0 w-32"
+          >
+            Categoría:
+          </label>
+          <select
+            id="category"
+            {...register("category", { required: true })}
+            className="border border-gray-300 p-2 flex-1"
+          >
+            <option value="Gatos siendo gatos">Gatos siendo gatos</option>
+            <option value="Gatos siendo humanos">Gatos siendo humanos</option>
+            <option value="Gatos enfadados">Gatos enfadados</option>
+            <option value="Me Dijiste">Me dijiste</option>
+          </select>
+        </div>
+
+        <div className="flex items-center mb-4">
+          <label
+            htmlFor="image"
+            className="font-inter text-base mr-4 flex-shrink-0 w-32"
+          >
+            Imágen:
+          </label>
+          <input
+            id="image"
+            type="file"
+            accept="image/*"
+            onChange={handleFileChange}
+            className="border border-blue-300 p-2 flex-1"
+          />
+          {uploading && <p className="ml-4">Subiendo imagen...</p>}
+          {imageUrl && (
+            <img src={imageUrl} alt="Uploaded" className="mt-4 w-32 h-32" />
+          )}
+        </div>
+
+        <div className="flex justify-between mt-4">
+          <button
+            type="submit"
+            className="bg-black text-white py-3 px-8 rounded-3xl transition-all duration-300 ease-in-out hover:bg-pink-300"
+          >
+            Guardar Meme
+          </button>
+          <button
+            type="button"
+            onClick={onClose}
+            className="bg-red-500 text-white py-3 px-8 rounded-3xl transition-all duration-300 ease-in-out hover:bg-pink-200"
+          >
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+};
+
+export default MemeForm;

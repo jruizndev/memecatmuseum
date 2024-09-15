@@ -28,15 +28,6 @@
       "likes": 34268
     },
     {
-      "id": "105",
-      "name": "Gato Sereno",
-      "description": "Este meme muestra un gato en pleno modo 'gato': descansando y siendo la esencia de la tranquilidad.",
-      "category": "gatos_siendo_gatos1",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos105.jpg",
-      "date": "2017-10-26",
-      "likes": 77049
-    },
-    {
       "id": "106",
       "name": "Gato En Paz",
       "description": "Nada como un gato relajado, y este meme lo refleja a la perfección.",
