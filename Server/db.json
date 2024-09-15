@@ -4,7 +4,7 @@
       "id": "103",
       "name": "Gato Curioso",
       "description": "Un gato curioso, disfrutando de su día con una mirada de exploración. Un clásico en cualquier colección de memes.",
-      "category": "gatos_siendo_gatos",
+      "category": "gatos_siendo_gatos1",
       "image": "/src/assets/gatos-siendo-gatos1/gatos103.jpg",
       "date": "2008-07-13",
       "likes": 9918
@@ -307,11 +307,13 @@
       "likes": 70961
     },
     {
-      "id": "c353",
-      "name": "dadsadsa",
-      "description": "dasdasd",
-      "category": "Gatos siendo gatos",
-      "image": "https://res.cloudinary.com/dv2jxa9lw/image/upload/v1726227669/w5sy6z2mpkphfyyf69kb.png"
+      "id": "411",
+      "name": "Gato Pensativo",
+      "description": "Este gato muestra una mezcla de curiosidad y tranquilidad mientras observa su entorno.",
+      "category": "gatos_siendo_gatos1",
+      "image": "/src/assets/gatos-siendo-gatos1/gatos111.jpg",
+      "date": "2009-09-05",
+      "likes": 70961
     }
   ]
 }

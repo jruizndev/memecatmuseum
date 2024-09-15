@@ -14,6 +14,7 @@ export default {
             },
             fontFamily: {
                 inter: ['Inter', 'sans-serif'],
+                jaro: ['Jaro', 'sans-serif'],
             },
             fontSize: {
                 '20px': '20px',

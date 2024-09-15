@@ -1,15 +1,12 @@
-// Filter.js
 import React from 'react'
 import Select from 'react-select'
 
-// Opciones para los filtros
 const categories = [
     { label: 'Todas', value: 'Todas' },
     { label: 'Gatos siendo gatos', value: 'Gatos siendo gatos' },
     { label: 'Gatos siendo humanos', value: 'Gatos siendo humanos' },
     { label: 'Gatos enfadados', value: 'Gatos enfadados' },
     { label: 'Me dijiste', value: 'Me dijiste' },
-    { label: 'Popurri', value: 'Popurri' },
 ]
 
 const popularity = [
@@ -25,15 +22,13 @@ const date = [
 const Filter = ({ isFilterOpen, toggleFilter, handleSelectChange }) => {
     return (
         <div
-            className={`fixed top-[72px] left-0 right-0 flex justify-end bg-slate-50 bg-opacity-70 backdrop-blur-sm z-20 ${
+            className={`fixed top-[72px] left-0 right-0 bg-slate-40 bg-opacity-70 backdrop-blur-sm z-20 transition-all duration-500 ease-in-out transform ${
                 isFilterOpen
-                    ? 'opacity-100 transform translate-y-0'
-                    : 'opacity-0 transform -translate-y-10'
+                    ? 'translate-y-0 opacity-100'
+                    : '-translate-y-full opacity-0'
             }`}
-            style={{ display: isFilterOpen ? 'block' : 'none' }}
         >
-            {/* Filtros */}
-            <div className="absolute top-full left-0 w-full bg-slate-50 bg-opacity-70 backdrop-blur-sm shadow-md z-10 p-4 flex flex-col transition-all duration-300 ease-in-out">
+            <div className="w-full bg-slate-50 bg-opacity-70 backdrop-blur-sm shadow-md z-10 p-4 flex flex-col transition-all duration-300 ease-in-out">
                 <div className="w-[92%] mb-[30px] flex items-center justify-between mx-auto">
                     <img
                         src="/src/assets/icons/filter.svg"
