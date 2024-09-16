@@ -1,36 +1,28 @@
-// SlideInText.js
-import React from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import "../components/title.css";
 
-const SlideInText = ({ text }) => {
+const Title = ({ text }) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 1000); // Adjust the delay as needed
+
+    return () => clearTimeout(timer); // Cleanup the timer on component unmount
+  }, []);
+
   return (
-    <motion.div
-      initial={{ x: "-100vw", opacity: 0 }} // Start off-screen to the left and hidden
-      animate={{ x: 0, opacity: 1 }} // Slide to the original position and reveal
-      transition={{ type: "spring", stiffness: 50, damping: 10 }} // Spring animation for a smooth effect
+    <motion.h1
+      className="title"
+      initial={{ x: -100, opacity: 0 }}
+      animate={{ x: isVisible ? 0 : -100, opacity: isVisible ? 1 : 0 }}
+      transition={{ duration: 0.5 }}
     >
-      {text}
-    </motion.div>
+      {text || "Default Title"} {/* Fallback in case text is undefined */}
+    </motion.h1>
   );
 };
 
-export default SlideInText;
-
-// // //
-// 3. Use the Animation Component:
-
-// Import and use this component in your main application or wherever you want the animation to appear.
-//  App.js
-// import React from 'react';
-// import SlideInText from './SlideInText';
-
-// function App() {
-//   return (
-//     <div>
-//       <h1>Your Website</h1>
-//       <SlideInText text="Sustainability and Culture" />
-//     </div>
-//   );
-// }
-
-// export default App;
+export default Title;
