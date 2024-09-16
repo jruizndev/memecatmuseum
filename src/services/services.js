@@ -60,7 +60,6 @@ export const updateMeme = async (id, updatedMemeData) => {
     }
 }
 
-
 // Eliminar un meme por ID
 export const deleteMeme = async (id) => {
     try {
@@ -70,14 +69,3 @@ export const deleteMeme = async (id) => {
         throw error
     }
 }
-// Actualizar los likes de un meme por ID
-export const updateLikes = async (id, newLikes) => {
-    try {
-        const response = await axios.put(`${BaseUrl}/${id}`, { likes: newLikes });
-        return response.data;
-    } catch (error) {
-        console.error('Error al actualizar los likes:', error);
-        throw error;
-    }
-};
-

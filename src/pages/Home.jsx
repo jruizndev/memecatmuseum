@@ -115,9 +115,9 @@ const Home = () => {
         return Object.values(memesByCategory).flat()
     }
 
-    // useEffect para aplicar los filtros cada vez que cambian
+    // Aplicamos filtros cada vez que cambiamos
     useEffect(() => {
-        // Obtenemos todos los memes combinados
+        // Otenem memes combinados
         const allMemes = Object.values(memesByCategory).flat()
 
         // Llamamos a la función de filtrado y ordenamiento

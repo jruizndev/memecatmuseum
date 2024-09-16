@@ -27,21 +27,21 @@ const Filter = ({ isFilterOpen, toggleFilter }) => {
     const customStyles = {
         control: (provided) => ({
             ...provided,
-            backgroundColor: '#FFFFFF', // Gris claro para el fondo
-            borderColor: '#e5e7eb', // Gris medio para el borde
+            backgroundColor: '#FFFFFF',
+            borderColor: '#e5e7eb',
             borderRadius: '0.375rem',
-            boxShadow: 'none', // Eliminamos la sombra por defecto
+            boxShadow: 'none',
             '&:hover': {
-                borderColor: '#A8A8A8', // Gris un poco más oscuro al pasar el ratón
+                borderColor: '#A8A8A8',
             },
         }),
         // Estilos para caja option
         option: (provided, state) => ({
             ...provided,
-            backgroundColor: state.isSelected ? '#e2e8f0' : 'white', // Gris claro si está seleccionada, blanco si no
-            color: state.isSelected ? '#334155' : '#4b5563', // Texto gris oscuro si está seleccionada, gris medio si no
+            backgroundColor: state.isSelected ? '#e2e8f0' : 'white',
+            color: state.isSelected ? '#334155' : '#4b5563',
             '&:hover': {
-                backgroundColor: '#cbd5e1', // Gris más claro al pasar el ratón
+                backgroundColor: '#cbd5e1',
             },
         }),
 

@@ -67,7 +67,7 @@ const MemeGrid = ({ memes, onDelete }) => {
                     style={{
                         marginTop: `${meme.randomMarginTop}px`,
                         marginBottom: `${meme.randomMarginBottom}px`,
-                        width: 'calc(33.333% - 16px)', // Ajusta el ancho para que haya espacio entre los items
+                        width: 'calc(33.333% - 45px)',
                     }}
                 >
                     <h2 className="text-md font-semibold text-center p-2">
