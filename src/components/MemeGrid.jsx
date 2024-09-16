@@ -2,8 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import Masonry from 'masonry-layout';
 import Card from '../components/Card'; // Asegúrate de que la ruta sea correcta
 
-
-
 const generatePattern = (memes) => {
   const positions = [
     { gridRow: 1, gridColumn: 2 },
@@ -49,9 +47,9 @@ const MemeGrid = ({ memes, onDelete }) => {
   }, [memes]);
 
   const handleFlip = (id) => {
-    setFlipped((prevFlipped) => ({
-      ...prevFlipped,
-      [id]: !prevFlipped[id],
+    setFlipped((prevState) => ({
+      ...prevState,
+      [id]: !prevState[id], // Invierte el estado de la tarjeta con el ID
     }));
   };
 
@@ -60,7 +58,7 @@ const MemeGrid = ({ memes, onDelete }) => {
   return (
     <div
       ref={gridRef}
-      className="flex flex-wrap items-start justify-start ml-40 w-[60%] mx-auto pt-4"
+      className="flex flex-wrap sm:flex-col items-start justify-start ml-40 w-[60%] mx-auto pt-4"
     >
       {patternedMemes.map((meme) => (
         <div
@@ -72,18 +70,16 @@ const MemeGrid = ({ memes, onDelete }) => {
             width: 'calc(33.333% - 16px)', // Ajusta el ancho para que haya espacio entre los items
           }}
         >
-          {/* Usa el componente <Card /> para renderizar cada meme */}
           <Card
             meme={meme}
             handleDelete={onDelete}
-            handleFlip={handleFlip}
-            flipped={flipped[meme.id] || false} // Pasamos el estado de volteo
+            handleFlip={() => handleFlip(meme.id)} // Asegúrate de pasar la función correctamente
+            isFlipped={flipped[meme.id] || false} // Pasamos el estado de volteo
           />
         </div>
       ))}
     </div>
   );
-
 };
 
 export default MemeGrid;
