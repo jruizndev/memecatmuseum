@@ -1,33 +1,28 @@
-// Nav.js
-import React, { useState, useRef } from 'react'
+import React, { useState, useContext } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
-import Filter from './Filter' // Importa el componente Filter
+import Filter from './Filter'
+import FilterContext from '../../layout/FilterContext.jsx'
 
 const Nav = () => {
+    const { handleSelectChange } = useContext(FilterContext)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isFilterOpen, setIsFilterOpen] = useState(false)
     const location = useLocation()
-    const menuRef = useRef(null)
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen)
         if (!isMenuOpen) {
-            setIsFilterOpen(false) // Cierra el filtro cuando se abre el menú
+            setIsFilterOpen(false)
         }
     }
 
     const toggleFilter = () => {
         setIsFilterOpen(!isFilterOpen)
         if (!isFilterOpen) {
-            setIsMenuOpen(false) // Cierra el menú cuando se abre el filtro
+            setIsMenuOpen(false)
         }
     }
 
-    const handleSelectChange = (selectedOption) => {
-        console.log('Selected option:', selectedOption)
-    }
-
-    // Verifica si estamos en la página de inicio
     const isHomePage = location.pathname === '/'
 
     return (
@@ -42,28 +37,23 @@ const Nav = () => {
                             className="w-16 h-16"
                         />
                     </NavLink>
-                    <h1>MeCat Museum</h1>
+                    <h1 className="font-jaro text-2xl">MeCat Museum</h1>
                 </div>
 
                 {/* Barra de búsqueda y menú hamburguesa */}
                 <div className="flex items-center justify-end mr-[4%] space-x-4">
-                    {/* Barra de búsqueda */}
+                    {/* Ícono de búsqueda */}
                     {isHomePage && (
-                        <div className="relative w-[80%] max-w-[600px]">
-                            <input
-                                type="text"
-                                placeholder="Buscar"
-                                className="w-full p-2 pr-10 pl-4 border rounded-md focus:outline-none"
-                                onClick={() => {
-                                    if (!isFilterOpen) {
-                                        toggleFilter() // Solo abre el filtro si no está abierto
-                                    }
-                                }}
-                            />
+                        <div className="relative">
                             <img
                                 src="/src/assets/icons/search.svg"
                                 alt="Buscar"
-                                className="absolute top-1/2 right-2 transform -translate-y-1/2 w-5 h-5"
+                                className="w-6 h-6 cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-125 hover:rotate-12 hover:opacity-90 hover:animate-pulse"
+                                onClick={() => {
+                                    if (!isFilterOpen) {
+                                        toggleFilter()
+                                    }
+                                }}
                             />
                         </div>
                     )}
@@ -93,25 +83,24 @@ const Nav = () => {
                 />
             )}
 
-            {/* Menú desplegable */}
-            {isMenuOpen && (
-                <div
-                    className={`fixed right-0 top-[72px] w-[40%] bg-black bg-opacity-70 backdrop-blur-sm text-white shadow-lg transition-all duration-300 ease-in-out z-40`}
-                    ref={menuRef}
-                >
-                    <ul className="flex flex-col p-4">
-                        <li className="py-2 text-lg text-center">
-                            <NavLink to="/">Añadir Meme</NavLink>
-                        </li>
-                        <li className="py-2 text-lg text-center">
-                            <NavLink to="/">Editar Meme</NavLink>
-                        </li>
-                        <li className="py-2 text-lg text-center">
-                            <NavLink to="/">Sobre Nosotros</NavLink>
-                        </li>
-                    </ul>
-                </div>
-            )}
+            {/* Menú hamburguesa desde la derecha con altura limitada */}
+            <div
+                className={`fixed right-0 top-[72px] w-[40%] h-auto bg-black bg-opacity-70 backdrop-blur-sm text-white shadow-lg z-40 transition-all duration-500 ease-in-out transform ${
+                    isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+                }`}
+            >
+                <ul className="flex flex-col p-4">
+                    <li className="py-2 text-lg text-center">
+                        <NavLink to="/">Home</NavLink>
+                    </li>
+                    <li className="py-2 text-lg text-center">
+                        <NavLink to="/">About Us</NavLink>
+                    </li>
+                    <li className="py-2 text-lg text-center">
+                        <NavLink to="/">Contacto</NavLink>
+                    </li>
+                </ul>
+            </div>
         </>
     )
 }
