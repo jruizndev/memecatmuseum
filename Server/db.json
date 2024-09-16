@@ -208,15 +208,6 @@
       "likes": 70961
     },
     {
-      "id": "314",
-      "name": "Gato Plácido",
-      "description": "La expresión de este gato refleja una serenidad absoluta, perfecta para momentos de paz.",
-      "category": "gatos_enfadados3",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos114.jpg",
-      "date": "2010-01-26",
-      "likes": 52544
-    },
-    {
       "id": "403",
       "name": "Gato Curioso",
       "description": "Un gato curioso, disfrutando de su día con una mirada de exploración. Un clásico en cualquier colección de memes.",
@@ -361,6 +352,13 @@
       "description": "aee",
       "category": " gatos_siendo_gatos1",
       "image": "https://res.cloudinary.com/dv2jxa9lw/image/upload/v1726488704/l7jwgvlp0d6ybkass6vi.png"
+    },
+    {
+      "id": "046c",
+      "name": "Dario Pacheco",
+      "description": "dadadadadadadda",
+      "category": "me_dijiste4",
+      "image": "https://res.cloudinary.com/dv2jxa9lw/image/upload/v1726490651/foe4aulmpqpqrskzdeqz.jpg"
     }
   ]
 }
