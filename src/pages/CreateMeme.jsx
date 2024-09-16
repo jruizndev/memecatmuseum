@@ -70,7 +70,7 @@ const CreateMeme = ({ onClose, onMemeCreated }) => {
           <input
             id="name"
             {...register("name", { required: true })}
-            className="border border-gray-300 p-1 text-sm w-full"
+            className="border border-gray-300 p-1 text-sm w-full text"
             placeholder="Nombre del meme"
           />
         </div>

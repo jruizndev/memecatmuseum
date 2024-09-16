@@ -92,10 +92,6 @@ const Home = () => {
       <h1 className="text-4xl font-bold text-center mb-8">
         Lista de Memes de Gatos
       </h1>
-      <h2 className="fixed right-[30px] top-1/3 text-gray-800 text-[50px] sm:text-[75px] md:text-[100px] font-semibold leading-[1.2] custom-font z-50">
-        Gatos & <br />
-        Gatos
-      </h2>
       <div className="flex justify-center mb-6">
         <button
           onClick={openModal}
