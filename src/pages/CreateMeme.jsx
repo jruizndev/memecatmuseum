@@ -105,6 +105,9 @@ const CreateMeme = ({ onClose, onMemeCreated }) => {
             {...register("category", { required: true })}
             className="border border-gray-300 p-1 text-sm w-full text-gray-500"
           >
+            <option value="" disabled selected>
+              Selecciona una categoría
+            </option>
             <option value="gatos_siendo_gatos1">Gatos siendo gatos</option>
             <option value="gatos_siendo_humanos2">Gatos siendo humanos</option>
             <option value="gatos_enfadados3">Gatos enfadados</option>
