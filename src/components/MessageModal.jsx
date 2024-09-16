@@ -19,7 +19,7 @@ const MessageModal = ({
         style={{ minWidth: '300px', ...modalStyle }}
       >
         <h2 className='text-2xl font-bold mb-4'>
-          {type === 'success' ? 'Éxito' : 'Error'}
+          {type === 'success' ? '' : 'Error'}
         </h2>
         <p className='mb-6'>{message}</p>
 

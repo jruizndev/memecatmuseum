@@ -1,43 +1,40 @@
-/* eslint-disable react/prop-types */
-import React, { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import axios from "axios";
 
-const MemeForm = ({ onSubmitForm, initialData, onClose, formTitle }) => {
+const MemeForm = ({ onSubmit, initialData, onClose, submitButtonText }) => {
   const { register, handleSubmit, reset, setValue } = useForm();
-  const [imageUrl, setImageUrl] = useState(initialData?.image || '');
+  const [imageUrl, setImageUrl] = useState(initialData?.image || "");
   const [uploading, setUploading] = useState(false);
 
   // Si hay datos iniciales (como en el caso de EditMeme), los seteamos
   useEffect(() => {
     if (initialData) {
-      setValue('name', initialData.name);
-      setValue('description', initialData.description);
-      setValue('category', initialData.category);
+      setValue("name", initialData.name);
+      setValue("description", initialData.description);
+      setValue("category", initialData.category);
       setImageUrl(initialData.image);
     }
   }, [initialData, setValue]);
 
   const uploadImageToCloudinary = async (file) => {
     const formData = new FormData();
-    formData.append('file', file);
+    formData.append("file", file);
     formData.append(
-      'upload_preset',
+      "upload_preset",
       import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET
     );
 
     setUploading(true);
     try {
       const response = await axios.post(
-        `https://api.cloudinary.com/v1_1/${
-          import.meta.env.VITE_CLOUDINARY_CLOUD_NAME
-        }/image/upload`,
+        `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_CLOUD_NAME}/image/upload`,
         formData
       );
       setImageUrl(response.data.secure_url);
       setUploading(false);
     } catch (error) {
-      console.error('Error subiendo imagen a Cloudinary', error);
+      console.error("Error subiendo imagen a Cloudinary", error);
       setUploading(false);
     }
   };
@@ -49,103 +46,98 @@ const MemeForm = ({ onSubmitForm, initialData, onClose, formTitle }) => {
     }
   };
 
-  const onSubmit = async (data) => {
+  const onSubmitHandler = async (data) => {
     if (imageUrl) {
       const memeData = { ...data, image: imageUrl };
-      await onSubmitForm(memeData);
-      reset();
-      onClose();
+      try {
+        await onSubmit(memeData);
+        reset();
+        if (typeof onClose === 'function') {
+          onClose();
+        }
+      } catch (error) {
+        console.error('Error al enviar los datos del meme:', error);
+      }
     } else {
-      alert('Por favor, sube una imagen antes de continuar');
+      alert("Por favor, sube una imagen antes de continuar");
     }
   };
 
   return (
-    <div className='rounded-lg relative inline-block text-gray p-4 bg-gray-100 shadow-lg hover:shadow-2xl transition-transform duration-300 ease-in-out transform hover:scale-105 cat-button'>
-      <h1 className='font-inter font-bold text-2xl tracking-3px text-center mb-6'>
-        {formTitle}
+    <div className="rounded-lg relative inline-block text-gray p-4 bg-gray-100 shadow-lg hover:shadow-2xl transition-transform duration-300 ease-in-out transform hover:scale-105 cat-button">
+      <h1 className="font-inter font-bold text-2xl tracking-3px text-center mb-6">
+        {submitButtonText === 'Actualizar Meme' ? 'Editar Meme' : 'Crear Meme'}
       </h1>
-      <form onSubmit={handleSubmit(onSubmit)} className='space-y-5'>
-        <div className='flex items-center mb-4'>
-          <label
-            htmlFor='name'
-            className='font-inter text-base mr-4 flex-shrink-0 w-32'
-          >
+      <form onSubmit={handleSubmit(onSubmitHandler)} className="space-y-5">
+        {/* Form fields */}
+        <div className="flex items-center mb-4">
+          <label htmlFor="name" className="font-inter text-base mr-4 flex-shrink-0 w-32">
             Nombre:
           </label>
           <input
-            id='name'
-            {...register('name', { required: true })}
-            className='border border-gray-300 p-2 flex-1'
-            placeholder='Nombre del meme'
+            id="name"
+            {...register("name", { required: true })}
+            className="border border-gray-300 p-2 flex-1"
+            placeholder="Nombre del meme"
           />
         </div>
 
-        <div className='flex items-center mb-4'>
-          <label
-            htmlFor='description'
-            className='font-inter text-base mr-4 flex-shrink-0 w-32'
-          >
+        <div className="flex items-center mb-4">
+          <label htmlFor="description" className="font-inter text-base mr-4 flex-shrink-0 w-32">
             Descripción:
           </label>
           <textarea
-            id='description'
-            {...register('description', { required: true })}
-            className='border border-gray-300 p-2 flex-1'
-            placeholder='Descripción del meme'
+            id="description"
+            {...register("description", { required: true })}
+            className="border border-gray-300 p-2 flex-1"
+            placeholder="Descripción del meme"
           />
         </div>
 
-        <div className='flex items-center mb-4'>
-          <label
-            htmlFor='category'
-            className='font-inter text-base mr-4 flex-shrink-0 w-32'
-          >
+        <div className="flex items-center mb-4">
+          <label htmlFor="category" className="font-inter text-base mr-4 flex-shrink-0 w-32">
             Categoría:
           </label>
           <select
-            id='category'
-            {...register('category', { required: true })}
-            className='border border-gray-300 p-2 flex-1'
+            id="category"
+            {...register("category", { required: true })}
+            className="border border-gray-300 p-2 flex-1"
           >
-            <option value='gatos_siendo_gatos1'>Gatos siendo gatos</option>
-            <option value='gatos_siendo_humanos2'>Gatos siendo humanos</option>
-            <option value='gatos_enfadados3'>Gatos enfadados</option>
-            <option value='me_dijiste4'>Me dijiste</option>
+            <option value="gatos_siendo_gatos1">Gatos siendo gatos</option>
+            <option value="gatos_siendo_humanos2">Gatos siendo humanos</option>
+            <option value="gatos_enfadados3">Gatos enfadados</option>
+            <option value="me_dijiste4">Me dijiste</option>
           </select>
         </div>
 
-        <div className='flex items-center mb-4'>
-          <label
-            htmlFor='image'
-            className='font-inter text-base mr-4 flex-shrink-0 w-32'
-          >
+        <div className="flex items-center mb-4">
+          <label htmlFor="image" className="font-inter text-base mr-4 flex-shrink-0 w-32">
             Imágen:
           </label>
           <input
-            id='image'
-            type='file'
-            accept='image/*'
+            id="image"
+            type="file"
+            accept="image/*"
             onChange={handleFileChange}
-            className='border border-blue-300 p-2 flex-1'
+            className="border border-blue-300 p-2 flex-1"
           />
-          {uploading && <p className='ml-4'>Subiendo imagen...</p>}
+          {uploading && <p className="ml-4">Subiendo imagen...</p>}
           {imageUrl && (
-            <img src={imageUrl} alt='Uploaded' className='mt-4 w-32 h-32' />
+            <img src={imageUrl} alt="Uploaded" className="mt-4 w-32 h-32" />
           )}
         </div>
 
-        <div className='flex justify-between mt-4'>
+        <div className="flex justify-between mt-4">
           <button
-            type='submit'
-            className='bg-black text-white py-3 px-8 rounded-3xl transition-all duration-300 ease-in-out hover:bg-pink-300'
+            type="submit"
+            className="bg-black text-white py-3 px-8 rounded-3xl transition-all duration-300 ease-in-out hover:bg-pink-300"
           >
-            Guardar Meme
+            {submitButtonText}
           </button>
           <button
-            type='button'
+            type="button"
             onClick={onClose}
-            className='bg-red-500 text-white py-3 px-8 rounded-3xl transition-all duration-300 ease-in-out hover:bg-pink-200'
+            className="bg-red-500 text-white py-3 px-8 rounded-3xl transition-all duration-300 ease-in-out hover:bg-pink-200"
           >
             Cancelar
           </button>

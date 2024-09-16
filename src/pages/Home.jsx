@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { getMemeByCategory, deleteMeme } from '../services/services';
+import {
+  getMemeByCategory,
+  deleteMeme,
+  createMeme,
+  updateMeme,
+} from '../services/services';
 import MemeGrid from '../components/MemeGrid';
 import Modal from '../components/Modal';
 import MemeForm from '../components/MemeForm';
-import MessageModal from '../components/MessageModal/';
+import MessageModal from '../components/MessageModal';
 
 const categories = [
   'gatos_siendo_gatos1',
@@ -62,7 +67,7 @@ const Home = () => {
     setIsConfirmDialog(true);
     setIsMessageModalOpen(true);
     setMessage('Si confirmas te cargas el meme');
-    setMessageType('error');
+    setMessageType('success');
     setMemeToDelete({ category, id });
   };
 
@@ -123,16 +128,21 @@ const Home = () => {
     setIsConfirmDialog(false);
   };
 
-  const handleFormSubmit = async (success, actionType) => {
-    if (success) {
+  const handleFormSubmit = async (data, actionType) => {
+    try {
+      if (actionType === 'create') {
+        await createMeme(data);
+      } else {
+        await updateMeme(memeToEdit.id, data);
+      }
       setMessage(
         actionType === 'create'
           ? 'Meme creado con éxito.'
           : 'Meme actualizado con éxito.'
       );
       setMessageType('success');
-      await refreshMemes(); // Asegúrate de actualizar los memes después de la acción
-    } else {
+      await refreshMemes(); // Actualiza los memes después de la acción
+    } catch (error) {
       setMessage(
         actionType === 'create'
           ? 'Error al crear el meme.'
@@ -175,11 +185,11 @@ const Home = () => {
       {isModalOpen && (
         <Modal onClose={closeModal}>
           <MemeForm
-            onSubmitForm={(success) =>
-              handleFormSubmit(success, isEditMode ? 'edit' : 'create')
+            onSubmit={(data) =>
+              handleFormSubmit(data, isEditMode ? 'edit' : 'create')
             }
             initialData={isEditMode ? memeToEdit : null}
-            formTitle={isEditMode ? 'Editar Meme' : 'Crear Nuevo Meme'}
+            submitButtonText={isEditMode ? 'Actualizar Meme' : 'Crear Meme'}
             onClose={closeModal}
           />
         </Modal>

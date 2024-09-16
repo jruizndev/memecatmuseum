@@ -1,36 +1,41 @@
-import React, { useEffect, useState } from "react";
-import MemeForm from "../components/MemeForm";
-import { getMemeById, updateMeme } from "../services/services";
-import { useNavigate, useParams } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { getMemeById, updateMeme } from '../services/services';
+import { useNavigate, useParams } from 'react-router-dom';
+import MemeForm from '../components/MemeForm';
 
 const EditMeme = () => {
   const { id } = useParams();
-  console.log("ID recibido:", id);
   const navigate = useNavigate();
-  const [memeData, setMemeData] = useState(null);
+  const [initialData, setInitialData] = useState({});
 
   useEffect(() => {
     const fetchMeme = async () => {
-      const meme = await getMemeById(id);
-      setMemeData(meme);
+      try {
+        const meme = await getMemeById(id);
+        setInitialData(meme);
+      } catch (error) {
+        console.error('Error al obtener el meme:', error);
+      }
     };
     fetchMeme();
   }, [id]);
 
-  const handleUpdate = async (updatedData) => {
-    await updateMeme(id, updatedData);
-    navigate("/");
+  const handleEditMeme = async (memeData) => {
+    try {
+      await updateMeme(id, memeData);
+      navigate('/'); // Redirige a la página principal después de la actualización
+    } catch (error) {
+      console.error('Error actualizando meme', error);
+    }
   };
 
-  return memeData ? (
+  return (
     <MemeForm
-      onSubmitForm={handleUpdate}
-      initialData={memeData}
-      formTitle="Editar Meme"
-      onClose={() => navigate("/")}
+      initialData={initialData}
+      onSubmit={handleEditMeme}
+      onClose={() => navigate('/')}
+      submitButtonText='Actualizar Meme'
     />
-  ) : (
-    <p>Cargando...</p>
   );
 };
 
