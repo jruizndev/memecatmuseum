@@ -83,21 +83,40 @@ const Nav = () => {
                 />
             )}
 
-            {/* Menú hamburguesa desde la derecha con altura limitada */}
+            {/* Menú hamburguesa y transiciones*/}
             <div
-                className={`fixed right-0 top-[72px] w-[40%] h-auto bg-black bg-opacity-70 backdrop-blur-sm text-white shadow-lg z-40 transition-all duration-500 ease-in-out transform ${
+                className={`fixed right-0 top-[72px] w-full h-[17vh] bg-black bg-opacity-80 backdrop-blur-lg text-white shadow-2xl z-40 transition-all ${
+                    isMenuOpen
+                        ? 'duration-700 ease-in-out'
+                        : 'duration-300 ease-in'
+                } transform ${
                     isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-                }`}
+                } ${isFilterOpen ? 'opacity-0 pointer-events-none' : ''}`}
             >
-                <ul className="flex flex-col p-4">
-                    <li className="py-2 text-lg text-center">
-                        <NavLink to="/">Home</NavLink>
+                <ul className="flex flex-col p-4 ">
+                    <li className="py-1 text-xl text-center">
+                        <NavLink
+                            to="/"
+                            className="text-white transition-transform duration-300 ease-in-out transform hover:scale-125 hover:text-gray-400"
+                        >
+                            Home
+                        </NavLink>
                     </li>
-                    <li className="py-2 text-lg text-center">
-                        <NavLink to="/">About Us</NavLink>
+                    <li className="py-1 text-xl text-center">
+                        <NavLink
+                            to="/about"
+                            className="text-white transition-transform duration-300 ease-in-out transform hover:scale-125 hover:text-gray-400"
+                        >
+                            About Us
+                        </NavLink>
                     </li>
-                    <li className="py-2 text-lg text-center">
-                        <NavLink to="/">Contacto</NavLink>
+                    <li className="py-1 pb-2 text-xl text-center">
+                        <NavLink
+                            to="/contact"
+                            className="text-white transition-transform duration-300 ease-in-out transform hover:scale-125 hover:text-gray-400"
+                        >
+                            Contacto
+                        </NavLink>
                     </li>
                 </ul>
             </div>
