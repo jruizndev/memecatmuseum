@@ -4,7 +4,12 @@ import { createMeme } from "../services/services";
 import axios from "axios";
 
 const CreateMeme = ({ onClose, onMemeCreated }) => {
-  const { register, handleSubmit, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
   const [uploading, setUploading] = useState(false);
   const [imageUrl, setImageUrl] = useState("");
 
@@ -62,6 +67,7 @@ const CreateMeme = ({ onClose, onMemeCreated }) => {
       </h1>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        {/* Nombre */}
         <div className="flex flex-col sm:flex-row items-center mb-2 text-gray-800">
           <label
             htmlFor="name"
@@ -71,12 +77,22 @@ const CreateMeme = ({ onClose, onMemeCreated }) => {
           </label>
           <input
             id="name"
-            {...register("name", { required: true })}
-            className="border border-gray-700 p-1 text-sm w-full"
+            {...register("name", {
+              required: "Por favor, completa este campo",
+            })}
+            className={`border p-1 text-sm w-full ${
+              errors.name ? "border-purple-500" : "border-gray-700"
+            }`}
             placeholder="Nombre del meme"
           />
+          {errors.name && (
+            <p className="text-purple-500 text-xs mt-1">
+              {errors.name.message}
+            </p>
+          )}
         </div>
 
+        {/* Descripción */}
         <div className="flex flex-col sm:flex-row items-center mb-2 text-gray-800">
           <label
             htmlFor="description"
@@ -86,13 +102,23 @@ const CreateMeme = ({ onClose, onMemeCreated }) => {
           </label>
           <textarea
             id="description"
-            {...register("description", { required: true })}
-            className="border border-gray-300 p-1 text-sm w-full text-gray-500"
+            {...register("description", {
+              required: "La descripción es requerida",
+            })}
+            className={`border p-1 text-sm w-full ${
+              errors.description ? "border-purple-500" : "border-gray-300"
+            } text-gray-500`}
             placeholder="Descripción del meme"
             maxLength={100}
           />
+          {errors.description && (
+            <p className="text-purple-500 text-xs mt-1">
+              {errors.description.message}
+            </p>
+          )}
         </div>
 
+        {/* Categoría */}
         <div className="flex flex-col sm:flex-row items-center mb-2">
           <label
             htmlFor="category"
@@ -102,8 +128,10 @@ const CreateMeme = ({ onClose, onMemeCreated }) => {
           </label>
           <select
             id="category"
-            {...register("category", { required: true })}
-            className="border border-gray-300 p-1 text-sm w-full text-gray-500"
+            {...register("category", { required: "Selecciona una categoría" })}
+            className={`border p-1 text-sm w-full ${
+              errors.category ? "border-purple-500" : "border-gray-300"
+            } text-gray-500`}
           >
             <option value="" disabled selected>
               Selecciona una categoría
@@ -113,8 +141,13 @@ const CreateMeme = ({ onClose, onMemeCreated }) => {
             <option value="gatos_enfadados3">Gatos enfadados</option>
             <option value="me_dijiste4">Me dijiste</option>
           </select>
+          {errors.category && (
+            <p className="text-purple-500 text-xs mt-1">
+              {errors.category.message}
+            </p>
+          )}
         </div>
-
+        {/* Imagen */}
         <div className="flex flex-col sm:flex-row items-center mb-2 text-gray-400">
           <label
             htmlFor="image"
@@ -127,14 +160,44 @@ const CreateMeme = ({ onClose, onMemeCreated }) => {
             type="file"
             accept="image/*"
             onChange={handleFileChange}
-            className="border border-gray-300 p-1 text-sm w-full"
+            className={`border p-1 text-sm w-full ${
+              imageUrl ? "border-gray-300" : "border-gray-500"
+            }`}
           />
-          {uploading && <p className="mt-2 text-xs">Subiendo imagen...</p>}
+
+          {/* Spinner de carga */}
+          {uploading && (
+            <div className="flex justify-center items-center mt-2">
+              <svg
+                className="animate-spin h-5 w-5 text-purple-500"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                ></circle>
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                ></path>
+              </svg>
+            </div>
+          )}
+
+          {/* Mostrar imagen cargada */}
           {imageUrl && (
             <img src={imageUrl} alt="Uploaded" className="mt-2 w-16 h-16" />
           )}
         </div>
 
+        {/* Botones */}
         <div className="flex flex-col sm:flex-row justify-center mt-4 space-y-4 sm:space-y-0 sm:space-x-4">
           <button
             type="submit"

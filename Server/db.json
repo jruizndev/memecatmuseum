@@ -366,6 +366,20 @@
       "description": "f",
       "category": "Selecciona una categoría",
       "image": "https://res.cloudinary.com/dv2jxa9lw/image/upload/v1726493006/fwwohwipg6hslwc97aoy.jpg"
+    },
+    {
+      "id": "12f6",
+      "name": "t",
+      "description": "t",
+      "category": "gatos_siendo_gatos1",
+      "image": "https://res.cloudinary.com/dv2jxa9lw/image/upload/v1726508678/omsine4165fjgdkxvcmw.jpg"
+    },
+    {
+      "id": "768c",
+      "name": "Gato 🐱",
+      "description": "s",
+      "category": "gatos_siendo_gatos1",
+      "image": "https://res.cloudinary.com/dv2jxa9lw/image/upload/v1726511294/drme3hajf9hnz9lug98y.jpg"
     }
   ]
 }
