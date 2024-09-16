@@ -3,7 +3,7 @@ import { getMemeByCategory, deleteMeme } from '../services/services';
 import MemeGrid from '../components/MemeGrid';
 import Modal from '../components/Modal';
 import MemeForm from '../components/MemeForm';
-import MessageModal from '../components/MessageModal';
+import MessageModal from '../components/MessageModal/';
 
 const categories = [
   'gatos_siendo_gatos1',
@@ -32,11 +32,11 @@ const Home = () => {
   const [isEditMode, setIsEditMode] = useState(false);
   const [memeToEdit, setMemeToEdit] = useState(null);
 
-  const [message, setMessage] = useState(''); // Estado para el mensaje
-  const [isMessageModalOpen, setIsMessageModalOpen] = useState(false); // Controla si el mensaje está visible
-  const [messageType, setMessageType] = useState('success'); // Controla el tipo de mensaje
-  const [isConfirmDialog, setIsConfirmDialog] = useState(false); // Controla si es un cuadro de confirmación
-  const [memeToDelete, setMemeToDelete] = useState(null); // Meme que está en proceso de eliminación
+  const [message, setMessage] = useState('');
+  const [isMessageModalOpen, setIsMessageModalOpen] = useState(false);
+  const [messageType, setMessageType] = useState('success');
+  const [isConfirmDialog, setIsConfirmDialog] = useState(false);
+  const [memeToDelete, setMemeToDelete] = useState(null);
 
   useEffect(() => {
     const fetchMemes = async () => {
@@ -58,12 +58,12 @@ const Home = () => {
     fetchMemes();
   }, []);
 
-  const handleDelete = async (category, id) => {
-    setIsConfirmDialog(true); // Activamos el cuadro de confirmación
-    setIsMessageModalOpen(true); // Abrimos el modal del mensaje
+  const handleDelete = (category, id) => {
+    setIsConfirmDialog(true);
+    setIsMessageModalOpen(true);
     setMessage('Si confirmas te cargas el meme');
     setMessageType('error');
-    setMemeToDelete({ category, id }); // Guardamos la referencia del meme que se va a eliminar
+    setMemeToDelete({ category, id });
   };
 
   const confirmDelete = async () => {
@@ -77,12 +77,13 @@ const Home = () => {
       }));
       setMessage('Meme eliminado con éxito.');
       setMessageType('success');
-      setIsConfirmDialog(false); // Quitamos el cuadro de confirmación
     } catch (error) {
       setMessage('Error al cargarte el meme.');
       setMessageType('error');
     }
-    setMemeToDelete(null); // Limpiamos el meme a eliminar
+    setIsConfirmDialog(false);
+    setIsMessageModalOpen(true);
+    setMemeToDelete(null);
   };
 
   const openModalForCreate = () => {
@@ -119,12 +120,10 @@ const Home = () => {
 
   const closeMessageModal = () => {
     setIsMessageModalOpen(false);
-    setIsConfirmDialog(false); // En caso de que sea confirmación, lo desactivamos
+    setIsConfirmDialog(false);
   };
 
   const handleFormSubmit = async (success, actionType) => {
-    // success es true si la operación fue exitosa
-    // actionType puede ser 'create' o 'edit'
     if (success) {
       setMessage(
         actionType === 'create'
@@ -132,6 +131,7 @@ const Home = () => {
           : 'Meme actualizado con éxito.'
       );
       setMessageType('success');
+      await refreshMemes(); // Asegúrate de actualizar los memes después de la acción
     } else {
       setMessage(
         actionType === 'create'
@@ -140,7 +140,8 @@ const Home = () => {
       );
       setMessageType('error');
     }
-    setIsMessageModalOpen(true); // Mostramos el modal
+    setIsMessageModalOpen(true);
+    setIsModalOpen(false); // Cierra el modal después de la acción
   };
 
   return (
@@ -148,7 +149,6 @@ const Home = () => {
       <h1 className='text-4xl font-bold text-center mb-8'>
         Lista de Memes de Gatos
       </h1>
-
       <div className='flex justify-center mb-6'>
         <button
           onClick={openModalForCreate}
@@ -157,7 +157,6 @@ const Home = () => {
           Crear Nuevo Meme
         </button>
       </div>
-
       {categories.map((category) => (
         <div
           key={category}
@@ -166,7 +165,6 @@ const Home = () => {
           <h1 className='text-3xl font-bold mb-8 text-center text-white'>
             {categoryTitles[category]}
           </h1>
-
           <MemeGrid
             memes={memesByCategory[category] || []}
             onDelete={(id) => handleDelete(category, id)}
@@ -174,7 +172,6 @@ const Home = () => {
           />
         </div>
       ))}
-
       {isModalOpen && (
         <Modal onClose={closeModal}>
           <MemeForm
@@ -187,13 +184,12 @@ const Home = () => {
           />
         </Modal>
       )}
-
       {isMessageModalOpen && (
         <MessageModal
           message={message}
           type={messageType}
           onClose={closeMessageModal}
-          onConfirm={confirmDelete}
+          onConfirm={isConfirmDialog ? confirmDelete : null}
           isConfirmDialog={isConfirmDialog}
         />
       )}
