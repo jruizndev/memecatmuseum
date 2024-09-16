@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { getMemes, deleteMeme } from '../services/services'
+import { getMemes, deleteMeme, getMemeByCategory } from '../services/services'
 import MemeGrid from '../components/MemeGrid'
 import Modal from '../components/Modal'
 import CreateMeme from '../pages/CreateMeme'
@@ -157,14 +157,16 @@ const Home = () => {
                 getMemeByCategory(category)
             )
             const memesResults = await Promise.all(memesPromises)
-            const memesByCategory = categories.reduce(
+            const newMemesByCategory = categories.reduce(
                 (acc, category, index) => {
                     acc[category] = memesResults[index]
                     return acc
                 },
                 {}
             )
-            setMemesByCategory(memesByCategory)
+
+            // Actualizamos el estado memesByCategory
+            setMemesByCategory(newMemesByCategory)
         } catch (error) {
             console.error('Error refreshing memes:', error)
         }
