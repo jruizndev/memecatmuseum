@@ -1,14 +1,18 @@
+// En Layout.jsx
+
 import { Outlet } from 'react-router-dom'
-import Nav from '../components/Nav/Nav' // Importa la barra de navegación
+import Nav from '../components/Nav/Nav'
+import Footer from '../components/Footer'
+import { FilterProvider } from '../layout/FilterContext'
 
 const Layout = () => {
     return (
-        <>
-            <Nav /> {/* Aquí se incluye la barra de navegación que creamos */}
+        <FilterProvider>
+            <Nav />
             <Outlet />
-            <footer>Mi footer</footer>
-        </>
+            <Footer />
+        </FilterProvider>
     )
 }
 
-export default Layout;
+export default Layout

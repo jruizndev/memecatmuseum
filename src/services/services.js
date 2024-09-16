@@ -5,7 +5,8 @@ const BaseUrl = 'http://localhost:3000/memes' // Cambia por la URL de tu API si 
 // GET Obtener todos los memes
 export const getMemes = async () => {
     try {
-        const response = await axios.get(BaseUrl)
+        // Agregamos un parámetro de consulta aleatorio a la URL
+        const response = await axios.get(BaseUrl + '?_=' + new Date().getTime())
         return response.data
     } catch (error) {
         console.error('Error al obtener los memes:', error)
@@ -60,7 +61,6 @@ export const updateMeme = async (id, updatedMemeData) => {
     }
 }
 
-
 // Eliminar un meme por ID
 export const deleteMeme = async (id) => {
     try {
@@ -70,14 +70,3 @@ export const deleteMeme = async (id) => {
         throw error
     }
 }
-// Actualizar los likes de un meme por ID
-export const updateLikes = async (id, newLikes) => {
-    try {
-        const response = await axios.put(`${BaseUrl}/${id}`, { likes: newLikes });
-        return response.data;
-    } catch (error) {
-        console.error('Error al actualizar los likes:', error);
-        throw error;
-    }
-};
-

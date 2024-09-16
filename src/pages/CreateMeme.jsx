@@ -42,10 +42,14 @@ const CreateMeme = ({ onClose, onMemeCreated }) => {
   const onSubmit = async (dataMeme) => {
     if (imageUrl) {
       const memeData = { ...dataMeme, image: imageUrl };
-      await createMeme(memeData);
-      reset();
-      onMemeCreated(); // Llama a la función de actualización
-      onClose();
+      try {
+        await createMeme(memeData);
+        reset();
+        onMemeCreated(); // Llama a la función de actualización
+        onClose();
+      } catch (error) {
+        console.error("Error creando meme", error);
+      }
     } else {
       alert("Por favor, sube una imagen antes de crear el meme");
     }
@@ -53,12 +57,10 @@ const CreateMeme = ({ onClose, onMemeCreated }) => {
 
   return (
     <div className="rounded-lg relative inline-block text-gray p-4 bg-gray-100 shadow-lg w-full max-w-lg mx-auto transition-transform duration-300 ease-in-out hover:scale-105 hover:bg-gray-200 hover:shadow-2xl">
-      {/* Título */}
       <h1 className="font-inter font-semibold text-lg text-left mb-4 text-gray-800">
         Crear Nuevo Meme
       </h1>
 
-      {/* Formulario */}
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div className="flex flex-col sm:flex-row items-center mb-2 text-gray-800">
           <label
@@ -70,7 +72,7 @@ const CreateMeme = ({ onClose, onMemeCreated }) => {
           <input
             id="name"
             {...register("name", { required: true })}
-            className="border border-gray-700 p-1 text-sm w-full text"
+            className="border border-gray-700 p-1 text-sm w-full"
             placeholder="Nombre del meme"
           />
         </div>
@@ -87,7 +89,7 @@ const CreateMeme = ({ onClose, onMemeCreated }) => {
             {...register("description", { required: true })}
             className="border border-gray-300 p-1 text-sm w-full text-gray-500"
             placeholder="Descripción del meme"
-            maxLength={100} //máximo de caracteres
+            maxLength={100}
           />
         </div>
 
@@ -103,10 +105,10 @@ const CreateMeme = ({ onClose, onMemeCreated }) => {
             {...register("category", { required: true })}
             className="border border-gray-300 p-1 text-sm w-full text-gray-500"
           >
-            <option value="Gatos siendo gatos">Gatos siendo gatos</option>
-            <option value="Gatos siendo humanos">Gatos siendo humanos</option>
-            <option value="Gatos enfadados">Gatos enfadados</option>
-            <option value="Me Dijiste">Me dijiste</option>
+            <option value="gatos_siendo_gatos1">Gatos siendo gatos</option>
+            <option value="gatos_siendo_humanos2">Gatos siendo humanos</option>
+            <option value="gatos_enfadados3">Gatos enfadados</option>
+            <option value="me_dijiste4">Me dijiste</option>
           </select>
         </div>
 
@@ -120,7 +122,7 @@ const CreateMeme = ({ onClose, onMemeCreated }) => {
           <input
             id="image"
             type="file"
-            accept="image/*" //sólo acepta archivo de imagenes
+            accept="image/*"
             onChange={handleFileChange}
             className="border border-gray-300 p-1 text-sm w-full"
           />
