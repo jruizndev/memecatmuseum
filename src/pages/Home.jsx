@@ -4,6 +4,7 @@ import MemeGrid from '../components/MemeGrid'
 import Modal from '../components/Modal' // Asegúrate de tener el componente Modal
 import CreateMeme from '../pages/CreateMeme' // Asegúrate de tener el componente CreateMeme
 
+
 const categories = [
     'gatos_siendo_gatos1',
     'gatos_siendo_humanos2',
@@ -96,7 +97,7 @@ const Home = () => {
     return (
         <div className="min-h-screen w-full m-0 bg-gray-100">
             <h1 className="text-4xl font-bold text-center mb-8">
-                Lista de Memes de Gatos
+              
             </h1>
 
             <div className="flex justify-center mb-6">

@@ -1,10 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Layout from '../layout/Layout';
 import Home from '../pages/Home';
-import CreateMeme from '../pages/CreateMeme';
 import EditMeme from '../pages/EditMeme';
 import NotFound from '../pages/NotFound';
-
+import AboutUs from '../pages/AboutUs';
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -16,8 +15,8 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: 'newmeme',
-        element: <CreateMeme />,
+        path: 'aboutus',
+        element: <AboutUs />,
       },
       {
         path: '/editmeme/:id',
