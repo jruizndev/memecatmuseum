@@ -95,7 +95,7 @@ const Home = () => {
       <div className="flex justify-center mb-6">
         <button
           onClick={openModal}
-          className="fixed right-4 sm:right-10 md:right-20 bottom-1/4 transform -translate-y-1/2 text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full bg-black hover:shadow-2xl transition-transform duration-300 ease-in-out hover:scale-105 animate-spin-slow z-50 min-w-[150px] sm:min-w-[200px] md:min-w-[250px]"
+          className="fixed right-4 sm:right-10 md:right-20 bottom-[60px] transform -translate-y-1/2 text-white px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full bg-black hover:shadow-2xl transition-transform duration-300 ease-in-out hover:scale-105 animate-spin-slow z-50 min-w-[150px] sm:min-w-[200px] md:min-w-[250px]"
         >
           Subir Meme
         </button>

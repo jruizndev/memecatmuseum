@@ -60,7 +60,7 @@ const CreateMeme = ({ onClose, onMemeCreated }) => {
 
       {/* Formulario */}
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        <div className="flex flex-col sm:flex-row items-center mb-2">
+        <div className="flex flex-col sm:flex-row items-center mb-2 text-gray-800">
           <label
             htmlFor="name"
             className="font-inter text-sm mb-2 sm:mb-0 sm:mr-2 flex-shrink-0 w-full sm:w-28 text-gray-800"
@@ -70,12 +70,12 @@ const CreateMeme = ({ onClose, onMemeCreated }) => {
           <input
             id="name"
             {...register("name", { required: true })}
-            className="border border-gray-300 p-1 text-sm w-full text"
+            className="border border-gray-700 p-1 text-sm w-full text"
             placeholder="Nombre del meme"
           />
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center mb-2">
+        <div className="flex flex-col sm:flex-row items-center mb-2 text-gray-800">
           <label
             htmlFor="description"
             className="font-inter text-sm mb-2 sm:mb-0 sm:mr-2 flex-shrink-0 w-full sm:w-28 text-gray-800"
@@ -110,7 +110,7 @@ const CreateMeme = ({ onClose, onMemeCreated }) => {
           </select>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center mb-2">
+        <div className="flex flex-col sm:flex-row items-center mb-2 text-gray-400">
           <label
             htmlFor="image"
             className="font-inter text-sm mb-2 sm:mb-0 sm:mr-2 flex-shrink-0 w-full sm:w-28 text-gray-800"
