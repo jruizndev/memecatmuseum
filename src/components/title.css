@@ -1,0 +1,20 @@
+/* Titles.css */
+.sections-container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 20px;
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; /* Adjust height as needed */
+}
+
+.title-text {
+  font-family: "Alatsi", sans-serif;
+  font-size: 100px;
+  margin: 0;
+}
