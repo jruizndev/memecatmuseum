@@ -1,364 +1,435 @@
 {
   "memes": [
     {
-      "id": "1033",
-      "name": "Gato Curioso",
-      "description": "Un gato curioso, disfrutando de su día con una mirada de exploración. Un clásico en cualquier colección de memes.",
+      "id": "101",
+      "name": "La Trampa de las Caricias",
+      "description": "¿Quién puede resistirse a unas buenas caricias? Ni siquiera el gato más independiente. ¡Maldita manipuladora!",
       "category": "gatos_siendo_gatos1",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos103.jpg",
+      "image": "/src/assets/gatos-siendo-gatos1/gatos101.jpg",
       "date": "2008-07-13",
       "likes": 9918
+    },
+    {
+      "id": "102",
+      "name": "El Contador Felino",
+      "description": "Cuando el gato se convierte en el administrador de la casa y toma decisiones difíciles. ¡Adiós, perro!",
+      "category": "gatos_siendo_gatos1",
+      "image": "/src/assets/gatos-siendo-gatos1/gatos102.jpg",
+      "date": "2024-11-21",
+      "likes": 34268
+    },
+    {
+      "id": "103",
+      "name": "El Ciclo de la Vida... ¿Otra Vez?",
+      "description": "Este pequeño está listo para su presentación en la Roca del Rey. ¡Prepárense para rugir de ternura!",
+      "category": "gatos_siendo_gatos1",
+      "image": "/src/assets/gatos-siendo-gatos1/gatos103.jpg",
+      "date": "2017-10-26",
+      "likes": 77049
     },
     {
       "id": "104",
-      "name": "Gato Relajado",
-      "description": "Captura un momento típico de un gato disfrutando de su entorno, ¡siempre alerta y elegante!",
+      "name": "El Misterio de las Patitas Desaparecidas",
+      "description": "¡Magia gatuna! ¿Dónde estarán esas patitas? ¡Este meme nos deja a todos con la duda!",
       "category": "gatos_siendo_gatos1",
       "image": "/src/assets/gatos-siendo-gatos1/gatos104.jpg",
-      "date": "2024-11-21",
-      "likes": 34268
+      "date": "2018-04-28",
+      "likes": 15939
     },
     {
       "id": "105",
-      "name": "Gato Sereno",
-      "description": "Este meme muestra un gato en pleno modo 'gato': descansando y siendo la esencia de la tranquilidad.",
+      "name": "El Chantajista Felino",
+      "description": "Esa mirada penetrante te dice: 'Si no me das comida ahora mismo, revelaré todos tus secretos a la aspiradora.",
       "category": "gatos_siendo_gatos1",
       "image": "/src/assets/gatos-siendo-gatos1/gatos105.jpg",
-      "date": "2017-10-26",
-      "likes": 77049
+      "date": "2014-12-27",
+      "likes": 20521
     },
     {
       "id": "106",
-      "name": "Gato En Paz",
-      "description": "Nada como un gato relajado, y este meme lo refleja a la perfección.",
+      "name": "La Ley de la Gravedad Gatuna",
+      "description": "Parece que ni los gatos se libran de un mal aterrizaje. ¡Karen, la próxima vez, mejor usa las nueve vidas!",
       "category": "gatos_siendo_gatos1",
       "image": "/src/assets/gatos-siendo-gatos1/gatos106.jpg",
-      "date": "2018-04-28",
-      "likes": 15939
+      "date": "2015-03-07",
+      "likes": 11979
     },
     {
       "id": "107",
-      "name": "Gato Tranquilo",
-      "description": "Con una pose perezosa, este gato parece estar en total armonía consigo mismo.",
+      "name": "El Tutor Felino Harto",
+      "description": "¡Hasta los gatos tienen límites! Parece que Karen ha llevado la explotación estudiantil demasiado lejos. ¡Hora de defenderse!",
       "category": "gatos_siendo_gatos1",
       "image": "/src/assets/gatos-siendo-gatos1/gatos107.jpg",
-      "date": "2014-12-27",
-      "likes": 20521
+      "date": "2020-05-13",
+      "likes": 37887
     },
     {
       "id": "108",
-      "name": "Gato Contento",
-      "description": "Una expresión de puro disfrute mientras el gato se deleita en sus actividades cotidianas.",
+      "name": "La Visión de Karen",
+      "description": " ¡Alguien necesita urgentemente una visita al oculista! ¿Será que Karen ve el mundo a través de los ojos de su gato?",
       "category": "gatos_siendo_gatos1",
       "image": "/src/assets/gatos-siendo-gatos1/gatos108.jpg",
-      "date": "2015-03-07",
-      "likes": 11979
-    },
-    {
-      "id": "203",
-      "name": "Gato Curioso",
-      "description": "Un gato curioso, disfrutando de su día con una mirada de exploración. Un clásico en cualquier colección de memes.",
-      "category": "gatos_siendo_humanos2",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos103.jpg",
-      "date": "2008-07-13",
-      "likes": 9918
-    },
-    {
-      "id": "204",
-      "name": "Gato Relajado",
-      "description": "Captura un momento típico de un gato disfrutando de su entorno, ¡siempre alerta y elegante!",
-      "category": "gatos_siendo_humanos2",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos104.jpg",
-      "date": "2024-11-21",
-      "likes": 34268
-    },
-    {
-      "id": "206",
-      "name": "Gato En Paz",
-      "description": "Nada como un gato relajado, y este meme lo refleja a la perfección.",
-      "category": "gatos_siendo_humanos2",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos106.jpg",
-      "date": "2018-04-28",
-      "likes": 15939
-    },
-    {
-      "id": "207",
-      "name": "Gato Tranquilo",
-      "description": "Con una pose perezosa, este gato parece estar en total armonía consigo mismo.",
-      "category": "gatos_siendo_humanos2",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos107.jpg",
-      "date": "2014-12-27",
-      "likes": 20521
-    },
-    {
-      "id": "208",
-      "name": "Gato Contento",
-      "description": "Una expresión de puro disfrute mientras el gato se deleita en sus actividades cotidianas.",
-      "category": "gatos_siendo_humanos2",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos108.jpg",
-      "date": "2015-03-07",
-      "likes": 11979
-    },
-    {
-      "id": "209",
-      "name": "Gato Soñador",
-      "description": "Este meme captura el momento exacto en que un gato decide relajarse y disfrutar del día.",
-      "category": "gatos_siendo_humanos2",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos109.jpg",
-      "date": "2020-05-13",
-      "likes": 37887
-    },
-    {
-      "id": "211",
-      "name": "Gato Pensativo",
-      "description": "Este gato muestra una mezcla de curiosidad y tranquilidad mientras observa su entorno.",
-      "category": "gatos_siendo_humanos2",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos111.jpg",
-      "date": "2009-09-05",
-      "likes": 70961
-    },
-    {
-      "id": "214",
-      "name": "Gato Plácido",
-      "description": "La expresión de este gato refleja una serenidad absoluta, perfecta para momentos de paz.",
-      "category": "gatos_siendo_humanos2",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos114.jpg",
-      "date": "2010-01-26",
-      "likes": 52544
-    },
-    {
-      "id": "303",
-      "name": "Gato Curioso",
-      "description": "Un gato curioso, disfrutando de su día con una mirada de exploración. Un clásico en cualquier colección de memes.",
-      "category": "gatos_enfadados3",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos103.jpg",
-      "date": "2008-07-13",
-      "likes": 9918
-    },
-    {
-      "id": "304",
-      "name": "Gato Relajado",
-      "description": "Captura un momento típico de un gato disfrutando de su entorno, ¡siempre alerta y elegante!",
-      "category": "gatos_enfadados3",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos104.jpg",
-      "date": "2024-11-21",
-      "likes": 34268
-    },
-    {
-      "id": "305",
-      "name": "Gato Sereno",
-      "description": "Este meme muestra un gato en pleno modo 'gato': descansando y siendo la esencia de la tranquilidad.",
-      "category": "gatos_enfadados3",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos105.jpg",
-      "date": "2017-10-26",
-      "likes": 77049
-    },
-    {
-      "id": "306",
-      "name": "Gato En Paz",
-      "description": "Nada como un gato relajado, y este meme lo refleja a la perfección.",
-      "category": "gatos_enfadados3",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos106.jpg",
-      "date": "2018-04-28",
-      "likes": 15939
-    },
-    {
-      "id": "307",
-      "name": "Gato Tranquilo",
-      "description": "Con una pose perezosa, este gato parece estar en total armonía consigo mismo.",
-      "category": "gatos_enfadados3",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos107.jpg",
-      "date": "2014-12-27",
-      "likes": 20521
-    },
-    {
-      "id": "308",
-      "name": "Gato Contento",
-      "description": "Una expresión de puro disfrute mientras el gato se deleita en sus actividades cotidianas.",
-      "category": "gatos_enfadados3",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos108.jpg",
-      "date": "2015-03-07",
-      "likes": 11979
-    },
-    {
-      "id": "309",
-      "name": "Gato Soñador",
-      "description": "Este meme captura el momento exacto en que un gato decide relajarse y disfrutar del día.",
-      "category": "gatos_enfadados3",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos109.jpg",
-      "date": "2020-05-13",
-      "likes": 37887
-    },
-    {
-      "id": "310",
-      "name": "Gato Observador",
-      "description": "El meme perfecto para ilustrar la calma que emiten los gatos mientras disfrutan de un momento de descanso.",
-      "category": "gatos_enfadados3",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos110.jpg",
       "date": "2019-03-28",
       "likes": 87915
     },
     {
-      "id": "311",
-      "name": "Gato Pensativo",
-      "description": "Este gato muestra una mezcla de curiosidad y tranquilidad mientras observa su entorno.",
-      "category": "gatos_enfadados3",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos111.jpg",
+      "id": "109",
+      "name": "¡Sorpresa Permanente!",
+      "description": "¡Este gato nació con cara de asombro! ¿Será que siempre está descubriendo algo nuevo?.",
+      "category": "gatos_siendo_gatos1",
+      "image": "/src/assets/gatos-siendo-gatos1/gatos109.jpg",
       "date": "2009-09-05",
       "likes": 70961
     },
     {
-      "id": "403",
-      "name": "Gato Curioso",
-      "description": "Un gato curioso, disfrutando de su día con una mirada de exploración. Un clásico en cualquier colección de memes.",
-      "category": "me_dijiste4",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos103.jpg",
+      "id": "110",
+      "name": "Odio las Ollas",
+      "description": "La expresión de horror del gato lo dice todo: ¡Lavar ollas es la peor tarea del mundo!",
+      "category": "gatos_siendo_gatos1",
+      "image": "/src/assets/gatos-siendo-gatos1/gatos110.jpg",
+      "date": "2021-07-15",
+      "likes": 13456
+    },
+    {
+      "id": "111",
+      "name": "Tiburón Gatuno",
+      "description": "¡Alerta máxima! Este gatito lleva el drama a otro nivel. ¡Cuidado, que muerde! 😂",
+      "category": "gatos_siendo_gatos1",
+      "image": "/src/assets/gatos-siendo-gatos1/gatos111.jpg",
+      "date": "2022-09-22",
+      "likes": 9512
+    },
+    {
+      "id": "112",
+      "name": "Michi, el Gourmet",
+      "description": "¿Lavarse las manos? ¡Michi prefiere el sabor natural!",
+      "category": "gatos_siendo_gatos1",
+      "image": "/src/assets/gatos-siendo-gatos1/gatos112.jpg",
+      "date": "2010-01-26",
+      "likes": 52544
+    },
+    {
+      "id": "201",
+      "name": "El Grito de Medianoche",
+      "description": "¡Cuando ese calambre te despierta a las 3 de la mañana y te hace cuestionar todas tus decisiones de vida, incluyendo la de dormir!",
+      "category": "gatos_siendo_humanos2",
+      "image": "/src/assets/gatos-siendo-humanos2/humanos201.jpg",
       "date": "2008-07-13",
       "likes": 9918
     },
     {
-      "id": "413",
-      "name": "Gato Curioso",
-      "description": "Un gato curioso, disfrutando de su día con una mirada de exploración. Un clásico en cualquier colección de memes.",
-      "category": "me_dijiste4",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos103.jpg",
-      "date": "2008-07-13",
-      "likes": 9918
-    },
-    {
-      "id": "404",
-      "name": "Gato Relajado",
-      "description": "Captura un momento típico de un gato disfrutando de su entorno, ¡siempre alerta y elegante!",
-      "category": "me_dijiste4",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos104.jpg",
+      "id": "202",
+      "name": "Crisis Existencial Gatuna",
+      "description": "¡A las 3 de la mañana! Cuando te das cuenta de que la caja de arena está más limpia que tu habitación y empiezas a cuestionar tus decisiones de vida.",
+      "category": "gatos_siendo_humanos2",
+      "image": "/src/assets/gatos-siendo-humanos2/humanos202.jpg",
       "date": "2024-11-21",
       "likes": 34268
     },
     {
-      "id": "405",
-      "name": "Gato Sereno",
-      "description": "Este meme muestra un gato en pleno modo 'gato': descansando y siendo la esencia de la tranquilidad.",
-      "category": "me_dijiste4",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos105.jpg",
+      "id": "203",
+      "name": "La Teoría de la Evolución... ¿En Serio?",
+      "description": "Estos gatos observan con desdén a los humanos, preguntándose cómo es posible que una especie tan patosa haya llegado tan lejos. ¡Darwin debe estar revolviéndose en su tumba!",
+      "category": "gatos_siendo_humanos2",
+      "image": "/src/assets/gatos-siendo-humanos2/humanos203.jpg",
       "date": "2017-10-26",
       "likes": 77049
     },
     {
-      "id": "406",
-      "name": "Gato En Paz",
-      "description": "Nada como un gato relajado, y este meme lo refleja a la perfección.",
-      "category": "me_dijiste4",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos106.jpg",
+      "id": "204",
+      "name": "El Poder de la Noche",
+      "description": "Cuando la cafeína te golpea a las 11 de la noche y te sientes más vivo que nunca... aunque mañana te arrepientas.",
+      "category": "gatos_siendo_humanos2",
+      "image": "/src/assets/gatos-siendo-humanos2/humanos204.jpg",
       "date": "2018-04-28",
       "likes": 15939
     },
     {
-      "id": "407",
-      "name": "Gato Tranquilo",
-      "description": "Con una pose perezosa, este gato parece estar en total armonía consigo mismo.",
-      "category": "me_dijiste4",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos107.jpg",
+      "id": "205",
+      "name": "Drama en el Salón de Belleza Felino",
+      "description": "Cuando tus cejas tienen personalidades distintas y deciden rebelarse. ¡Relájate, gatito, al menos no tienes que depilarlas!",
+      "category": "gatos_siendo_humanos2",
+      "image": "/src/assets/gatos-siendo-humanos2/humanos205.jpg",
       "date": "2014-12-27",
       "likes": 20521
     },
     {
-      "id": "408",
-      "name": "Gato Contento",
-      "description": "Una expresión de puro disfrute mientras el gato se deleita en sus actividades cotidianas.",
-      "category": "me_dijiste4",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos108.jpg",
+      "id": "206",
+      "name": "Amor en Tiempos de Acuario",
+      "description": "Cuando tu pareja se llama Nemo y vives en un piso sin pecera... ¡Buena suerte con esa relación a distancia!",
+      "category": "gatos_siendo_humanos2",
+      "image": "/src/assets/gatos-siendo-humanos2/humanos206.jpg",
       "date": "2015-03-07",
       "likes": 11979
     },
     {
-      "id": "409",
-      "name": "Gato Soñador",
-      "description": "Este meme captura el momento exacto en que un gato decide relajarse y disfrutar del día.",
-      "category": "me_dijiste4",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos109.jpg",
+      "id": "207",
+      "name": "El Gato Valiente",
+      "description": "Después de una maratón de terror, este gato duerme plácidamente. ¿Será que los monstruos le tienen miedo a él?",
+      "category": "gatos_siendo_humanos2",
+      "image": "/src/assets/gatos-siendo-humanos2/humanos207.jpg",
       "date": "2020-05-13",
       "likes": 37887
     },
     {
-      "id": "411",
-      "name": "Gato Pensativo",
-      "description": "Este gato muestra una mezcla de curiosidad y tranquilidad mientras observa su entorno.",
-      "category": "me_dijiste4",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos111.jpg",
+      "id": "208",
+      "name": "El Gatito Confiado vs. El Gatito Abrumado",
+      "description": "Todos hemos sido ese gatito cool en la entrevista, pero la realidad laboral a veces nos convierte en un mar de lágrimas. ¡La vida adulta es dura, amigos!",
+      "category": "gatos_siendo_humanos2",
+      "image": "/src/assets/gatos-siendo-humanos2/humanos208.jpg",
+      "date": "2019-03-28",
+      "likes": 87915
+    },
+    {
+      "id": "209",
+      "name": "El espíritu laboral gatuno",
+      "description": "Si las ganas de dormir fueran un trabajo, este gato sería el empleado del mes.",
+      "category": "gatos_siendo_humanos2",
+      "image": "/src/assets/gatos-siendo-humanos2/humanos209.jpg",
       "date": "2009-09-05",
       "likes": 70961
     },
     {
-      "id": "411",
-      "name": "Gato Pensativo",
-      "description": "Este gato muestra una mezcla de curiosidad y tranquilidad mientras observa su entorno.",
-      "category": "gatos_siendo_gatos1",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos111.jpg",
+      "id": "210",
+      "name": "Negociaciones Felinas",
+      "description": "Cuando tu gato te convoca a una reunión de emergencia y el tema principal es... ¡el perro! Al parecer, las cortinas están en juego. ¡Suerte con eso, humano!",
+      "category": "gatos_siendo_humanos2",
+      "image": "/src/assets/gatos-siendo-humanos2/humanos210.jpg",
+      "date": "2021-07-15",
+      "likes": 13456
+    },
+    {
+      "id": "211",
+      "name": "Amor Incondicional... ¿o Hambre Eterna?",
+      "description": "Ni la muerte nos separará... de la comida. Estos gatos están dispuestos a llegar hasta el final por un bocado más. ¡Esperemos que dejen algo para el velorio!",
+      "category": "gatos_siendo_humanos2",
+      "image": "/src/assets/gatos-siendo-humanos2/humanos211.jpg",
+      "date": "2022-09-22",
+      "likes": 9512
+    },
+    {
+      "id": "212",
+      "name": "Del Amor al Odio en 0.5 Segundos",
+      "description": "Cuando los abrazos se convierten en secuestros y la ternura gatuna se transforma en furia asesina. ¡Cuidado con los cariños excesivos!",
+      "category": "gatos_siendo_humanos2",
+      "image": "/src/assets/gatos-siendo-humanos2/humanos212.jpg",
+      "date": "2010-01-26",
+      "likes": 52544
+    },
+    {
+      "id": "301",
+      "name": "Buenos días, mundo... ¡NO!",
+      "description": "Esa cara que pones cuando el despertador suena un lunes por la mañana y te das cuenta de que el fin de semana se acabó. ¡Ni los gatos se libran del bajón de los lunes!",
+      "category": "gatos_enfadados3",
+      "image": "/src/assets/gatos-enfadados3/enfadado301.jpg",
+      "date": "2008-07-13",
+      "likes": 9918
+    },
+    {
+      "id": "302",
+      "name": "El Poder de las Empanadas",
+      "description": "¿Quién puede resistirse a unas deliciosas empanadas? Ni siquiera el gato más enfadado. ¡El camino al perdón pasa por el estómago!",
+      "category": "gatos_enfadados3",
+      "image": "/src/assets/gatos-enfadados3/enfadado302.jpg",
+      "date": "2024-11-21",
+      "likes": 34268
+    },
+    {
+      "id": "303",
+      "name": "La venganza del sueño interrumpido",
+      "description": "¡Cuidado, Karen! Cuando un gato no duerme, alguien va a pagar las consecuencias... ¡y parece que hoy toca caldo de gatito!",
+      "category": "gatos_enfadados3",
+      "image": "/src/assets/gatos-enfadados3/enfadado303.jpg",
+      "date": "2017-10-26",
+      "likes": 77049
+    },
+    {
+      "id": "304",
+      "name": "La Rebelión de Michifuz",
+      "description": "Cuando Karen cruza la línea de la privacidad felina, Michifuz está listo para tomar medidas drásticas. ¡La independencia gatuna no se negocia!",
+      "category": "gatos_enfadados3",
+      "image": "/src/assets/gatos-enfadados3/enfadado304.jpg",
+      "date": "2018-04-28",
+      "likes": 15939
+    },
+    {
+      "id": "305",
+      "name": "Karen, la Estilista Felina",
+      "description": "¡Parece que Karen ha llevado su obsesión por la moda demasiado lejos! Este gato está listo para demandar por crímenes contra la comodidad gatuna.",
+      "category": "gatos_enfadados3",
+      "image": "/src/assets/gatos-enfadados3/enfadado305.jpg",
+      "date": "2014-12-27",
+      "likes": 20521
+    },
+    {
+      "id": "306",
+      "name": "La Paciencia Felina Tiene un Límite",
+      "description": "Una expresión de puro disfrute mientras el gato se deleita en sus activid¡Karen, la has liado pardísima! Este gatito ha alcanzado su punto máximo de tolerancia a tus ocurrencias. Prepárate para la venganza gatuna.",
+      "category": "gatos_enfadados3",
+      "image": "/src/assets/gatos-enfadados3/enfadado306.jpg",
+      "date": "2015-03-07",
+      "likes": 11979
+    },
+    {
+      "id": "307",
+      "name": "¡Traición Gatuna!",
+      "description": "¡Karen, te has pasado! Este gato se siente profundamente ofendido por tu preferencia por los michis de Facebook. Prepárate para recibir el desprecio felino en su máxima expresión.",
+      "category": "gatos_enfadados3",
+      "image": "/src/assets/gatos-enfadados3/enfadado307.jpg",
+      "date": "2020-05-13",
+      "likes": 37887
+    },
+    {
+      "id": "308",
+      "name": "Grumpy Cat y el Día de Diversión",
+      "description": "¡Cuando la diversión es tan mala que preferirías estar de mal humor todo el día! Grumpy Cat lo resume a la perfección.",
+      "category": "gatos_enfadados3",
+      "image": "/src/assets/gatos-enfadados3/enfadado308.jpg",
+      "date": "2019-03-28",
+      "likes": 87915
+    },
+    {
+      "id": "309",
+      "name": "Conejito Furioso",
+      "description": "¡No te atrevas a dejar en visto a este gatito! Puede que parezca adorable, pero su mirada de furia te dice que no está para juegos. ¡Responde ya!",
+      "category": "gatos_enfadados3",
+      "image": "/src/assets/gatos-enfadados3/enfadado309.jpg",
       "date": "2009-09-05",
       "likes": 70961
     },
     {
-      "id": "7f26",
-      "name": "dsada",
-      "description": "dasdads",
-      "category": "Gatos siendo gatos",
-      "image": "https://res.cloudinary.com/dv2jxa9lw/image/upload/v1726484442/teejerfnnocqtfzuybkn.png"
+      "id": "310",
+      "name": "Tom, te encontré",
+      "description": "¡La reencarnación de Tom! Este gatito tiene la misma mirada de determinación y travesura. ¡Jerry, más te vale correr!",
+      "category": "gatos_enfadados3",
+      "image": "/src/assets/gatos-enfadados3/enfadado310.jpg",
+      "date": "2021-07-15",
+      "likes": 13456
     },
     {
-      "id": "996d",
-      "name": "adds",
-      "description": "asddads",
-      "category": "Gatos siendo gatos",
-      "image": "https://res.cloudinary.com/dv2jxa9lw/image/upload/v1726484618/alxredyabdwfn8uckpfg.png"
+      "id": "311",
+      "name": "Sueños vs. Realidad Gatuna",
+      "description": "Todos soñamos con ser ese gatito tierno que recibe mimos todo el día... pero la realidad es que acabamos siendo el gato adulto que tiene que lidiar con las responsabilidades (y los humanos adictos al trabajo). ¡Ay, la vida!",
+      "category": "gatos_enfadados3",
+      "image": "/src/assets/gatos-enfadados3/enfadado311.jpg",
+      "date": "2022-09-22",
+      "likes": 9512
     },
     {
-      "id": "6d2c",
-      "name": "dsadsa",
-      "description": "dsadssa",
-      "category": "Gatos siendo gatos",
-      "image": "https://res.cloudinary.com/dv2jxa9lw/image/upload/v1726486432/mw19efadwpixl67zvaxf.png"
+      "id": "312",
+      "name": "Grumpy Cat en Modo Asesino",
+      "description": "¡Cuidado! Grumpy Cat está a punto de desatar su furia. ¿Quién será la víctima de su ira esta vez? ¡Pobrecito el que se cruce en su camino!",
+      "category": "gatos_enfadados3",
+      "image": "/src/assets/gatos-enfadados3/enfadado312.jpg",
+      "date": "2010-01-26",
+      "likes": 52544
     },
     {
-      "id": "8bfa",
-      "name": "asS",
-      "description": "sasaSA",
-      "category": "Gatos siendo gatos",
-      "image": "https://res.cloudinary.com/dv2jxa9lw/image/upload/v1726486463/ekknhrok0djsyyvmdsct.png"
-    },
-    {
-      "id": "4a68",
-      "name": "DADDA",
-      "description": "DADSSDA",
-      "category": "Gatos siendo gatos",
-      "image": "https://res.cloudinary.com/dv2jxa9lw/image/upload/v1726486539/l9lfc5gnta1h1ed3v0ta.png"
-    },
-    {
-      "id": "7d13",
-      "name": "dsad",
-      "description": "dasdsd",
-      "category": "Gatos siendo gatos",
-      "image": "https://res.cloudinary.com/dv2jxa9lw/image/upload/v1726486922/sb51josahm34atpfw4sq.png"
-    },
-    {
-      "id": "1108",
-      "name": "dsad",
-      "description": "asddsads",
-      "category": "Gatos siendo gatos",
-      "image": "https://res.cloudinary.com/dv2jxa9lw/image/upload/v1726487107/nvzu1tk2zbhj3kf4gcdi.png"
-    },
-    {
-      "id": "b483",
-      "name": "eaee",
-      "description": "aee",
-      "category": " gatos_siendo_gatos1",
-      "image": "https://res.cloudinary.com/dv2jxa9lw/image/upload/v1726488704/l7jwgvlp0d6ybkass6vi.png"
-    },
-    {
-      "id": "046c",
-      "name": "Dario Pacheco",
-      "description": "dadadadadadadda",
+      "id": "401",
+      "name": "El Felino arruinado",
+      "description": "Cuando un simple detalle te pasa de rico a pobre",
       "category": "me_dijiste4",
-      "image": "https://res.cloudinary.com/dv2jxa9lw/image/upload/v1726490651/foe4aulmpqpqrskzdeqz.jpg"
+      "image": "/src/assets/me-dijiste4/medijiste401.jpg",
+      "date": "2008-07-13",
+      "likes": 9918
+    },
+    {
+      "id": "402",
+      "name": "La Decepción Amorosa Felina",
+      "description": "Cuando descubres que tu cita te mintió sobre su fortuna y ahora solo te queda lamentar tus decisiones amorosas. ¡Al menos este gatito te entiende!",
+      "category": "me_dijiste4",
+      "image": "/src/assets/me-dijiste4/medijiste402.jpg",
+      "date": "2024-11-21",
+      "likes": 34268
+    },
+    {
+      "id": "403",
+      "name": "Expectativas vs. Realidad en la Cama",
+      "description": " ¡Vaya, parece que alguien exageró sus habilidades en la cama! Este gato nos recuerda que a veces las palabras se las lleva el viento (o el ronquido).",
+      "image": "/src/assets/me-dijiste4/medijiste403.jpg",
+      "date": "2017-10-26",
+      "likes": 77049
+    },
+    {
+      "id": "404",
+      "name": "Expectativas vs. Realidad Gimnástica",
+      "description": "¡Ay, las redes sociales! Todos conocemos a alguien que presume de sus logros en el gimnasio... pero la realidad es otra historia. ¡Este gato nos representa a todos los que preferimos la comodidad del sofá!",
+      "category": "me_dijiste4",
+      "image": "/src/assets/me-dijiste4/medijiste404.jpg",
+      "date": "2018-04-28",
+      "likes": 15939
+    },
+    {
+      "id": "405",
+      "name": "La Fiesta de la Decepción",
+      "description": "Cuando dices que no irás a la fiesta, pero luego apareces... ¡y con la persona que te gusta! Este gato sabe cómo dar un golpe bajo.",
+      "category": "me_dijiste4",
+      "image": "/src/assets/me-dijiste4/medijiste405.jpg",
+      "date": "2014-12-27",
+      "likes": 20521
+    },
+    {
+      "id": "406",
+      "name": "Expectativas vs. Realidad Gamer",
+      "description": "Cuando presumes de tus logros en los videojuegos, pero la realidad es que pasas más tiempo viendo a otros jugar en Twitch. ¡Todos hemos sido ese gato alguna vez!",
+      "category": "me_dijiste4",
+      "image": "/src/assets/me-dijiste4/medijiste406.jpg",
+      "date": "2015-03-07",
+      "likes": 11979
+    },
+    {
+      "id": "407",
+      "name": "Decepción en la cita",
+      "description": "¡Ay, el amor! Cuando descubres que las promesas de un abdomen marcado eran solo eso... promesas. No debemos creer todo lo que nos dicen.",
+      "category": "me_dijiste4",
+      "image": "/src/assets/me-dijiste4/medijiste407.jpg",
+      "date": "2020-05-13",
+      "likes": 37887
+    },
+    {
+      "id": "408",
+      "name": "El felino pillado",
+      "description": "Parece que alguien fue atrapado con las patas en la masa.",
+      "category": "me_dijiste4",
+      "image": "/src/assets/me-dijiste4/medijiste408.jpg",
+      "date": "2019-03-28",
+      "likes": 87915
+    },
+    {
+      "id": "409",
+      "name": "Fitness de fiesta",
+      "description": "Cuanto ejercitas tu resistencia en la pista el fin de semana",
+      "category": "me_dijiste4",
+      "image": "/src/assets/me-dijiste4/medijiste409.jpg",
+      "date": "2009-09-05",
+      "likes": 70961
+    },
+    {
+      "id": "410",
+      "name": "Esta cuenta está vacía",
+      "description": "Si Facebook pudiera pagar nuestras cuentas...",
+      "category": "me_dijiste4",
+      "image": "/src/assets/me-dijiste4/medijiste410.jpg",
+      "date": "2021-07-15",
+      "likes": 13456
+    },
+    {
+      "id": "411",
+      "name": "Una mentira la dice cualquiera",
+      "description": "Cuando omites esa información que puede echar todo al traste",
+      "category": "me_dijiste4",
+      "image": "/src/assets/me-dijiste4/medijiste411.jpg",
+      "date": "2022-09-22",
+      "likes": 9512
+    },
+    {
+      "id": "412",
+      "name": "El gato tiburón",
+      "description": "Cuando te vendes por encima de tus posibilidades. A este gatito lo han pillado",
+      "category": "me_dijiste4",
+      "image": "/src/assets/me-dijiste4/medijiste412.jpg",
+      "date": "2010-01-26",
+      "likes": 52544
     }
   ]
 }

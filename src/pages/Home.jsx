@@ -4,6 +4,7 @@ import MemeGrid from "../components/MemeGrid";
 import Modal from "../components/Modal";
 import CreateMeme from "../pages/CreateMeme";
 import FilterContext from "../layout/FilterContext";
+import Hero from "../components/Hero";
 
 const categories = [
   "gatos_siendo_gatos1",
@@ -171,14 +172,11 @@ const Home = () => {
 
   return (
     <div className="min-h-screen w-full m-0">
-      <h1 className="text-4xl font-bold text-center mb-8">
-        Lista de Memes de Gatos
-      </h1>
-
-      <div className="flex justify-center mb-6">
+      <Hero />
+      <div>
         <button
           onClick={openModal}
-          className="relative inline-block text-white p-4 rounded-full bg-gradient-to-br from-purple-800 to-purple-900 shadow-lg hover:shadow-2xl transition-transform duration-300 ease-in-out transform hover:scale-105 animate-spin-slow"
+          className="fixed right-4 sm:right-10 md:right-20 bottom-[50px] transform text-black px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full bg-transparent border border-black border-solid hover:shadow-md transition-transform duration-300 ease-in-out hover:scale-105 animate-spin-slow z-10 min-w-[150px] sm:min-w-[200px] md:min-w-[250px]"
         >
           Crear Nuevo Meme
         </button>
