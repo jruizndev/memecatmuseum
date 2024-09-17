@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import "./title.css";
+import "./titles.css";
 
 const titles = [
   "Cats Sitting",
@@ -13,17 +13,26 @@ const titles = [
 ];
 
 const Titles = () => {
+  return (
+    <div className="sections-container">
+      {titles.map((title, index) => (
+        <TitleSection key={index} title={title} />
+      ))}
+    </div>
+  );
+};
+
+// Component for individual title section
+const TitleSection = ({ title }) => {
   const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: true, // Trigger animation only once
-    threshold: 0.2, // Animation will trigger when 20% of the element is in view
+    threshold: 0.2, // Animation triggers when 20% of the element is in view
   });
 
   useEffect(() => {
     if (inView) {
       controls.start("visible");
-    } else {
-      controls.start("hidden");
     }
   }, [controls, inView]);
 
@@ -40,34 +49,20 @@ const Titles = () => {
         type: "spring",
         stiffness: 50,
         damping: 10,
-        staggerChildren: 0.3,
-      },
-    },
-    exit: {
-      opacity: 0,
-      x: 100,
-      transition: {
-        duration: 0.5,
       },
     },
   };
 
   return (
-    <div className="sections-container">
-      {titles.map((title, index) => (
-        <motion.div
-          className="section"
-          key={index}
-          ref={ref}
-          initial="hidden"
-          animate={controls}
-          exit="exit"
-          variants={variants}
-        >
-          <h1 className="title-text">{title}</h1>
-        </motion.div>
-      ))}
-    </div>
+    <motion.div
+      className="section"
+      ref={ref} // Ensure this ref is correctly applied
+      initial="hidden"
+      animate={controls} // This should be correct
+      variants={variants}
+    >
+      <h1 className="title-text">{title}</h1>
+    </motion.div>
   );
 };
 
