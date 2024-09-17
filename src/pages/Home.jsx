@@ -4,6 +4,7 @@ import MemeGrid from '../components/MemeGrid'
 import Modal from '../components/Modal'
 import CreateMeme from '../pages/CreateMeme'
 import FilterContext from '../layout/FilterContext'
+import Hero from '../components/Hero'
 
 const categories = [
     'gatos_siendo_gatos1',
@@ -174,9 +175,7 @@ const Home = () => {
 
     return (
         <div className="min-h-screen w-full m-0">
-            <h1 className="text-4xl font-bold text-center mb-8">
-                Lista de Memes de Gatos
-            </h1>
+            <Hero />
 
             <div className="flex justify-center mb-6">
                 <button
