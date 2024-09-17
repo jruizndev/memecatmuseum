@@ -64,7 +64,7 @@ const Footer = () => {
       <div className="border-t border-white/30 py-2 w-full mx-0 px-0">
         <div className="flex flex-col sm:flex-col lg:flex-row lg:justify-between lg:items-center w-full">
           <p className="text-[#eee8e1]/70 text-sm text-center lg:text-left ml-8">
-            © 2024 Cat Square - The Meme’s Cat Museum
+            © 2024 MeCat Museum- The Meme’s Cat Museum
           </p>
           <div className="flex space-x-6 mt-4 lg:mt-0 mr-8">
             <a href="#" className="text-[#eee8e1]/70 text-sm">Privacy</a>

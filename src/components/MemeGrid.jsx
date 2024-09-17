@@ -16,8 +16,8 @@ const generatePattern = (memes) => {
   ];
 
   return memes.map((meme, index) => {
-    const randomMarginTop = Math.floor(Math.random() * 120);
-    const randomMarginBottom = Math.floor(Math.random() * 120) + 30;
+    const randomMarginTop = Math.floor(Math.random() * 80);
+    const randomMarginBottom = Math.floor(Math.random() * 30) + 30;
 
     if (index < positions.length) {
       const position = positions[index];
@@ -38,7 +38,7 @@ const MemeGrid = ({ memes, onDelete }) => {
         itemSelector: '.grid-item',
         columnWidth: '.grid-item',
         percentPosition: true,
-        gutter: 10, // Espaciado entre los elementos
+        gutter: 20, // Espaciado entre los elementos
       });
 
       // Destruir Masonry al desmontar el componente
@@ -58,16 +58,28 @@ const MemeGrid = ({ memes, onDelete }) => {
   return (
     <div
       ref={gridRef}
-      className="flex flex-wrap sm:flex-col items-start justify-start ml-40 w-[60%] mx-auto pt-4"
+      className="flex flex-col items-start justify-start lg:54ml-10 lg:w-[60%] w-full sm:flex-col"
+      style={{
+        // El comportamiento para pantallas pequeñas (móviles) se define aquí
+        display: 'flex',
+        flexWrap: 'wrap', // Mantiene las tarjetas en su lugar en pantallas grandes
+        justifyContent: 'flex-center',
+        '@media (max-width: 640px)': {
+          flexDirection: 'column', // Para pantallas pequeñas, todas las tarjetas estarán en una columna
+        },
+      }}
     >
       {patternedMemes.map((meme) => (
         <div
           key={meme.id}
           className="grid-item"
           style={{
-            marginTop: `${meme.randomMarginTop}px`,
-            marginBottom: `${meme.randomMarginBottom}px`,
-            width: 'calc(33.333% - 16px)', // Ajusta el ancho para que haya espacio entre los items
+            // marginTop: `${meme.randomMarginTop}px`,
+            // marginBottom: `${meme.randomMarginBottom}px`,
+            width: 'calc(33.333% - 16px)', // En pantallas grandes
+            '@media (max-width: 1440px)': {
+              width: 'calc(100% - 16px)', // En pantallas pequeñas, ocupa todo el ancho
+            },
           }}
         >
           <Card

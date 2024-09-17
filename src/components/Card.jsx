@@ -7,17 +7,18 @@ const Card = ({ meme, handleDelete, handleFlip, isFlipped }) => {
 {/* Parte frontal */}
 <div
   key={meme.id}
-  className="group relative  max-w-[370px] min-h-[370px] transition-all ease-in-out duration-300" // Añadido duration-300
+  className="group relative w-4/5 hover:z-20 max-w-[270px] min-h-[370px] transition-all ease-in-out duration-300 " // Añadido duration-300
   style={{
     perspective: '1000px',
-    marginTop: '20px',
-    marginBottom: '20px',
+    marginTop: '30px',
+    marginBottom: '-50px',
+    marginRigth: '50px'
   }}
 >
-  <div className="relative w-full h-full group-hover:z-10 transition-transform duration-300"> 
+  <div className=" w-full h-full group-hover:z-10 transition-transform duration-300"> 
     {/* Contenedor envolvente para imagen y botones */}
-    <div className="absolute w-full h-full backface-hidden z-10 group-hover:scale-x-100 transition-transform duration-300"> 
-      <div className="relative w-full min-h-[320px] min-w-[300px] flex flex-col justify-between overflow-hidden group-hover:bg-white transition-colors duration-300"
+    <div className="w-full h-full backface-hidden z-10 group-hover:scale-x-100 transition-transform duration-300"> 
+      <div className=" w-full min-h-[120px] lg:min-w-[300px] min-w-[140px] flex flex-col justify-between overflow-hidden group-hover:bg-white transition-colors duration-300"
         style={{ 
           padding: '10px',  // Añade padding para simular el marco
           backgroundColor: 'transparent',  // Fondo por defecto transparente
@@ -28,7 +29,7 @@ const Card = ({ meme, handleDelete, handleFlip, isFlipped }) => {
           <img
             src={meme.image}
             alt={meme.description}
-            className="max-h-[350px] hover:border-8 hover:border-white w-auto object-contain rounded-3xl transition-all duration-300" 
+            className="max-h-[350px] hover:border-8 border-2 hover:border-white w-auto object-contain rounded-3xl transition-all duration-300" 
           />
         </div>
 
@@ -50,11 +51,17 @@ const Card = ({ meme, handleDelete, handleFlip, isFlipped }) => {
             </svg>
           </button>
           <button className="edit">
-            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
-              <g clipPath="url(#clip0_272_658)">
-                <path d="M20.222 21.6668H4.33312V5.77794H13.8809L15.3253 4.3335H4.33312C3.95003 4.3335 3.58263 4.48568 3.31174 4.75656C3.04085 5.02745 2.88867 5.39485 2.88867 5.77794V21.6668C2.88867 22.0499 3.04085 22.4173 3.31174 22.6882C3.58263 22.9591 3.95003 23.1113 4.33312 23.1113H20.222C20.6051 23.1113 20.9725 22.9591 21.2434 22.6882C21.5143 22.4173 21.6665 22.0499 21.6665 21.6668V10.8335L20.222 12.2779V21.6668Z" fill="#A3A3A3"/>
-              </g>
-            </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+<g id="clarity:note-line" clip-path="url(#clip0_356_2321)">
+<path id="Vector" d="M20.222 21.6667H4.33312V5.77779H13.8809L15.3253 4.33334H4.33312C3.95003 4.33334 3.58263 4.48553 3.31174 4.75641C3.04085 5.0273 2.88867 5.3947 2.88867 5.77779V21.6667C2.88867 22.0498 3.04085 22.4172 3.31174 22.6881C3.58263 22.9589 3.95003 23.1111 4.33312 23.1111H20.222C20.6051 23.1111 20.9725 22.9589 21.2434 22.6881C21.5143 22.4172 21.6665 22.0498 21.6665 21.6667V10.8333L20.222 12.2778V21.6667Z" fill="#A3A3A3"/>
+<path id="Vector_2" d="M24.2163 4.21779L21.7824 1.7839C21.6744 1.67558 21.546 1.58965 21.4048 1.53102C21.2635 1.47238 21.112 1.4422 20.959 1.4422C20.8061 1.4422 20.6546 1.47238 20.5133 1.53102C20.3721 1.58965 20.2437 1.67558 20.1357 1.7839L10.234 11.7433L9.43238 15.2172C9.39823 15.3856 9.40182 15.5595 9.44289 15.7263C9.48397 15.8932 9.56151 16.0488 9.66994 16.1821C9.77837 16.3154 9.91498 16.423 10.07 16.4972C10.225 16.5714 10.3945 16.6103 10.5663 16.6111C10.6551 16.6208 10.7447 16.6208 10.8335 16.6111L14.3363 15.8383L24.2163 5.86445C24.3246 5.75644 24.4105 5.62811 24.4692 5.48683C24.5278 5.34555 24.558 5.19408 24.558 5.04112C24.558 4.88815 24.5278 4.73669 24.4692 4.59541C24.4105 4.45412 24.3246 4.3258 24.2163 4.21779ZM13.5852 14.5022L10.9418 15.0872L11.5557 12.4656L19.009 4.96167L21.0457 6.99834L13.5852 14.5022ZM21.8618 6.18223L19.8252 4.14556L20.9446 3.00445L22.9957 5.05556L21.8618 6.18223Z" fill="#A3A3A3"/>
+</g>
+<defs>
+<clipPath id="clip0_356_2321">
+<rect width="26" height="26" fill="white"/>
+</clipPath>
+</defs>
+</svg>
           </button>
         </div>
       </div>
@@ -73,7 +80,7 @@ const Card = ({ meme, handleDelete, handleFlip, isFlipped }) => {
           <img
             src={meme.image}
             alt={meme.description}
-            className="absolute max-h-[370px] w-auto inset-0 object-cover rounded-3xl opacity-15"
+            className="absolute max-h-[320px] max-w-[290px] justify-center flex inset-0 object-cover rounded-3xl opacity-15"
           />
           <div className="relative max-h-[320px] max-w-[300px] p-4 z-10 bg-black/55 text-white top-2 rounded-3xl">
             <h2 className="text-lg font-semibold text-start mt-12 mb-6">{meme.name}</h2>
