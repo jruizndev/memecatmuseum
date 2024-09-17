@@ -4,28 +4,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import "./titles.css";
 
-const titles = [
-  "Cats Sitting",
-  "Cats Cats",
-  "Sitting Humans",
-  "Cats Enfadados",
-  "Me Dijiste",
-];
-
-const Titles = () => {
-  return (
-    <div className="titles-wrapper">
-      <div className="sections-container">
-        {titles.map((title, index) => (
-          <TitleSection key={index} title={title} />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-// Component for individual title section
-const TitleSection = ({ title }) => {
+const TitleSection = ({ title, className }) => {
   const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: false, // Trigger animation every time the element enters the view
@@ -59,7 +38,7 @@ const TitleSection = ({ title }) => {
 
   return (
     <motion.div
-      className="section"
+      className={`section ${className}`}
       ref={ref}
       initial="hidden"
       animate={controls}
@@ -70,4 +49,4 @@ const TitleSection = ({ title }) => {
   );
 };
 
-export default Titles;
+export default TitleSection;

@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { getMemeByCategory, deleteMeme } from "../services/services";
 import MemeGrid from "../components/MemeGrid";
-import Modal from "../components/Modal"; // Asegúrate de tener el componente Modal
-import CreateMeme from "../pages/CreateMeme"; // Asegúrate de tener el componente CreateMeme
-import Titles from "../components/Titles";
-// Asegúrate de tener el componente Titles
+import Modal from "../components/Modal";
+import CreateMeme from "../pages/CreateMeme";
+import TitleSection from "../components/Titles";
+
 const categories = [
   "gatos_siendo_gatos1",
   "gatos_siendo_humanos2",
@@ -12,7 +12,6 @@ const categories = [
   "me_dijiste4",
 ];
 
-// Manteniendo los fondos degradados que ya tenías definidos
 const categoryClasses = {
   gatos_siendo_gatos1: "bg-gatos-siendo-gatos1",
   gatos_siendo_humanos2: "bg-gatos-siendo-humanos2",
@@ -30,6 +29,9 @@ const categoryTitles = {
 const Home = () => {
   const [memesByCategory, setMemesByCategory] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeCategory, setActiveCategory] = useState(categories[0]);
+
+  const sectionRefs = useRef([]);
 
   useEffect(() => {
     const fetchMemes = async () => {
@@ -71,7 +73,6 @@ const Home = () => {
     setIsModalOpen(false);
   };
 
-  // Function to fetch memes and update state after creating a new meme
   const refreshMemes = async () => {
     try {
       const memesPromises = categories.map((category) =>
@@ -88,6 +89,30 @@ const Home = () => {
     }
   };
 
+  // Intersection Observer to detect which section is in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveCategory(entry.target.getAttribute("data-category"));
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    sectionRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      sectionRefs.current.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
+  }, []);
+
   return (
     <div className="min-h-screen w-full m-0 bg-gray-100">
       <h1 className="text-4xl font-bold text-center mb-8">
@@ -103,23 +128,26 @@ const Home = () => {
         </button>
       </div>
 
-      {categories.map((category) => (
+      {categories.map((category, index) => (
         <div
           key={category}
+          data-category={category}
+          ref={(el) => (sectionRefs.current[index] = el)}
           className={`w-full py-10 ${categoryClasses[category]}`}
         >
-          <h1 className="text-3xl font-bold mb-8 text-center text-white">
-            {categoryTitles[category]}
-            {isModalOpen && (
-              <Modal onClose={closeModal}>
-                <CreateMeme onClose={closeModal} onMemeCreated={refreshMemes} />
-              </Modal>
-            )}
-          </h1>
+          <TitleSection
+            title={categoryTitles[category]}
+            className={categoryClasses[category]}
+          />
           <MemeGrid
             memes={memesByCategory[category] || []}
             onDelete={(id) => handleDelete(category, id)}
           />
+          {isModalOpen && (
+            <Modal onClose={closeModal}>
+              <CreateMeme onClose={closeModal} onMemeCreated={refreshMemes} />
+            </Modal>
+          )}
         </div>
       ))}
     </div>
