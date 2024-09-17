@@ -430,6 +430,13 @@
       "image": "/src/assets/me-dijiste4/medijiste412.jpg",
       "date": "2010-01-26",
       "likes": 52544
+    },
+    {
+      "id": "65b1",
+      "name": "Gato 🐱",
+      "description": "iu",
+      "category": "gatos_siendo_humanos2",
+      "image": "https://res.cloudinary.com/dv2jxa9lw/image/upload/v1726597636/tsk42u03nqxc5tfaufpd.jpg"
     }
   ]
 }
