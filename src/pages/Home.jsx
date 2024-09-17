@@ -178,7 +178,7 @@ const Home = () => {
           onClick={openModal}
           className="fixed right-4 sm:right-10 md:right-20 bottom-[50px] transform text-black px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full bg-transparent border border-black border-solid hover:shadow-md transition-transform duration-300 ease-in-out hover:scale-105 animate-spin-slow z-10 min-w-[150px] sm:min-w-[200px] md:min-w-[250px]"
         >
-          Crear Nuevo Meme
+          CREAR NUEVO MEME
         </button>
       </div>
 
@@ -202,9 +202,7 @@ const Home = () => {
             {/* Renderizamos el título solo si la categoría está seleccionada o si se seleccionó "Todas" */}
             {(selectedCategory === "Todas" ||
               selectedCategory === category) && (
-              <h1 className="text-3xl font-bold mb-8 text-center text-white">
-                {categoryTitles[category]}
-              </h1>
+              <h1 className="text-3xl font-bold mb-8 text-center text-white"></h1>
             )}
 
             {/* Pasamos los memes filtrados para esta categoría a MemeGrid */}
