@@ -14,10 +14,14 @@ const titles = [
 
 const Titles = () => {
   return (
-    <div className="sections-container">
-      {titles.map((title, index) => (
-        <TitleSection key={index} title={title} />
-      ))}
+    <div className="titles-wrapper">
+      {" "}
+      {/* Wrapper div for positioning */}
+      <div className="sections-container">
+        {titles.map((title, index) => (
+          <TitleSection key={index} title={title} />
+        ))}
+      </div>
     </div>
   );
 };

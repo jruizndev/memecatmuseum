@@ -1,14 +1,19 @@
-/* Titles.css */
+/* titles.css */
+.titles-wrapper {
+  display: flex;
+  justify-content: flex-end; /* Align the titles to the right */
+  padding: 20px; /* Add padding to the container */
+}
+
 .sections-container {
   display: flex;
   flex-direction: column;
   gap: 50px;
-  padding: 20px;
 }
 
 .section {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end; /* Ensure each title is aligned to the right */
   align-items: center;
   height: 200px; /* Adjust height as needed */
 }
