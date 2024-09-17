@@ -15,8 +15,6 @@ const titles = [
 const Titles = () => {
   return (
     <div className="titles-wrapper">
-      {" "}
-      {/* Wrapper div for positioning */}
       <div className="sections-container">
         {titles.map((title, index) => (
           <TitleSection key={index} title={title} />
@@ -30,13 +28,15 @@ const Titles = () => {
 const TitleSection = ({ title }) => {
   const controls = useAnimation();
   const [ref, inView] = useInView({
-    triggerOnce: true, // Trigger animation only once
+    triggerOnce: false, // Trigger animation every time the element enters the view
     threshold: 0.2, // Animation triggers when 20% of the element is in view
   });
 
   useEffect(() => {
     if (inView) {
       controls.start("visible");
+    } else {
+      controls.start("hidden"); // Reset animation when out of view
     }
   }, [controls, inView]);
 
@@ -60,9 +60,9 @@ const TitleSection = ({ title }) => {
   return (
     <motion.div
       className="section"
-      ref={ref} // Ensure this ref is correctly applied
+      ref={ref}
       initial="hidden"
-      animate={controls} // This should be correct
+      animate={controls}
       variants={variants}
     >
       <h1 className="title-text">{title}</h1>

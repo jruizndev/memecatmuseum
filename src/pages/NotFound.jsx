@@ -32,8 +32,8 @@ const NotFound = () => {
           <Link to="/" className="mt-5">
             {" "}
             {/* Link to home */}
-            <button className="bg-blue-500 text-white py-2 px-4 rounded">
-              Home
+            <button className="bg-blue-500 text-white py-2 px-4 rounded-[10px]">
+              Volver a Home
             </button>
           </Link>
         </section>
