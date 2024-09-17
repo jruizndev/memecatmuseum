@@ -10,7 +10,7 @@ const Card = ({ meme, handleDelete, handleFlip, isFlipped }) => {
   className="group relative w-4/5 hover:z-20 max-w-[270px] min-h-[370px] transition-all ease-in-out duration-300 " // Añadido duration-300
   style={{
     perspective: '1000px',
-    marginTop: '30px',
+    marginTop: '0px',
     marginBottom: '-50px',
     marginRigth: '50px'
   }}
