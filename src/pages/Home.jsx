@@ -6,6 +6,7 @@ import CreateMeme from "../pages/CreateMeme";
 import FilterContext from "../layout/FilterContext";
 import Hero from "../components/Hero";
 
+
 const categories = [
   "gatos_siendo_gatos1",
   "gatos_siendo_humanos2",
