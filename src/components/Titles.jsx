@@ -4,7 +4,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import "./titles.css";
 
-const TitleSection = ({ title, className }) => {
+const TitleSection = ({ title }) => {
   const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: false, // Trigger animation every time the element enters the view
@@ -31,14 +31,14 @@ const TitleSection = ({ title, className }) => {
       transition: {
         type: "spring",
         stiffness: 50,
-        damping: 10,
+        damping: 20,
       },
     },
   };
 
   return (
     <motion.div
-      className={`section ${className}`}
+      className="section"
       ref={ref}
       initial="hidden"
       animate={controls}

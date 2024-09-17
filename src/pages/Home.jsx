@@ -115,10 +115,6 @@ const Home = () => {
 
   return (
     <div className="min-h-screen w-full m-0 bg-gray-100">
-      <h1 className="text-4xl font-bold text-center mb-8">
-        Lista de Memes de Gatos
-      </h1>
-
       <div className="flex justify-center mb-6">
         <button
           onClick={openModal}
@@ -133,12 +129,9 @@ const Home = () => {
           key={category}
           data-category={category}
           ref={(el) => (sectionRefs.current[index] = el)}
-          className={`w-full py-10 ${categoryClasses[category]}`}
+          className={`w-full py-10 ${categoryClasses[category]}`} // Background gradient applied here
         >
-          <TitleSection
-            title={categoryTitles[category]}
-            className={categoryClasses[category]}
-          />
+          <TitleSection title={categoryTitles[category]} />
           <MemeGrid
             memes={memesByCategory[category] || []}
             onDelete={(id) => handleDelete(category, id)}
