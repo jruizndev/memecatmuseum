@@ -1,12 +1,12 @@
-import { createBrowserRouter } from 'react-router-dom';
-import Layout from '../layout/Layout';
-import Home from '../pages/Home';
-import EditMeme from '../pages/EditMeme';
-import NotFound from '../pages/NotFound';
-import AboutUs from '../pages/AboutUs';
+import { createBrowserRouter } from "react-router-dom";
+import Layout from "../layout/Layout";
+import Home from "../pages/Home";
+import EditMeme from "../pages/EditMeme";
+import NotFound from "../pages/NotFound";
+import AboutUs from "../pages/AboutUs";
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Layout />,
     errorElement: <NotFound />,
     children: [
@@ -15,11 +15,11 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: 'aboutus',
+        path: "aboutus",
         element: <AboutUs />,
       },
       {
-        path: '/editmeme/:id',
+        path: "/editmeme/:id",
         element: <EditMeme />,
       },
     ],

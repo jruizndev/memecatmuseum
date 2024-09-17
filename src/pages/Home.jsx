@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
-import { getMemes, deleteMeme, getMemeByCategory } from "../services/services";
+import React, { useState, useEffect, useContext, useRef } from "react";
+import { getMemes, getMemeByCategory, deleteMeme } from "../services/services";
 import MemeGrid from "../components/MemeGrid";
 import Modal from "../components/Modal";
 import CreateMeme from "../pages/CreateMeme";
+import TitleSection from "../components/Titles";
 import FilterContext from "../layout/FilterContext";
 import Hero from "../components/Hero";
-
 
 const categories = [
   "gatos_siendo_gatos1",
@@ -207,6 +207,7 @@ const Home = () => {
             )}
 
             {/* Pasamos los memes filtrados para esta categoría a MemeGrid */}
+            <TitleSection title={categoryTitles[category]} />
             <MemeGrid
               memes={memesForCategory}
               onDelete={(id) => handleDelete(category, id)}
