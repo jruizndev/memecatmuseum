@@ -1,0 +1,28 @@
+/* titles.css */
+.titles-wrapper {
+  display: flex;
+  justify-content: flex-end; /* Align the titles to the right */
+  padding: 25px; /* Add padding to the container */
+}
+
+.sections-container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.section {
+  display: flex;
+  justify-content: flex-end; /* Ensure each title is aligned to the right */
+  align-items: center;
+  height: 200px; /* Adjust height as needed */
+}
+
+.title-text {
+  font-family: "Alatsi", sans-serif;
+  color: #141212;
+  text-shadow: 0cap 0px 10px rgba(192, 183, 183, 0.5);
+  font-size: 60px;
+  margin: 20px;
+  @import url("https://fonts.googleapis.com/css2?family=Alatsi&display=swap");
+}
