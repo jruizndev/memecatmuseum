@@ -1,13 +1,16 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import MessageModal from "./MessageModal"; // Asegúrate de que la ruta sea correcta
 
 const MemeForm = ({ onSubmit, initialData, onClose, submitButtonText }) => {
   const { register, handleSubmit, reset, setValue } = useForm();
   const [imageUrl, setImageUrl] = useState(initialData?.image || "");
   const [uploading, setUploading] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
-  // Si hay datos iniciales (como en el caso de EditMeme), los seteamos
   useEffect(() => {
     if (initialData) {
       setValue("name", initialData.name);
@@ -59,8 +62,13 @@ const MemeForm = ({ onSubmit, initialData, onClose, submitButtonText }) => {
         console.error('Error al enviar los datos del meme:', error);
       }
     } else {
-      alert("Por favor, sube una imagen antes de continuar");
+      setModalMessage("Por favor, sube una imagen antes de continuar");
+      setIsModalVisible(true);
     }
+  };
+
+  const closeModal = () => {
+    setIsModalVisible(false);
   };
 
   return (
@@ -69,7 +77,6 @@ const MemeForm = ({ onSubmit, initialData, onClose, submitButtonText }) => {
         {submitButtonText === 'Actualizar Meme' ? 'Editar Meme' : 'Crear Meme'}
       </h1>
       <form onSubmit={handleSubmit(onSubmitHandler)} className="space-y-5">
-        {/* Form fields */}
         <div className="flex items-center mb-4">
           <label htmlFor="name" className="font-inter text-base mr-4 flex-shrink-0 w-32">
             Nombre:
@@ -143,6 +150,13 @@ const MemeForm = ({ onSubmit, initialData, onClose, submitButtonText }) => {
           </button>
         </div>
       </form>
+      {isModalVisible && (
+        <MessageModal
+          message={modalMessage}
+          type="success"
+          onClose={closeModal}
+        />
+      )}
     </div>
   );
 };
