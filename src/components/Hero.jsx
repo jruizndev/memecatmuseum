@@ -1,6 +1,6 @@
 const Hero = () => {
   return (
-    <div className="flex items-start relative z-20">
+    <div className="flex items-start relative z-19">
       <div className="w-full flex flex-col pt-[12%] pb-[10%] mt-20 items-center bg-gradient-to-b from-[#ff9a8b] to-[#ff4b2b]">
         <div className="w-[85vw] flex flex-col items-start">
           <div className="flex flex-col lg:flex-row justify-center items-center lg:gap-60 w-full">

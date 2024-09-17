@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 // src/components/CustomNode.jsx
 import React from 'react'
 
