@@ -1,44 +1,55 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
-import { getMemes, getMemeByCategory, deleteMeme } from "../services/services";
-import MemeGrid from "../components/MemeGrid";
-import Modal from "../components/Modal";
-import CreateMeme from "../pages/CreateMeme";
-import TitleSection from "../components/Titles";
-import FilterContext from "../layout/FilterContext";
-import Hero from "../components/Hero";
+import React, { useState, useEffect, useContext, useRef } from 'react';
+import {
+  getMemes,
+  getMemeByCategory,
+  deleteMeme,
+  updateMeme,
+  createMeme,
+} from '../services/services';
+import MemeGrid from '../components/MemeGrid';
+import Modal from '../components/Modal';
+
+import TitleSection from '../components/Titles';
+import FilterContext from '../layout/FilterContext';
+import Hero from '../components/Hero';
+import MemeForm from '../components/MemeForm';
+import MessageModal from '../components/MessageModal';
 
 const categories = [
-  "gatos_siendo_gatos1",
-  "gatos_siendo_humanos2",
-  "gatos_enfadados3",
-  "me_dijiste4",
+  'gatos_siendo_gatos1',
+  'gatos_siendo_humanos2',
+  'gatos_enfadados3',
+  'me_dijiste4',
 ];
 
 const categoryClasses = {
-  gatos_siendo_gatos1: "bg-gatos-siendo-gatos1",
-  gatos_siendo_humanos2: "bg-gatos-siendo-humanos2",
-  gatos_enfadados3: "bg-gatos-enfadados3",
-  me_dijiste4: "bg-me-dijiste4",
+  gatos_siendo_gatos1: 'bg-gatos-siendo-gatos1',
+  gatos_siendo_humanos2: 'bg-gatos-siendo-humanos2',
+  gatos_enfadados3: 'bg-gatos-enfadados3',
+  me_dijiste4: 'bg-me-dijiste4',
 };
 
 const categoryTitles = {
-  gatos_siendo_gatos1: "Gatos Siendo Gatos",
-  gatos_siendo_humanos2: "Gatos Siendo Humanos",
-  gatos_enfadados3: "Gatos Enfadados",
-  me_dijiste4: "Me Dijiste",
+  gatos_siendo_gatos1: 'Gatos Siendo Gatos',
+  gatos_siendo_humanos2: 'Gatos Siendo Humanos',
+  gatos_enfadados3: 'Gatos Enfadados',
+  me_dijiste4: 'Me Dijiste',
 };
 
 const Home = () => {
-  const {
-    selectedCategory,
-    selectedPopularity,
-    selectedDate,
-    handleSelectChange,
-  } = useContext(FilterContext);
+  const { selectedCategory, selectedPopularity, selectedDate } =
+    useContext(FilterContext);
 
   const [memesByCategory, setMemesByCategory] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditMode, setIsEditMode] = useState(false);
+  const [memeToEdit, setMemeToEdit] = useState(null);
   const [filteredMemes, setFilteredMemes] = useState([]);
+  const [message, setMessage] = useState('');
+  const [isMessageModalOpen, setIsMessageModalOpen] = useState(false);
+  const [messageType, setMessageType] = useState('success');
+  const [isConfirmDialog, setIsConfirmDialog] = useState(false);
+  const [memeToDelete, setMemeToDelete] = useState(null);
 
   useEffect(() => {
     const fetchMemes = async () => {
@@ -62,7 +73,7 @@ const Home = () => {
         setMemesByCategory(memesByCategory);
         setFilteredMemes(allMemes); // Inicialmente mostramos todos los memes
       } catch (error) {
-        console.error("Error fetching memes:", error);
+        console.error('Error fetching memes:', error);
       }
     };
 
@@ -79,7 +90,7 @@ const Home = () => {
     let filteredMemes = [...allMemes]; // Copia de todos los memes
 
     // Filtramos por categoría si es diferente de "Todas"
-    if (selectedCategory !== "Todas") {
+    if (selectedCategory !== 'Todas') {
       filteredMemes = filteredMemes.filter(
         (meme) => meme.category === selectedCategory
       );
@@ -96,17 +107,17 @@ const Home = () => {
 
     // Ordenamos los memes dentro de cada categoría según los filtros
     for (const category in memesByCategory) {
-      if (selectedPopularity === "Más populares") {
+      if (selectedPopularity === 'Más populares') {
         memesByCategory[category].sort((a, b) => b.likes - a.likes);
-      } else if (selectedPopularity === "Menos populares") {
+      } else if (selectedPopularity === 'Menos populares') {
         memesByCategory[category].sort((a, b) => a.likes - b.likes);
       }
 
-      if (selectedDate === "Más recientes") {
+      if (selectedDate === 'Más recientes') {
         memesByCategory[category].sort(
           (a, b) => new Date(b.date) - new Date(a.date)
         );
-      } else if (selectedDate === "Más viejunos") {
+      } else if (selectedDate === 'Más viejunos') {
         memesByCategory[category].sort(
           (a, b) => new Date(a.date) - new Date(b.date)
         );
@@ -133,24 +144,48 @@ const Home = () => {
     setFilteredMemes(filtered);
   }, [selectedCategory, selectedPopularity, selectedDate, memesByCategory]);
 
-  const handleDelete = async (category, id) => {
-    try {
-      await deleteMeme(id);
-      setMemesByCategory((prev) => ({
-        ...prev,
-        [category]: prev[category].filter((meme) => meme.id !== id),
-      }));
-    } catch (error) {
-      console.error("Error deleting meme:", error);
-    }
+  const handleDelete = (category, id) => {
+    setIsConfirmDialog(true);
+    setIsMessageModalOpen(true);
+    setMessage('Si confirmas te cargas el meme');
+    setMessageType('success');
+    setMemeToDelete({ category, id });
   };
 
-  const openModal = () => {
+  const confirmDelete = async () => {
+    try {
+      await deleteMeme(memeToDelete.id);
+      setMemesByCategory((prev) => ({
+        ...prev,
+        [memeToDelete.category]: prev[memeToDelete.category].filter(
+          (meme) => meme.id !== memeToDelete.id
+        ),
+      }));
+      setMessage('Meme eliminado con éxito.');
+      setMessageType('success');
+    } catch (error) {
+      setMessage('Error al cargarte el meme.');
+      setMessageType('error');
+    }
+    setIsConfirmDialog(false);
+    setIsMessageModalOpen(true);
+    setMemeToDelete(null);
+  };
+
+  const openModalForCreate = () => {
+    setIsEditMode(false);
+    setIsModalOpen(true);
+  };
+
+  const openModalForEdit = (meme) => {
+    setIsEditMode(true);
+    setMemeToEdit(meme);
     setIsModalOpen(true);
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
+    setMemeToEdit(null);
   };
 
   const refreshMemes = async () => {
@@ -159,25 +194,54 @@ const Home = () => {
         getMemeByCategory(category)
       );
       const memesResults = await Promise.all(memesPromises);
-      const newMemesByCategory = categories.reduce((acc, category, index) => {
+      const memesByCategory = categories.reduce((acc, category, index) => {
         acc[category] = memesResults[index];
         return acc;
       }, {});
-
-      // Actualizamos el estado memesByCategory
-      setMemesByCategory(newMemesByCategory);
+      setMemesByCategory(memesByCategory);
     } catch (error) {
-      console.error("Error refreshing memes:", error);
+      console.error('Error refreshing memes:', error);
     }
   };
 
+  const closeMessageModal = () => {
+    setIsMessageModalOpen(false);
+    setIsConfirmDialog(false);
+  };
+
+  const handleFormSubmit = async (data, actionType) => {
+    try {
+      if (actionType === 'create') {
+        await createMeme(data);
+      } else {
+        await updateMeme(memeToEdit.id, data);
+      }
+      setMessage(
+        actionType === 'create'
+          ? 'Meme creado con éxito.'
+          : 'Meme actualizado con éxito.'
+      );
+      setMessageType('success');
+      await refreshMemes(); // Actualiza los memes después de la acción
+    } catch (error) {
+      setMessage(
+        actionType === 'create'
+          ? 'Error al crear el meme.'
+          : 'Error al editar el meme.'
+      );
+      setMessageType('error');
+    }
+    setIsMessageModalOpen(true);
+    setIsModalOpen(false); // Cierra el modal después de la acción
+  };
+
   return (
-    <div className="min-h-screen w-full m-0">
+    <div className='min-h-screen w-full m-0'>
       <Hero />
       <div>
         <button
-          onClick={openModal}
-          className="fixed right-4 sm:right-10 md:right-20 bottom-[50px] transform text-black px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full bg-transparent border border-black border-solid hover:shadow-md transition-transform duration-300 ease-in-out hover:scale-105 animate-spin-slow z-10 min-w-[150px] sm:min-w-[200px] md:min-w-[250px]"
+          onClick={openModalForCreate}
+          className='fixed right-4 sm:right-10 md:right-20 bottom-[50px] transform text-black px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full bg-transparent border border-black border-solid hover:shadow-md transition-transform duration-300 ease-in-out hover:scale-105 animate-spin-slow z-10 min-w-[150px] sm:min-w-[200px] md:min-w-[250px]'
         >
           CREAR NUEVO MEME
         </button>
@@ -191,9 +255,9 @@ const Home = () => {
 
         // Clase para controlar la visibilidad del bloque
         const categoryBlockClass =
-          selectedCategory === "Todas" || selectedCategory === category
-            ? "block"
-            : "hidden";
+          selectedCategory === 'Todas' || selectedCategory === category
+            ? 'block'
+            : 'hidden';
 
         return (
           <div
@@ -201,9 +265,9 @@ const Home = () => {
             className={`w-full py-10 ${categoryClasses[category]} ${categoryBlockClass}`} // Aplicamos la clase de visibilidad
           >
             {/* Renderizamos el título solo si la categoría está seleccionada o si se seleccionó "Todas" */}
-            {(selectedCategory === "Todas" ||
+            {(selectedCategory === 'Todas' ||
               selectedCategory === category) && (
-              <h1 className="text-3xl font-bold mb-8 text-center text-white"></h1>
+              <h1 className='text-3xl font-bold mb-8 text-center text-white'></h1>
             )}
 
             {/* Pasamos los memes filtrados para esta categoría a MemeGrid */}
@@ -211,6 +275,7 @@ const Home = () => {
             <MemeGrid
               memes={memesForCategory}
               onDelete={(id) => handleDelete(category, id)}
+              onEdit={(meme) => openModalForEdit(meme)}
             />
           </div>
         );
@@ -218,8 +283,24 @@ const Home = () => {
 
       {isModalOpen && (
         <Modal onClose={closeModal}>
-          <CreateMeme onClose={closeModal} onMemeCreated={refreshMemes} />
+          <MemeForm
+            onSubmit={(data) =>
+              handleFormSubmit(data, isEditMode ? 'edit' : 'create')
+            }
+            initialData={isEditMode ? memeToEdit : null}
+            submitButtonText={isEditMode ? 'Actualizar Meme' : 'Crear Meme'}
+            onClose={closeModal}
+          />
         </Modal>
+      )}
+      {isMessageModalOpen && (
+        <MessageModal
+          message={message}
+          type={messageType}
+          onClose={closeMessageModal}
+          onConfirm={isConfirmDialog ? confirmDelete : null}
+          isConfirmDialog={isConfirmDialog}
+        />
       )}
     </div>
   );
