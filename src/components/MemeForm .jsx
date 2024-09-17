@@ -156,7 +156,7 @@ const MemeForm = ({ onSubmit, initialData, onClose, submitButtonText }) => {
           <button
             type="button"
             onClick={onClose}
-            className="bg-red-500 text-white py-3 px-8 rounded-3xl transition-all duration-300 ease-in-out hover:bg-pink-200"
+            className="bg-red-500 text-white py-3 px-8 rounded-3xl border-2 border-transparent transition-all duration-300 ease-in-out hover:bg-white hover:border-black hover:text-black"
           >
             Cancelar
           </button>

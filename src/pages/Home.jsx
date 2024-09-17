@@ -147,7 +147,7 @@ const Home = () => {
   const handleDelete = (category, id) => {
     setIsConfirmDialog(true);
     setIsMessageModalOpen(true);
-    setMessage("Si confirmas te cargas el meme");
+    setMessage("¿Estás seguro que quieres eliminar el meme?");
     setMessageType("success");
     setMemeToDelete({ category, id });
   };

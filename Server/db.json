@@ -1,15 +1,6 @@
 {
   "memes": [
     {
-      "id": "101",
-      "name": "La Trampa de las Caricias",
-      "description": "¿Quién puede resistirse a unas buenas caricias? Ni siquiera el gato más independiente. ¡Maldita manipuladora!",
-      "category": "gatos_siendo_gatos1",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos101.jpg",
-      "date": "2008-07-13",
-      "likes": 9918
-    },
-    {
       "id": "102",
       "name": "El Contador Felino",
       "description": "Cuando el gato se convierte en el administrador de la casa y toma decisiones difíciles. ¡Adiós, perro!",
@@ -62,15 +53,6 @@
       "image": "/src/assets/gatos-siendo-gatos1/gatos107.jpg",
       "date": "2020-05-13",
       "likes": 37887
-    },
-    {
-      "id": "108",
-      "name": "La Visión de Karen",
-      "description": " ¡Alguien necesita urgentemente una visita al oculista! ¿Será que Karen ve el mundo a través de los ojos de su gato?",
-      "category": "gatos_siendo_gatos1",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos108.jpg",
-      "date": "2019-03-28",
-      "likes": 87915
     },
     {
       "id": "109",
