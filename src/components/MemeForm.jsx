@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import MessageModal from "./MessageModal"; // Asegúrate de que la ruta sea correcta
+import { initial } from "lodash";
 
 const MemeForm = ({ onSubmit, initialData, onClose, submitButtonText }) => {
   const {
@@ -59,7 +60,11 @@ const MemeForm = ({ onSubmit, initialData, onClose, submitButtonText }) => {
 
   const onSubmitHandler = async (data) => {
     if (imageUrl) {
-      const memeData = { ...data, image: imageUrl };
+      const memeData = {
+        ...data,
+        image: imageUrl,
+        likes: initialData?.likes || 0,
+      };
       try {
         await onSubmit(memeData);
         reset();

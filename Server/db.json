@@ -10,13 +10,12 @@
       "likes": 77049
     },
     {
-      "id": "104",
-      "name": "El Misterio de las Patitas Desaparecidas",
+      "name": "El Misterio de las Patitas Desaparecida",
       "description": "¡Magia gatuna! ¿Dónde estarán esas patitas? ¡Este meme nos deja a todos con la duda!",
       "category": "gatos_siendo_gatos1",
       "image": "/src/assets/gatos-siendo-gatos1/gatos104.jpg",
-      "date": "2018-04-28",
-      "likes": 15939
+      "id": "104",
+      "likes": null
     },
     {
       "id": "106",
@@ -52,7 +51,7 @@
       "category": "gatos_siendo_gatos1",
       "image": "/src/assets/gatos-siendo-gatos1/gatos112.jpg",
       "date": "2010-01-26",
-      "likes": 52544
+      "likes": 52545
     },
     {
       "id": "201",
@@ -79,7 +78,7 @@
       "category": "gatos_siendo_humanos2",
       "image": "/src/assets/gatos-siendo-humanos2/humanos203.jpg",
       "date": "2017-10-26",
-      "likes": 77049
+      "likes": 77050
     },
     {
       "id": "204",

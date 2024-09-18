@@ -45,7 +45,8 @@ const Card = ({
               <div className="w-full rounded-b-3xl p-2 bg-white flex justify-evenly opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <HeartButton
                   initialLikes={meme.likes}
-                  onLike={(updatedLikes) => handleLike(updatedLikes)}
+                  memeId={meme.id}
+                  onLike={(newLikes) => handleLike(meme.id, newLikes)}
                 />
                 <button
                   className="delete"
