@@ -5,10 +5,10 @@
 }
 
 .title-text {
-  font-size: 4rem; /* Default font size for desktop */
-  font-weight: 900; /* Make the text bold */
+  font-size: 8rem; /* Default font size for desktop */
+  font-weight: 600; /* Make the text bold */
   line-height: 1.1; /* Adjust the line height */
-  margin: 0; /* Reset margin */
+  margin: 20px; /* Reset margin */
   padding: 0; /* Remove default padding */
   color: #000; /* Set the text color to black */
   text-transform: uppercase; /* Make the text uppercase */
