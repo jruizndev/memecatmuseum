@@ -46,7 +46,16 @@ const TitleSection = ({ title }) => {
       animate={controls}
       variants={variants}
     >
-      <h1 className="title-text">{title}</h1>
+      <h1 className="title-text">
+        {title.split(" ").map((word, index) =>
+          index < 3 ? (
+            <span key={index}>
+              {word}
+              <br />
+            </span>
+          ) : null
+        )}
+      </h1>
     </motion.div>
   );
 };
