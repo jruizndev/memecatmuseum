@@ -1,15 +1,6 @@
 {
   "memes": [
     {
-      "id": "102",
-      "name": "El Contador Felino",
-      "description": "Cuando el gato se convierte en el administrador de la casa y toma decisiones difíciles. ¡Adiós, perro!",
-      "category": "gatos_siendo_gatos1",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos102.jpg",
-      "date": "2024-11-21",
-      "likes": 34268
-    },
-    {
       "id": "103",
       "name": "El Ciclo de la Vida... ¿Otra Vez?",
       "description": "Este pequeño está listo para su presentación en la Roca del Rey. ¡Prepárense para rugir de ternura!",
@@ -35,24 +26,6 @@
       "image": "/src/assets/gatos-siendo-gatos1/gatos106.jpg",
       "date": "2015-03-07",
       "likes": 11979
-    },
-    {
-      "id": "107",
-      "name": "El Tutor Felino Harto",
-      "description": "¡Hasta los gatos tienen límites! Parece que Karen ha llevado la explotación estudiantil demasiado lejos. ¡Hora de defenderse!",
-      "category": "gatos_siendo_gatos1",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos107.jpg",
-      "date": "2020-05-13",
-      "likes": 37887
-    },
-    {
-      "id": "109",
-      "name": "¡Sorpresa Permanente!",
-      "description": "¡Este gato nació con cara de asombro! ¿Será que siempre está descubriendo algo nuevo?.",
-      "category": "gatos_siendo_gatos1",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos109.jpg",
-      "date": "2009-09-05",
-      "likes": 70961
     },
     {
       "id": "110",
@@ -403,13 +376,6 @@
       "image": "/src/assets/me-dijiste4/medijiste412.jpg",
       "date": "2010-01-26",
       "likes": 52544
-    },
-    {
-      "id": "657f",
-      "name": "d",
-      "description": "d",
-      "category": "gatos_siendo_humanos2",
-      "image": "https://res.cloudinary.com/dv2jxa9lw/image/upload/v1726647593/mktow9crdmr5eyv1utxx.jpg"
     }
   ]
 }

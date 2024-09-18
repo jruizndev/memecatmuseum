@@ -28,7 +28,7 @@ const generatePattern = (memes) => {
   });
 };
 
-const MemeGrid = ({ memes, onDelete }) => {
+const MemeGrid = ({ memes, onDelete, onEdit, onLike }) => {
   const [flipped, setFlipped] = useState({});
   const gridRef = useRef(null);
 
@@ -87,6 +87,8 @@ const MemeGrid = ({ memes, onDelete }) => {
             handleDelete={onDelete}
             handleFlip={() => handleFlip(meme.id)} // Asegúrate de pasar la función correctamente
             isFlipped={flipped[meme.id] || false} // Pasamos el estado de volteo
+            handleEdit={onEdit}
+            handleLike={onLike}
           />
         </div>
       ))}

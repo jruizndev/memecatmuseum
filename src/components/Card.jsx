@@ -1,7 +1,15 @@
 import React from "react";
 import ReactCardFlip from "react-card-flip";
+import HeartButton from "./HeartButton";
 
-const Card = ({ meme, handleDelete, handleFlip, isFlipped }) => {
+const Card = ({
+  meme,
+  handleDelete,
+  handleFlip,
+  isFlipped,
+  handleLike,
+  handleEdit,
+}) => {
   return (
     <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
       {/* Parte frontal */}
@@ -35,20 +43,10 @@ const Card = ({ meme, handleDelete, handleFlip, isFlipped }) => {
 
               {/* Contenedor de botones */}
               <div className="w-full rounded-b-3xl p-2 bg-white flex justify-evenly opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <button className="like">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="22px"
-                    height="22px"
-                    viewBox="0 0 24 22"
-                    fill="none"
-                  >
-                    <path
-                      d="M17.4545 0C15.1636 0 13.1716 1.10805 12 2.96493C10.8284 1.10805 8.83636 0 6.54545 0C4.81011 0.00216767 3.14642 0.742506 1.91935 2.05861C0.692279 3.37471 0.00202103 5.15911 0 7.02035C0 10.4369 1.98545 13.9927 5.90182 17.5872C7.69643 19.2273 9.63493 20.6771 11.6902 21.9164C11.7854 21.9713 11.8919 22 12 22C12.1081 22 12.2146 21.9713 12.3098 21.9164C14.3651 20.6771 16.3036 19.2273 18.0982 17.5872C22.0145 13.9927 24 10.4369 24 7.02035C23.998 5.15911 23.3077 3.37471 22.0807 2.05861C20.8536 0.742506 19.1899 0.00216767 17.4545 0ZM12 20.4889C10.2098 19.3809 1.30909 13.5399 1.30909 7.02035C1.31053 5.5313 1.86269 4.10367 2.84438 3.05075C3.82608 1.99783 5.15713 1.40562 6.54545 1.40407C8.75782 1.40407 10.6156 2.67124 11.3945 4.71183C11.4439 4.84059 11.5278 4.95072 11.6356 5.02822C11.7434 5.10573 11.8702 5.14711 12 5.14711C12.1298 5.14711 12.2566 5.10573 12.3644 5.02822C12.4723 4.95072 12.5561 4.84059 12.6055 4.71183C13.3844 2.67124 15.2422 1.40407 17.4545 1.40407C18.8429 1.40562 20.1739 1.99783 21.1556 3.05075C22.1373 4.10367 22.6895 5.5313 22.6909 7.02035C22.6909 13.5399 13.7902 19.3809 12 20.4889Z"
-                      fill="#A3A3A3"
-                    />
-                  </svg>
-                </button>
+                <HeartButton
+                  initialLikes={meme.likes}
+                  onLike={(updatedLikes) => handleLike(updatedLikes)}
+                />
                 <button
                   className="delete"
                   onClick={() => handleDelete(meme.id)}
@@ -76,6 +74,34 @@ const Card = ({ meme, handleDelete, handleFlip, isFlipped }) => {
                     />
                   </svg>
                 </button>
+                <button className="edit" onClick={() => handleEdit(meme)}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="26"
+                    height="26"
+                    viewBox="0 0 26 26"
+                    fill="none"
+                  >
+                    <g id="clarity:note-line" clipPath="url(#clip0_356_2321)">
+                      <path
+                        id="Vector"
+                        d="M20.222 21.6667H4.33312V5.77779H13.8809L15.3253 4.33334H4.33312C3.95003 4.33334 3.58263 4.48553 3.31174 4.75641C3.04085 5.0273 2.88867 5.3947 2.88867 5.77779V21.6667C2.88867 22.0498 3.04085 22.4172 3.31174 22.6881C3.58263 22.9589 3.95003 23.1111 4.33312 23.1111H20.222C20.6051 23.1111 20.9725 22.9589 21.2434 22.6881C21.5143 22.4172 21.6665 22.0498 21.6665 21.6667V10.8333L20.222 12.2778V21.6667Z"
+                        fill="#A3A3A3"
+                      />
+                      <path
+                        id="Vector_2"
+                        d="M24.2163 4.21779L21.7824 1.7839C21.6744 1.67558 21.546 1.58965 21.4048 1.53102C21.2635 1.47238 21.112 1.4422 20.959 1.4422C20.8061 1.4422 20.6546 1.47238 20.5133 1.53102C20.3721 1.58965 20.2437 1.67558 20.1357 1.7839L10.234 11.7433L9.43238 15.2172C9.39823 15.3856 9.40182 15.5595 9.44289 15.7263C9.48397 15.8932 9.56151 16.0488 9.66994 16.1821C9.77837 16.3154 9.91498 16.423 10.07 16.4972C10.225 16.5714 10.3945 16.6103 10.5663 16.6111C10.6551 16.6208 10.7447 16.6208 10.8335 16.6111L14.3363 15.8383L24.2163 5.86445C24.3246 5.75644 24.4105 5.62811 24.4692 5.48683C24.5278 5.34555 24.558 5.19408 24.558 5.04112C24.558 4.88815 24.5278 4.73669 24.4692 4.59541C24.4105 4.45412 24.3246 4.3258 24.2163 4.21779ZM13.5852 14.5022L10.9418 15.0872L11.5557 12.4656L19.009 4.96167L21.0457 6.99834L13.5852 14.5022ZM21.8618 6.18223L19.8252 4.14556L20.9446 3.00445L22.9957 5.05556L21.8618 6.18223Z"
+                        fill="#A3A3A3"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_356_2321">
+                        <rect width="26" height="26" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                         
+                </button>
               </div>
             </div>
           </div>
@@ -83,6 +109,7 @@ const Card = ({ meme, handleDelete, handleFlip, isFlipped }) => {
       </div>
 
       {/* Parte trasera */}
+
       <div
         key={`back-${meme.id}`}
         className="relative w-full hover:z-20 max-w-xs min-h-[370px] transition-all ease-in-out duration-300"
@@ -92,15 +119,15 @@ const Card = ({ meme, handleDelete, handleFlip, isFlipped }) => {
           marginBottom: "20px",
         }}
       >
-        <div className="w-full h-full group-hover:z-10 transition-transform duration-300">
+        <div className="w-full h-full group-hover:z-10 transition-transform duration-300 flex items-center justify-center">
           <div
-            className="w-full h-full backface-hidden z-10 group-hover:scale-x-100 transition-transform duration-300 bg-white rounded-3xl"
+            className="p-4 bg-rose-100 text-black border border-black rounded-3xl text-sm transition-transform duration-200 hover:scale-105 hover:bg-rose-200"
             style={{
-              padding: "10px",
+              padding: "20px",
             }}
           >
-            <div className="flex flex-col justify-between h-full">
-              <div className="p-4">
+            <div className="flex flex-col items-center justify-between h-full">
+              <div className="text-center">
                 <h3 className="text-xl font-bold">{meme.name}</h3>
                 <p className="text-sm mt-2">{meme.description}</p>
                 <p className="text-xs mt-4 text-gray-500">Date: {meme.date}</p>
@@ -108,7 +135,7 @@ const Card = ({ meme, handleDelete, handleFlip, isFlipped }) => {
               </div>
               <button
                 onClick={() => handleFlip(meme.id)}
-                className="p-2 bg-gray-200 rounded-lg text-sm"
+                className="p-2 bg-transparent text-black border border-black rounded-lg text-sm transition-transform duration-300 hover:scale-90 hover:p-2 hover:border-2 hover:text-black mt-4"
               >
                 Volver
               </button>
@@ -137,4 +164,4 @@ const CardGrid = ({ memes, handleDelete, handleFlip, flippedCards }) => {
   );
 };
 
-export default CardGrid;
+export default Card;
