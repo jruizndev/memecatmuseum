@@ -21,8 +21,8 @@
 .title-text {
   font-family: "Alatsi", sans-serif;
   color: #141212;
-  text-shadow: 0cap 0px 10px rgba(192, 183, 183, 0.5);
-  font-size: 60px;
+  text-shadow: 0cap 0px 10px rgba(220, 186, 186, 0.5);
+  font-size: 75px;
   margin: 20px;
   @import url("https://fonts.googleapis.com/css2?family=Alatsi&display=swap");
 }
