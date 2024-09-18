@@ -28,15 +28,6 @@
       "likes": 15939
     },
     {
-      "id": "105",
-      "name": "El Chantajista Felino",
-      "description": "Esa mirada penetrante te dice: 'Si no me das comida ahora mismo, revelaré todos tus secretos a la aspiradora.",
-      "category": "gatos_siendo_gatos1",
-      "image": "/src/assets/gatos-siendo-gatos1/gatos105.jpg",
-      "date": "2014-12-27",
-      "likes": 20521
-    },
-    {
       "id": "106",
       "name": "La Ley de la Gravedad Gatuna",
       "description": "Parece que ni los gatos se libran de un mal aterrizaje. ¡Karen, la próxima vez, mejor usa las nueve vidas!",
@@ -412,6 +403,13 @@
       "image": "/src/assets/me-dijiste4/medijiste412.jpg",
       "date": "2010-01-26",
       "likes": 52544
+    },
+    {
+      "id": "657f",
+      "name": "d",
+      "description": "d",
+      "category": "gatos_siendo_humanos2",
+      "image": "https://res.cloudinary.com/dv2jxa9lw/image/upload/v1726647593/mktow9crdmr5eyv1utxx.jpg"
     }
   ]
 }

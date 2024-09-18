@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
-import Masonry from 'masonry-layout';
-import Card from '../components/Card'; // Asegúrate de que la ruta sea correcta
+import React, { useEffect, useRef, useState } from "react";
+import Masonry from "masonry-layout";
+import Card from "../components/Card"; // Asegúrate de que la ruta sea correcta
 
 const generatePattern = (memes) => {
   const positions = [
@@ -35,8 +35,8 @@ const MemeGrid = ({ memes, onDelete }) => {
   useEffect(() => {
     if (gridRef.current) {
       const masonry = new Masonry(gridRef.current, {
-        itemSelector: '.grid-item',
-        columnWidth: '.grid-item',
+        itemSelector: ".grid-item",
+        columnWidth: ".grid-item",
         percentPosition: true,
         gutter: 10, // Espaciado entre los elementos
       });
@@ -58,27 +58,27 @@ const MemeGrid = ({ memes, onDelete }) => {
   return (
     <div
       ref={gridRef}
-      className='flex flex-col items-start justify-start lg:54ml-10 lg:w-[60%] w-full sm:flex-col'
+      className="flex flex-col items-start justify-start lg:54ml-10 lg:w-[60%] w-full sm:flex-col"
       style={{
         // El comportamiento para pantallas pequeñas (móviles) se define aquí
-        display: 'flex',
-        flexWrap: 'wrap', // Mantiene las tarjetas en su lugar en pantallas grandes
-        justifyContent: 'flex-center',
-        '@media (max-width: 640px)': {
-          flexDirection: 'column', // Para pantallas pequeñas, todas las tarjetas estarán en una columna
+        display: "flex",
+        flexWrap: "wrap", // Mantiene las tarjetas en su lugar en pantallas grandes
+        justifyContent: "flex-center",
+        "@media (max-width: 640px)": {
+          flexDirection: "column", // Para pantallas pequeñas, todas las tarjetas estarán en una columna
         },
       }}
     >
       {patternedMemes.map((meme) => (
         <div
           key={meme.id}
-          className='grid-item'
+          className="grid-item"
           style={{
             // marginTop: `${meme.randomMarginTop}px`,
             // marginBottom: `${meme.randomMarginBottom}px`,
-            width: 'calc(33.333% - 16px)', // En pantallas grandes
-            '@media (max-width: 1440px)': {
-              width: 'calc(100% - 16px)', // En pantallas pequeñas, ocupa todo el ancho
+            width: "calc(33.333% - 16px)", // En pantallas grandes
+            "@media (max-width: 1440px)": {
+              width: "calc(100% - 16px)", // En pantallas pequeñas, ocupa todo el ancho
             },
           }}
         >
