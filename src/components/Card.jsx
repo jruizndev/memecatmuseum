@@ -131,8 +131,6 @@ const Card = ({
               <div className="text-center">
                 <h3 className="text-xl font-bold">{meme.name}</h3>
                 <p className="text-sm mt-2">{meme.description}</p>
-                <p className="text-xs mt-4 text-gray-500">Date: {meme.date}</p>
-                <p className="text-xs text-gray-500">Likes: {meme.likes}</p>
               </div>
               <button
                 onClick={() => handleFlip(meme.id)}

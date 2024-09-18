@@ -15,7 +15,7 @@
       "category": "gatos_siendo_gatos1",
       "image": "/src/assets/gatos-siendo-gatos1/gatos104.jpg",
       "id": "104",
-      "likes": null
+      "likes": 1
     },
     {
       "id": "106",
@@ -186,7 +186,7 @@
       "category": "gatos_enfadados3",
       "image": "/src/assets/gatos-enfadados3/enfadado303.jpg",
       "date": "2017-10-26",
-      "likes": 77049
+      "likes": 77050
     },
     {
       "id": "304",
@@ -213,7 +213,7 @@
       "category": "gatos_enfadados3",
       "image": "/src/assets/gatos-enfadados3/enfadado306.jpg",
       "date": "2015-03-07",
-      "likes": 11979
+      "likes": 11980
     },
     {
       "id": "307",
@@ -222,7 +222,7 @@
       "category": "gatos_enfadados3",
       "image": "/src/assets/gatos-enfadados3/enfadado307.jpg",
       "date": "2020-05-13",
-      "likes": 37887
+      "likes": 37888
     },
     {
       "id": "308",
@@ -375,13 +375,6 @@
       "image": "/src/assets/me-dijiste4/medijiste412.jpg",
       "date": "2010-01-26",
       "likes": 52544
-    },
-    {
-      "id": "65b1",
-      "name": "Gato 🐱",
-      "description": "iu",
-      "category": "gatos_siendo_humanos2",
-      "image": "https://res.cloudinary.com/dv2jxa9lw/image/upload/v1726597636/tsk42u03nqxc5tfaufpd.jpg"
     }
   ]
 }
