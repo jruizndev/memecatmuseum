@@ -1,28 +1,34 @@
-/* titles.css */
-.titles-wrapper {
-    display: flex;
-    justify-content: flex-end; /* Align the titles to the right */
-    padding: 25px; /* Add padding to the container */
-}
-
-.sections-container {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-}
-
 .section {
-    display: flex;
-    justify-content: flex-end; /* Ensure each title is aligned to the right */
-    align-items: center;
-    height: 200px; /* Adjust height as needed */
+    display: flex; /* Use flexbox to control alignment */
+    justify-content: flex-end; /* Align items to the right */
+    padding-right: 40px; /* Add at least 40px padding on the right */
 }
 
 .title-text {
-    font-family: 'Alatsi', sans-serif;
-    color: #141212;
-    text-shadow: 0cap 0px 10px rgba(192, 183, 183, 0.5);
-    font-size: 60px;
-    margin: 20px;
-    @import url('https://fonts.googleapis.com/css2?family=Alatsi&display=swap');
+    font-size: 8rem; /* Default font size for desktop */
+    font-weight: 600; /* Make the text bold */
+    line-height: 1.1; /* Adjust the line height */
+    margin: 20px; /* Reset margin */
+    padding: 0; /* Remove default padding */
+    color: #000; /* Set the text color to black */
+    text-transform: uppercase; /* Make the text uppercase */
+    transform: translateY(-25%); /* Move the element 25% above its position */
+    white-space: pre-line; /* Preserve whitespace and line breaks */
+    word-break: break-all; /* Allow breaking words onto new lines */
+    max-width: 100%; /* Ensure the text block uses full width */
+    overflow-wrap: break-word; /* Allow breaking of long words */
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .title-text {
+        font-size: 3rem; /* Adjust font size for tablet */
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .title-text {
+        font-size: 2.5rem; /* Adjust font size for mobile */
+    }
 }

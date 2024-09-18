@@ -8,7 +8,7 @@ const Hero = () => {
                             Mecat Museum
                         </p>
                         <p className="w-full lg:w-[60%] font-inter text-base lg:text-2xl text-center lg:text-left">
-                            MemeCat es el primer museo virtual dedicado
+                            MeCat es el primer museo virtual dedicado
                             exclusivamente a los memes de gatos. Aquí, los
                             amantes de los gatos pueden explorar, compartir y
                             reír con los memes más divertidos del mundo felino.

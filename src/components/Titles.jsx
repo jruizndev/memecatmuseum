@@ -9,7 +9,7 @@ import "./titles.css";
 const TitleSection = ({ title }) => {
   const controls = useAnimation();
   const [ref, inView] = useInView({
-    triggerOnce: false, // Trigger animation every time the element enters the view
+    triggerOnce: false, // Allow animation to trigger every time the element enters the view
     threshold: 0.2, // Animation triggers when 20% of the element is in view
   });
 
@@ -17,7 +17,7 @@ const TitleSection = ({ title }) => {
     if (inView) {
       controls.start("visible");
     } else {
-      controls.start("hidden"); // Reset animation when out of view
+      controls.start("hidden"); // Reverse animation when out of view
     }
   }, [controls, inView]);
 
@@ -25,15 +25,22 @@ const TitleSection = ({ title }) => {
   const variants = {
     hidden: {
       opacity: 0,
-      x: -100,
+      x: 0, // Start at current position
+      transition: {
+        type: "spring",
+        stiffness: 30, // Lower stiffness for a slower spring effect
+        damping: 25, // Higher damping to slow down the animation
+        duration: 2, // Increase the duration to make it slower
+      },
     },
     visible: {
       opacity: 1,
-      x: 0,
+      x: "-15%", // Move to the left by 50%
       transition: {
         type: "spring",
-        stiffness: 50,
-        damping: 20,
+        stiffness: 80, // Lower stiffness for a slower spring effect
+        damping: 100, // Higher damping to slow down the animation
+        duration: 10, // Increase the duration to make it slower
       },
     },
   };
@@ -46,7 +53,16 @@ const TitleSection = ({ title }) => {
       animate={controls}
       variants={variants}
     >
-      <h1 className="title-text">{title}</h1>
+      <h1 className="title-text">
+        {title.split(" ").map((word, index) =>
+          index < 3 ? (
+            <span key={index}>
+              {word}
+              <br />
+            </span>
+          ) : null
+        )}
+      </h1>
     </motion.div>
   );
 };

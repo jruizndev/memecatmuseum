@@ -58,7 +58,7 @@ const MemeGrid = ({ memes, onDelete, onEdit, onLike }) => {
     return (
         <div
             ref={gridRef}
-            className="flex flex-col items-start justify-start lg:54ml-10 lg:w-[60%] w-full sm:flex-col"
+            className="ml-11 flex flex-col items-start justify-start lg:54ml-10 lg:w-[60%] w-full sm:flex-col"
             style={{
                 // El comportamiento para pantallas pequeñas (móviles) se define aquí
                 display: 'flex',

@@ -10,8 +10,8 @@ function AboutUs() {
         >
             {/* Team Section */}
             <section className="py-12">
-                <div className="text-start p-14">
-                    <h1 className="text-6xl font-bold text-purple-600 ">
+                <div className="text-start font-jaro p-14">
+                    <h1 className="text-6xl font-bold  text-purple-600 ">
                         MECAT
                     </h1>
                     <h2 className="text-6xl font-bold text-purple-600 ">

@@ -1,16 +1,16 @@
 const Footer = () => {
     return (
-        <footer className="bg-black text-white py-2">
+        <footer className="bg-black text-white py-2 z-30 relative">
             {/* Segunda sección con las columnas */}
             <div className="w-full h-auto px-4 sm:px-6 lg:px-12 pt-6 sm:pt-3 lg:pt-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-6 mb-6 items-start">
                 {/* Follow Us Section */}
-                <div className="flex flex-col items-center sm:items-center lg:items-center relative">
+                <div className="flex flex-col items-center sm:items-center lg:items-center relative md: mr-[4.5%] sm: ml-[23%]">
                     {' '}
                     {/* Cambié items-end a items-center para centrar */}
                     {/* Logo principal */}
                     <div className="container flex flex-col items-center">
                         <img
-                            className="w-28 sm:w-20 md:w-56 lg:w-64 rounded-full border-black mb-4 mr-12 lg:mb-6"
+                            className="w-28 sm:w-20 md:w-56  md: mr-[20%] lg:w-64 rounded-full border-black mb-4 lg: mr-12 lg:mb-6 sm: mr-[18%]"
                             src="/src/assets/icons/LogoBlanco2.png"
                             alt="Icon"
                         />{' '}
@@ -123,9 +123,9 @@ const Footer = () => {
 
             {/* Footer Bottom Section */}
             <div className="border-t border-white/30 py-2 w-full mx-0 px-0">
-                <div className="flex flex-col sm:flex-col lg:flex-row lg:justify-between lg:items-center w-full">
-                    <p className="text-[#eee8e1]/70 text-sm text-center lg:text-left ml-8">
-                        © 2024 MeCat Museum- The Meme’s Cat Museum
+                <div className="flex flex-col font-jaro sm:flex-col lg:flex-row lg:justify-between lg:items-center w-full">
+                    <p className="text-[#eee8e1]/70  text-sm text-center lg:text-left ml-8">
+                        ©️ 2024 MeCat Museum- The Meme’s Cat Museum
                     </p>
                     <div className="flex space-x-6 mt-4 lg:mt-0 mr-8">
                         <a href="#" className="text-[#eee8e1]/70 text-sm">
