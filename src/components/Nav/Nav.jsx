@@ -28,7 +28,7 @@ const Nav = () => {
 
     return (
         <>
-            <nav className="fixed top-0 left-0 right-0 p-1 bg-slate-50 bg-opacity-70 backdrop-blur-sm w-full items-center flex flex-row justify-between z-30">
+            <nav className="fixed top-0 left-0 right-0 p-1 bg-slate-50 bg-opacity-90 backdrop-blur-sm w-full items-center flex flex-row justify-between z-30">
                 {/* Logo */}
                 <div className="flex items-center ml-[4%]">
                     <NavLink to="/">
@@ -105,7 +105,7 @@ const Nav = () => {
                     </li>
                     <li className="py-1 text-xl text-center">
                         <NavLink
-                            to="/about"
+                            to="/aboutus"
                             className="text-white transition-transform duration-300 ease-in-out transform hover:scale-125 hover:text-gray-400"
                         >
                             About Us

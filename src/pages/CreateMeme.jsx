@@ -18,7 +18,6 @@ const CreateMeme = ({ onClose, onMemeCreated }) => {
     } catch (error) {
       console.error("Error creando meme:", error);
     }
-  };
 
   return (
     <MemeForm
