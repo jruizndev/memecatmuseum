@@ -62,6 +62,7 @@ const Filter = ({ isFilterOpen, toggleFilter }) => {
 
     return (
         <div
+            data-testid="filter-component"
             className={`fixed top-[72px] left-0 right-0 bg-slate-40 bg-opacity-70 backdrop-blur-sm z-20 transition-all duration-500 ease-in-out transform ${
                 isFilterOpen
                     ? 'translate-y-0 opacity-100'

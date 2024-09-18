@@ -104,7 +104,7 @@ const Nav = () => {
                     </li>
                     <li className="py-1 text-xl text-center">
                         <NavLink
-                            to="/about"
+                            to="/aboutus"
                             className="text-white transition-transform duration-300 ease-in-out transform hover:scale-125 hover:text-gray-400"
                         >
                             About Us
