@@ -1,10 +1,18 @@
-import React, { useState, useEffect, useContext } from 'react'
-import { getMemes, deleteMeme, getMemeByCategory } from '../services/services'
+import React, { useState, useEffect, useContext, useRef } from 'react'
+import {
+    getMemes,
+    getMemeByCategory,
+    deleteMeme,
+    updateMeme,
+    createMeme,
+} from '../services/services'
 import MemeGrid from '../components/MemeGrid'
 import Modal from '../components/Modal'
-import CreateMeme from '../pages/CreateMeme'
+import TitleSection from '../components/Tittles'
 import FilterContext from '../layout/FilterContext'
 import Hero from '../components/Hero'
+import MemeForm from '../components/MemeForm'
+import MessageModal from '../components/MessageModal'
 
 const categories = [
     'gatos_siendo_gatos1',
@@ -28,12 +36,20 @@ const categoryTitles = {
 }
 
 const Home = () => {
+    const bodyRef = useRef(null)
     const { selectedCategory, selectedPopularity, selectedDate } =
         useContext(FilterContext)
 
     const [memesByCategory, setMemesByCategory] = useState({})
     const [isModalOpen, setIsModalOpen] = useState(false)
+    const [isEditMode, setIsEditMode] = useState(false)
+    const [memeToEdit, setMemeToEdit] = useState(null)
     const [filteredMemes, setFilteredMemes] = useState([])
+    const [message, setMessage] = useState('')
+    const [isMessageModalOpen, setIsMessageModalOpen] = useState(false)
+    const [messageType, setMessageType] = useState('success')
+    const [isConfirmDialog, setIsConfirmDialog] = useState(false)
+    const [memeToDelete, setMemeToDelete] = useState(null)
 
     useEffect(() => {
         const fetchMemes = async () => {
@@ -128,24 +144,48 @@ const Home = () => {
         setFilteredMemes(filtered)
     }, [selectedCategory, selectedPopularity, selectedDate, memesByCategory])
 
-    const handleDelete = async (category, id) => {
-        try {
-            await deleteMeme(id)
-            setMemesByCategory((prev) => ({
-                ...prev,
-                [category]: prev[category].filter((meme) => meme.id !== id),
-            }))
-        } catch (error) {
-            console.error('Error deleting meme:', error)
-        }
+    const handleDelete = (category, id) => {
+        setIsConfirmDialog(true)
+        setIsMessageModalOpen(true)
+        setMessage('Si confirmas te cargas el meme')
+        setMessageType('success')
+        setMemeToDelete({ category, id })
     }
 
-    const openModal = () => {
+    const confirmDelete = async () => {
+        try {
+            await deleteMeme(memeToDelete.id)
+            setMemesByCategory((prev) => ({
+                ...prev,
+                [memeToDelete.category]: prev[memeToDelete.category].filter(
+                    (meme) => meme.id !== memeToDelete.id
+                ),
+            }))
+            setMessage('Meme eliminado con éxito.')
+            setMessageType('success')
+        } catch (error) {
+            setMessage('Error al cargarte el meme.')
+            setMessageType('error')
+        }
+        setIsConfirmDialog(false)
+        setIsMessageModalOpen(true)
+        setMemeToDelete(null)
+    }
+
+    const openModalForCreate = () => {
+        setIsEditMode(false)
+        setIsModalOpen(true)
+    }
+
+    const openModalForEdit = (meme) => {
+        setIsEditMode(true)
+        setMemeToEdit(meme)
         setIsModalOpen(true)
     }
 
     const closeModal = () => {
         setIsModalOpen(false)
+        setMemeToEdit(null)
     }
 
     const refreshMemes = async () => {
@@ -154,19 +194,48 @@ const Home = () => {
                 getMemeByCategory(category)
             )
             const memesResults = await Promise.all(memesPromises)
-            const newMemesByCategory = categories.reduce(
+            const memesByCategory = categories.reduce(
                 (acc, category, index) => {
                     acc[category] = memesResults[index]
                     return acc
                 },
                 {}
             )
-
-            // Actualizamos el estado memesByCategory
-            setMemesByCategory(newMemesByCategory)
+            setMemesByCategory(memesByCategory)
         } catch (error) {
             console.error('Error refreshing memes:', error)
         }
+    }
+
+    const closeMessageModal = () => {
+        setIsMessageModalOpen(false)
+        setIsConfirmDialog(false)
+    }
+
+    const handleFormSubmit = async (data, actionType) => {
+        try {
+            if (actionType === 'create') {
+                await createMeme(data)
+            } else {
+                await updateMeme(memeToEdit.id, data)
+            }
+            setMessage(
+                actionType === 'create'
+                    ? 'Meme creado con éxito.'
+                    : 'Meme actualizado con éxito.'
+            )
+            setMessageType('success')
+            await refreshMemes() // Actualiza los memes después de la acción
+        } catch (error) {
+            setMessage(
+                actionType === 'create'
+                    ? 'Error al crear el meme.'
+                    : 'Error al editar el meme.'
+            )
+            setMessageType('error')
+        }
+        setIsMessageModalOpen(true)
+        setIsModalOpen(false) // Cierra el modal después de la acción
     }
 
     return (
@@ -174,7 +243,7 @@ const Home = () => {
             <Hero />
             <div>
                 <button
-                    onClick={openModal}
+                    onClick={openModalForCreate}
                     className="fixed right-4 sm:right-10 md:right-20 bottom-[50px] transform text-black px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full bg-transparent border border-black border-solid hover:shadow-md transition-transform duration-300 ease-in-out hover:scale-105 animate-spin-slow z-10 min-w-[150px] sm:min-w-[200px] md:min-w-[250px]"
                 >
                     CREAR NUEVO MEME
@@ -196,8 +265,9 @@ const Home = () => {
 
                 return (
                     <div
+                        ref={bodyRef}
                         key={category}
-                        className={`w-full py-10 ${categoryClasses[category]} ${categoryBlockClass}`} // Aplicamos la clase de visibilidad
+                        className={`w-full pt-1 ${categoryClasses[category]} ${categoryBlockClass}`} // Aplicamos la clase de visibilidad
                     >
                         {/* Renderizamos el título solo si la categoría está seleccionada o si se seleccionó "Todas" */}
                         {(selectedCategory === 'Todas' ||
@@ -206,9 +276,11 @@ const Home = () => {
                         )}
 
                         {/* Pasamos los memes filtrados para esta categoría a MemeGrid */}
+                        <TitleSection title={categoryTitles[category]} />
                         <MemeGrid
                             memes={memesForCategory}
                             onDelete={(id) => handleDelete(category, id)}
+                            onEdit={(meme) => openModalForEdit(meme)}
                         />
                     </div>
                 )
@@ -216,11 +288,29 @@ const Home = () => {
 
             {isModalOpen && (
                 <Modal onClose={closeModal}>
-                    <CreateMeme
+                    <MemeForm
+                        onSubmit={(data) =>
+                            handleFormSubmit(
+                                data,
+                                isEditMode ? 'edit' : 'create'
+                            )
+                        }
+                        initialData={isEditMode ? memeToEdit : null}
+                        submitButtonText={
+                            isEditMode ? 'Actualizar Meme' : 'Crear Meme'
+                        }
                         onClose={closeModal}
-                        onMemeCreated={refreshMemes}
                     />
                 </Modal>
+            )}
+            {isMessageModalOpen && (
+                <MessageModal
+                    message={message}
+                    type={messageType}
+                    onClose={closeMessageModal}
+                    onConfirm={isConfirmDialog ? confirmDelete : null}
+                    isConfirmDialog={isConfirmDialog}
+                />
             )}
         </div>
     )

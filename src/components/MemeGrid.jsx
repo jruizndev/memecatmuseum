@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Masonry from 'masonry-layout'
+import Card from '../components/Card' // Asegúrate de que la ruta sea correcta
 
 const generatePattern = (memes) => {
     const positions = [
@@ -15,28 +16,20 @@ const generatePattern = (memes) => {
     ]
 
     return memes.map((meme, index) => {
-        const randomMarginTop = Math.floor(Math.random() * 120) + 0 // Márgen superior aleatorio
-        const randomMarginBottom = Math.floor(Math.random() * 120) + 30 // Márgen inferior aleatorio
+        const randomMarginTop = Math.floor(Math.random() * 80)
+        const randomMarginBottom = Math.floor(Math.random() * 30) + 30
 
         if (index < positions.length) {
             const position = positions[index]
-            return {
-                ...meme,
-                ...position,
-                randomMarginTop,
-                randomMarginBottom,
-            }
+            return { ...meme, ...position, randomMarginTop, randomMarginBottom }
         } else {
-            return {
-                ...meme,
-                randomMarginTop,
-                randomMarginBottom,
-            }
+            return { ...meme, randomMarginTop, randomMarginBottom }
         }
     })
 }
 
 const MemeGrid = ({ memes, onDelete }) => {
+    const [flipped, setFlipped] = useState({})
     const gridRef = useRef(null)
 
     useEffect(() => {
@@ -45,50 +38,56 @@ const MemeGrid = ({ memes, onDelete }) => {
                 itemSelector: '.grid-item',
                 columnWidth: '.grid-item',
                 percentPosition: true,
-                gutter: 10, // Ajusta el espaciado entre los elementos
+                gutter: 10, // Espaciado entre los elementos
             })
 
-            // Asegúrate de que Masonry se actualice si cambian los memes
+            // Destruir Masonry al desmontar el componente
             return () => masonry.destroy()
         }
     }, [memes])
+
+    const handleFlip = (id) => {
+        setFlipped((prevState) => ({
+            ...prevState,
+            [id]: !prevState[id], // Invierte el estado de la tarjeta con el ID
+        }))
+    }
 
     const patternedMemes = generatePattern(memes)
 
     return (
         <div
             ref={gridRef}
-            className="flex flex-wrap items-start justify-start ml-40 w-[60%] mx-auto pt-"
+            className="flex flex-col items-start justify-start lg:54ml-10 lg:w-[60%] w-full sm:flex-col"
+            style={{
+                // El comportamiento para pantallas pequeñas (móviles) se define aquí
+                display: 'flex',
+                flexWrap: 'wrap', // Mantiene las tarjetas en su lugar en pantallas grandes
+                justifyContent: 'flex-center',
+                '@media (max-width: 640px)': {
+                    flexDirection: 'column', // Para pantallas pequeñas, todas las tarjetas estarán en una columna
+                },
+            }}
         >
             {patternedMemes.map((meme) => (
                 <div
                     key={meme.id}
-                    className="grid-item bg-white border border-gray-200 rounded-lg shadow-lg transform transition-transform duration-300 ease-in-out hover:scale-105"
+                    className="grid-item"
                     style={{
-                        marginTop: `${meme.randomMarginTop}px`,
-                        marginBottom: `${meme.randomMarginBottom}px`,
-                        width: 'calc(33.333% - 45px)',
+                        // marginTop: `${meme.randomMarginTop}px`,
+                        // marginBottom: `${meme.randomMarginBottom}px`,
+                        width: 'calc(33.333% - 16px)', // En pantallas grandes
+                        '@media (max-width: 1440px)': {
+                            width: 'calc(100% - 16px)', // En pantallas pequeñas, ocupa todo el ancho
+                        },
                     }}
                 >
-                    <h2 className="text-md font-semibold text-center p-2">
-                        {meme.name}
-                    </h2>
-                    <div className="w-full aspect-[4/3] flex justify-center items-center overflow-hidden">
-                        <img
-                            src={meme.image}
-                            alt={meme.description}
-                            className="w-full h-full object-contain"
-                        />
-                    </div>
-                    <p className="text-sm text-gray-600 text-center p-2">
-                        {meme.description}
-                    </p>
-                    <button
-                        onClick={() => onDelete(meme.id)}
-                        className="mt-2 px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
-                    >
-                        Eliminar
-                    </button>
+                    <Card
+                        meme={meme}
+                        handleDelete={onDelete}
+                        handleFlip={() => handleFlip(meme.id)} // Asegúrate de pasar la función correctamente
+                        isFlipped={flipped[meme.id] || false} // Pasamos el estado de volteo
+                    />
                 </div>
             ))}
         </div>
