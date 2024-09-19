@@ -100,13 +100,12 @@
       "likes": 96
     },
     {
-      "id": "112",
-      "name": "Michi, el Gourmet",
+      "name": "Michi, el Gourmet ASADS",
       "description": "¿Lavarse las manos? ¡Michi prefiere el sabor natural!",
       "category": "gatos_siendo_gatos1",
       "image": "/src/assets/gatos-siendo-gatos1/gatos112.jpg",
-      "date": "2010-01-26",
-      "likes": 52
+      "likes": 53,
+      "id": "112"
     },
     {
       "id": "201",
@@ -214,7 +213,7 @@
       "category": "gatos_siendo_humanos2",
       "image": "/src/assets/gatos-siendo-humanos2/humanos212.jpg",
       "date": "2010-01-26",
-      "likes": 52
+      "likes": 53
     },
     {
       "id": "301",
@@ -241,7 +240,7 @@
       "category": "gatos_enfadados3",
       "image": "/src/assets/gatos-enfadados3/enfadado303.jpg",
       "date": "2017-10-26",
-      "likes": 77
+      "likes": 78
     },
     {
       "id": "304",
@@ -325,22 +324,13 @@
       "likes": 52
     },
     {
-      "id": "401",
-      "name": "El Felino arruinado",
-      "description": "Cuando un simple detalle te pasa de rico a pobre",
-      "category": "me_dijiste4",
-      "image": "/src/assets/me-dijiste4/medijiste401.jpg",
-      "date": "2008-07-13",
-      "likes": 91
-    },
-    {
       "id": "402",
       "name": "La Decepción Amorosa Felina",
       "description": "Cuando descubres que tu cita te mintió sobre su fortuna y ahora solo te queda lamentar tus decisiones amorosas. ¡Al menos este gatito te entiende!",
       "category": "me_dijiste4",
       "image": "/src/assets/me-dijiste4/medijiste402.jpg",
       "date": "2024-11-21",
-      "likes": 34
+      "likes": 35
     },
     {
       "id": "403",
@@ -360,13 +350,12 @@
       "likes": 81
     },
     {
-      "id": "405",
-      "name": "La Fiesta de la Decepción",
+      "name": "La Fiesta de la Decepción Continua Ahora",
       "description": "Cuando dices que no irás a la fiesta, pero luego apareces... ¡y con la persona que te gusta! Este gato sabe cómo dar un golpe bajo.",
       "category": "me_dijiste4",
       "image": "/src/assets/me-dijiste4/medijiste405.jpg",
-      "date": "2014-12-27",
-      "likes": 40
+      "likes": 40,
+      "id": "405"
     },
     {
       "id": "406",
@@ -393,7 +382,7 @@
       "category": "me_dijiste4",
       "image": "/src/assets/me-dijiste4/medijiste408.jpg",
       "date": "2019-03-28",
-      "likes": 87
+      "likes": 89
     },
     {
       "id": "409",
@@ -405,13 +394,12 @@
       "likes": 70
     },
     {
-      "id": "410",
       "name": "Esta cuenta está vacía",
       "description": "Si Facebook pudiera pagar nuestras cuentas...",
       "category": "me_dijiste4",
       "image": "/src/assets/me-dijiste4/medijiste410.jpg",
-      "date": "2021-07-15",
-      "likes": 93
+      "likes": 93,
+      "id": "410"
     },
     {
       "id": "411",
@@ -429,7 +417,7 @@
       "category": "me_dijiste4",
       "image": "/src/assets/me-dijiste4/medijiste412.jpg",
       "date": "2010-01-26",
-      "likes": 52
+      "likes": 53
     }
   ]
 }
