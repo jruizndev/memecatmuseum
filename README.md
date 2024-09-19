@@ -1,7 +1,5 @@
 # 🐱 **Museo Virtual de Memes "MeCat"**
 
-![Museo Virtual MeCat](URL_DE_TU_IMAGEN_AQUÍ)
-
 ## 📝 **Presentación del proyecto**
 
 ¡Bienvenido a **MeCat**, tu museo virtual dedicado a los memes de gatos más divertidos y virales! 🎉 Esta aplicación te permite explorar, interactuar y disfrutar de una amplia colección de memes felinos. Desarrollada con React y estilizada con Tailwind CSS, **MeCat** ofrece una experiencia interactiva y responsiva para todos los amantes de los gatos y los memes.
