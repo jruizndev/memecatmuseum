@@ -132,8 +132,8 @@ Abre http://localhost:3000 en tu navegador y comienza a explorar el museo virtua
 
 Nuestro equipo está formado por cinco desarrolladores comprometidos con el proyecto **MeCat**, cada uno desempeñando un papel clave en el desarrollo y éxito de la aplicación.
 
-- **Jose Alfonso Ruiz**: Desarrollador y Scrum Master del equipo.
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/josealfonsoruiz/)
+- **Pepe Ruiz**: Desarrollador y Scrum Master del equipo.
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/peperuiznieto/)
   
 - **César Mercado**: Desarrollador. 
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/cesarmercadoh/)
